@@ -3,9 +3,9 @@ import QuickFilter from './Components/QuickFilter';
 
 function App() {
   return (
-    <>
+    <div>
     <QuickFilter/>
-    </>
+    </div>
   );
 }
 

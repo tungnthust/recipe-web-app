@@ -26,11 +26,6 @@
     display: flex;
     gap: 5px;
 }
-.i{
-    margin-right: 20px;
-    color: green;
-    font-size: inherit;
-}
 .btn {
     text-decoration: none;
     background-color: green;
@@ -39,4 +34,45 @@
     cursor: pointer;
     line-height: 25px;
     border-radius: 3px;
+}
+.list{
+    margin-top: 50px;
+    margin-left: -15px;
+    margin-right: -15px;
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+}
+.list_item{
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.link{
+    line-height: 50px;
+    display: block;
+    overflow: hidden;
+    background: #fff;
+    color: #676767;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
+    margin-bottom: 15px;
+    border-radius: 3px;
+    font-weight: 700;
+    display: flex;
+    background: aliceblue;
+}
+.icon_box{
+    float: left;
+    width: 50px;
+    margin-right: 15px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px;
+    color: green;
+    border-right: solid 1px;
+    transition-property: all;
+    transition-duration: 0.25s;
+    transition-timing-function: linear;
+    transition-delay: 0s;
 }
