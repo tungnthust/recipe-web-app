@@ -1,9 +1,10 @@
 import { FaBars } from 'react-icons/fa';
 import { NavLink as Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { FaSignInAlt, FaUser } from 'react-icons/fa';
   
 export const Nav = styled.nav`
-  background: #63D471;
+  background: #29472d;
   height: 85px;
   display: flex;
   justify-content: space-between;
@@ -68,7 +69,7 @@ export const NavBtn = styled.nav`
   
 export const NavBtnLink = styled(Link)`
   border-radius: 4px;
-  background: #808080;
+  background: #ffffff;
   padding: 10px 22px;
   color: #000000;
   outline: none;
@@ -83,4 +84,34 @@ export const NavBtnLink = styled(Link)`
     background: #fff;
     color: #808080;
   }
+`;
+
+export const NavImage = styled.img`
+    width: 100px;
+    height: 94px;
+    margin: 0px;
+`;
+
+export const NavTitle = styled(Link)`
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 0 1rem;
+    height: 100%;
+    cursor: pointer;
+    &.active {
+      color: #ffffff;
+    }
+    font-size: 45px;
+    font-family: "Pacifico", cursive;
+    color: white;
+`;
+
+export const NavIconSignIn = styled(FaSignInAlt)`
+margin-right: 10px;
+`;
+
+export const NavIconUser = styled(FaUser)`
+margin-right: 10px;
 `;

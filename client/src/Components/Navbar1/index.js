@@ -1,4 +1,5 @@
 import React from 'react';
+import noiceChef from '../../img/noice-chef.png';
 import {
   Nav,
   NavLink,
@@ -6,42 +7,38 @@ import {
   NavMenu,
   NavBtn,
   NavBtnLink,
+  NavImage,
+  NavTitle,
+  NavIconSignIn,
+  NavIconUser
 } from './NavbarElements';
-  
+
 const Navbar1 = () => {
   return (
     <>
       <Nav>
         <Bars />
-  
+        
         <NavMenu>
-          <NavLink to='/' activeStyle>
+          <NavImage src={noiceChef} />
+          <NavTitle to='/' activeStyle>Noice Recipe</NavTitle>
+          {/* <NavLink to='/' activeStyle>
             About
-          </NavLink>
-          <NavLink to='/' activeStyle>
-            Events
-          </NavLink>
-          <NavLink to='/' activeStyle>
-            Annual Report
-          </NavLink>
-          <NavLink to='/' activeStyle>
-            Teams
-          </NavLink>
-          <NavLink to='/' activeStyle>
-            Blogs
-          </NavLink>
-          <NavLink to='/-up' activeStyle>
-            Sign Up
-          </NavLink>
-          {/* Second Nav */}
-          {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
+          </NavLink> */}
         </NavMenu>
         <NavBtn>
-          <NavBtnLink to='/'>Sign In</NavBtnLink>
+          <NavBtnLink to='/'>
+            <NavIconSignIn/>
+            Sign In
+          </NavBtnLink>
+          <NavBtnLink to='/'>
+            <NavIconUser/>
+            Sign Up
+          </NavBtnLink>
         </NavBtn>
       </Nav>
     </>
   );
 };
-  
+
 export default Navbar1;
