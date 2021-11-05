@@ -15,78 +15,78 @@ const QuickFilter = () =>{
                 <button className="btn">All catagories</button>
             </div>
             <div className="list">
-                <div className="list_item">
+                <item>
                     <a class="link" href="/">
-                        <div className="icon_box">
-                            <FaBeer color="green"/>
-                        </div>
+                        <icon_box>
+                            <FaBeer/>
+                        </icon_box>
                         Beer
                     </a>
-                </div>
-                <div className="list_item">
+                </item>
+                <item>
                     <a class="link" href="/">
-                        <div className="icon_box">
-                            <FaBreadSlice color="green"/>
-                        </div>
+                        <icon_box>
+                            <FaBreadSlice/>
+                        </icon_box>
                         Breads
                     </a>
-                </div>
-                <div className="list_item">
+                </item>
+                <item>
                     <a class="link" href="/">
-                        <div className="icon_box">
-                            <FaHamburger color="green"/>
-                        </div>
+                        <icon_box>
+                            <FaHamburger/>
+                        </icon_box>
                         Hamburger
                     </a>
-                </div>
-                <div className="list_item">
+                </item>
+                <item>
                     <a class="link" href="/">
-                        <div className="icon_box">
-                            <FaIceCream color="green"/>
-                        </div>
+                        <icon_box>
+                            <FaIceCream/>
+                        </icon_box>
                         Ice cream
                     </a>
-                </div>
-                <div className="list_item">
+                </item>
+                <item>
                     <a class="link" href="/">
-                        <div className="icon_box">
-                            <FaPizzaSlice color="green"/>
-                        </div>
+                        <icon_box>
+                            <FaPizzaSlice/>
+                        </icon_box>
                         Dessert
                     </a>
-                </div>
-                <div className="list_item">
+                </item>
+                <item>
                     <a class="link" href="/">
-                        <div className="icon_box">
-                            <FaSeedling color="green"/>
-                        </div>
+                        <icon_box>
+                            <FaSeedling/>
+                        </icon_box>
                         Vegetarian
                     </a>
-                </div>
-                <div className="list_item">
+                </item>
+                <item>
                     <a class="link" href="/">
-                        <div className="icon_box">
-                            <FaBacon color="green"/>
-                        </div>
+                        <icon_box>
+                            <FaBacon/>
+                        </icon_box>
                         Meat
                     </a>
-                </div>
-                <div className="list_item">
+                </item>
+                <item>
                     <a class="link" href="/">
-                        <div className="icon_box">
-                            <FaFish color="green"/>
-                        </div>
+                        <icon_box>
+                            <FaFish/>
+                        </icon_box>
                         Fish
                     </a>
-                </div>
-                <div className="list_item">
+                </item>
+                <item>
                     <a class="link" href="/">
-                        <div className="icon_box">
-                            <FaEgg color="green"/>
-                        </div>
+                        <icon_box>
+                            <FaEgg/>
+                        </icon_box>
                         Egg
                     </a>
-                </div>
+                </item>
             </div>
         </div>
     )
