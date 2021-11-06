@@ -59,6 +59,7 @@ const ingredient2_test = {
 beforeEach(async () => {
     await User.deleteMany()
     await Recipe.deleteMany()
+    await Ingredient.deleteMany()
 })
 
 
@@ -115,9 +116,14 @@ test('Save ingredients', async () => {
 })
 
 test('Save recipe', async () => {
-    
+    await new Ingredient(ingredient1_test).save()
+    await new Ingredient(ingredient2_test).save()
+
     await new User(user_test).save()
+    
     await new Recipe(recipe_test).save()
+    
+
 
     const user = await User.findById(user_test_id)
     const recipe = await Recipe.findById(recipe_test_id)
@@ -129,5 +135,12 @@ test('Save recipe', async () => {
     await user.populate({path: 'own_recipes'})
     is_match = JSON.stringify(recipe) == JSON.stringify(user.own_recipes[0])
     expect(is_match).toBe(true)
+    ingredients = recipe.ingredients
+
+    ingredient1 = await Ingredient.findById(ingredients[0].ingredient)
+    ingredient2 = await Ingredient.findById(ingredients[1].ingredient)
+
+    expect(ingredient1).toMatchObject(ingredient1_test)
+    expect(ingredient2).toMatchObject(ingredient2_test)
 })
 
