@@ -1,8 +1,6 @@
 const mongoose = require('mongoose')
 const validator = require('validator')
-const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
-const Task = require('./task')
+
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -60,7 +58,7 @@ const userSchema = new mongoose.Schema({
     timestamps: true
 })
 
-userSchema.virtual('own_recipe', {
+userSchema.virtual('own_recipes', {
     ref: 'Recipe',
     localField: '_id',
     foreignField: 'author'
