@@ -58,6 +58,7 @@
     align-items: center;
     background: aliceblue;
     text-decoration: none;
+    color: green;
 }
 .link icon_box{
     float: left;
