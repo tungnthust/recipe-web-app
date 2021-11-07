@@ -12,7 +12,7 @@ const ingredient2_test_id = new mongoose.Types.ObjectId()
 
 const user_test = {
     _id: user_test_id,
-    name: 'Nguyen Thanh Tung',
+    name: 'Nguyen Thanh Trung',
     username: 'tungnt',
     email: 'tungnt@gmail.com',
     password: '12345678',
