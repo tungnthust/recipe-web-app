@@ -4,28 +4,30 @@
   padding: 25px 0;
   color: #fff;
   height: auto;
+  
 }
 .App-footer .footer-container {
   max-width: 100%;
-  width: 1150px;
+  width: 1200px;
   margin-right: auto;
   margin-left: auto;
   padding-left: 50px;
   padding-right: 50px;
+  /* margin: 14px 14px; */
 }
 .App-footer .footer-container .footer-content h4 {
   width: 66.67%;
   margin-top: 0;
-  font-size: 14px;
+  font-size: 24px;
   font-weight: 600;
   padding: 15px 0;
-  margin: 14px 0;
+  margin: 14px 0px;
   padding: 0;
 }
 .App-footer .footer-container .footer-content ul {
   list-style: none;
   color: #fff;
-  margin: 30px 0;
+  margin: 10px 0;
   
 }
 .App-footer .footer-container .footer-content ul li .footer-link i {
@@ -38,7 +40,7 @@
   display: inline-block;
   text-align: center;
   line-height: 30px;
- 
+  font-size: 20px;
 }
 .App-footer .footer-container .footer-content ul li .footer-link .fa-facebook:hover {
   color: blue;
@@ -75,4 +77,5 @@
 .flex-wrap {
   flex-wrap: wrap;
 }
+
 
