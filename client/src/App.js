@@ -4,6 +4,7 @@ import Navbar1 from './Components/Navbar1';
 import SlideShow from './Components/SlideShow';
 import Navbar2 from './Components/Navbar2';
 import QuickFilter from './Components/QuickFilter';
+import Footer from './Components/Footer';
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
       <SlideShow/>
       <Navbar2/>
       <QuickFilter/>
+      
+      <Footer/>
     </div>
   );
 }
