@@ -41,7 +41,7 @@ var styleFixedBottom = {
     position: "fixed",
     left: "0",
     bottom: "0",
-    height: "auto",
+    // height: "auto",
     width: "100%",
   }
 
