@@ -15,7 +15,7 @@ const user_test = {
     name: 'Nguyen Thanh Tung',
     username: 'tungnt',
     email: 'tungnt@gmail.com',
-    password: '12345678',
+    password: '12345678abc',
 }
 
 const recipe_test = {
@@ -78,6 +78,22 @@ test('Validate password length', async () => {
     is_error = 0
     invalid_passwd = Object.assign({}, user_test)
     invalid_passwd.password = '12345'
+
+    try {
+        await new User(invalid_passwd).save()
+    } catch (error) {
+        is_error = 1
+    }
+    
+    expect(is_error).toBe(1)
+
+})
+
+
+test('Validate password strength', async () => {
+    is_error = 0
+    invalid_passwd = Object.assign({}, user_test)
+    invalid_passwd.password = '12345678'
 
     try {
         await new User(invalid_passwd).save()
