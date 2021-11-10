@@ -1,0 +1,81 @@
+.App-footer {
+  background-color: #333333;
+  width: 100%;
+  padding: 25px 0;
+  color: #fff;
+  height: auto;
+  
+}
+.App-footer .footer-container {
+  max-width: 100%;
+  width: 1200px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 50px;
+  padding-right: 50px;
+  /* margin: 14px 14px; */
+}
+.App-footer .footer-container .footer-content h4 {
+  width: 66.67%;
+  margin-top: 0;
+  font-size: 24px;
+  font-weight: 600;
+  padding: 15px 0;
+  margin: 14px 0px;
+  padding: 0;
+}
+.App-footer .footer-container .footer-content ul {
+  list-style: none;
+  color: #fff;
+  margin: 10px 0;
+  
+}
+.App-footer .footer-container .footer-content ul li .footer-link i {
+  width: 30px;
+  height: 30px;
+  color: rgb(131, 119, 119);
+  background: #fff;
+  border-radius: 3px;
+  margin-right: 10px;
+  display: inline-block;
+  text-align: center;
+  line-height: 30px;
+  font-size: 20px;
+}
+.App-footer .footer-container .footer-content ul li .footer-link .fa-facebook:hover {
+  color: blue;
+}
+.App-footer .footer-container .footer-content ul li .footer-link .fa-google-plus:hover {
+  color: red;
+}
+.App-footer .footer-container .footer-content ul li .footer-link .fa-instagram:hover {
+  color: red;
+}
+.App-footer .footer-container .footer-content ul li .footer-link .fa-twitter:hover {
+  color: aqua;
+}
+.App-footer .footer-container .footer-content ul li .footer-link .fa-youtube:hover {
+  color: #982323;
+}
+
+
+.flex {
+  display: flex;
+}
+.flex-jc-sb {
+  justify-content: space-between;
+}
+.flex-jc-c {
+  justify-content: center;
+}
+.flex-ai-c {
+  align-items: center;
+}
+.flex-jc-sa {
+  justify-content: space-around;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+
