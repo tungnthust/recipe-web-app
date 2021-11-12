@@ -15,7 +15,6 @@ function App() {
       <SlideShow/>
       <Navbar2/>
       <QuickFilter/>
-      
       <Footer/>
     </div>
   );
