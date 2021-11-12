@@ -2,7 +2,7 @@ import React from "react";
 import './index.css';
 import FilterListIcon from '@material-ui/icons/FilterList';
 import { green } from "@material-ui/core/colors";
-import { FaBeer,FaBreadSlice,FaHamburger,FaIceCream,FaPizzaSlice,FaSeedling,FaBacon,FaEgg,FaFish } from 'react-icons/fa';
+import ItemList from "./ItemList";
 
 const QuickFilterPC = () =>{
     return(
@@ -14,80 +14,7 @@ const QuickFilterPC = () =>{
                 </div>
                 <button className="btn">All catagories</button>
             </div>
-            <div className="list pc">
-                <item>
-                    <a class="link" href="/">
-                        <icon_box>
-                            <FaBeer/>
-                        </icon_box>
-                        Beer
-                    </a>
-                </item>
-                <item>
-                    <a class="link" href="/">
-                        <icon_box>
-                            <FaBreadSlice/>
-                        </icon_box>
-                        Breads
-                    </a>
-                </item>
-                <item>
-                    <a class="link" href="/">
-                        <icon_box>
-                            <FaHamburger/>
-                        </icon_box>
-                        Hamburger
-                    </a>
-                </item>
-                <item>
-                    <a class="link" href="/">
-                        <icon_box>
-                            <FaIceCream/>
-                        </icon_box>
-                        Ice cream
-                    </a>
-                </item>
-                <item>
-                    <a class="link" href="/">
-                        <icon_box>
-                            <FaPizzaSlice/>
-                        </icon_box>
-                        Dessert
-                    </a>
-                </item>
-                <item>
-                    <a class="link" href="/">
-                        <icon_box>
-                            <FaSeedling/>
-                        </icon_box>
-                        Vegetarian
-                    </a>
-                </item>
-                <item>
-                    <a class="link" href="/">
-                        <icon_box>
-                            <FaBacon/>
-                        </icon_box>
-                        Meat
-                    </a>
-                </item>
-                <item>
-                    <a class="link" href="/">
-                        <icon_box>
-                            <FaFish/>
-                        </icon_box>
-                        Fish
-                    </a>
-                </item>
-                <item>
-                    <a class="link" href="/">
-                        <icon_box>
-                            <FaEgg/>
-                        </icon_box>
-                        Egg
-                    </a>
-                </item>
-            </div>
+            <ItemList class_name="list pc"/>
         </div>
     )
 }
