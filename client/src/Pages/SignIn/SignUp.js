@@ -4,6 +4,7 @@ import './index.css';
 
 const SignUp = () =>{
     const [email,setEmail] = useState('');
+    const [username,setUsername] = useState('');
     const [password,setPassword] = useState('');
 
     const handleSignUp = async(Event) =>{
@@ -15,7 +16,7 @@ const SignUp = () =>{
     return(
         <section className='login'>
             <form className='formContainer' onSubmit={e => handleSignUp(e)}>
-                <h1>Sign In</h1>
+                <h1>Sign Up</h1>
                 <label>Email</label>
                 <input
                     type='email'
@@ -23,6 +24,14 @@ const SignUp = () =>{
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                />
+                <label>Username</label>
+                <input
+                    type='username'
+                    autoFocus
+                    required
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
                 />
                 <label>Password</label>
                 <input
