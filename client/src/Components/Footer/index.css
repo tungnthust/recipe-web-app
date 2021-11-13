@@ -82,3 +82,32 @@
 }
 
 
+
+@media only screen and (max-width: 600px) {
+  .App-footer .footer-container .footer-content h4 {
+    font-size: 14 px;
+    display:none;
+ }
+
+ .App-footer .footer-container .footer-content ul{
+    /* margin-left: 50px; */
+    justify-content: center;
+    
+ }
+
+ .App-footer .footer-container .footer-content ul li .footer-link i{
+  width: 20px;
+  height: 20px;
+  font-size: 16px;
+  /* justify-content: center; */
+  /* align-items: center; */
+  
+ }
+  
+}  
+
+
+
+
+
+

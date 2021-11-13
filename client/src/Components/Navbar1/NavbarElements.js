@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { FaSignInAlt, FaUser } from 'react-icons/fa';
   
 export const Nav = styled.nav`
-  background: #29472d;
+  background: #3a9691;
   height: 85px;
   display: flex;
   justify-content: space-between;

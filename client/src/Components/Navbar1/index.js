@@ -1,5 +1,5 @@
 import React from 'react';
-import noiceChef from '../../img/noice-chef.png';
+import noiceChef from './img/noice-chef.png';
 import {
   Nav,
   NavLink,
