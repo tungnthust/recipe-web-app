@@ -2,6 +2,7 @@ import React from "react";
 import './index.css';
 
 import {FaFacebook, FaGooglePlus, FaInstagram, FaTwitter, FaYoutube} from 'react-icons/fa'
+import MediaQuery from 'react-responsive'
 
 const Footer = () =>{
 
