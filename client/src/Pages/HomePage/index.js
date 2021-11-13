@@ -4,7 +4,7 @@ import Navbar1 from '../../Components/Navbar1';
 import SlideShow from '../../Components/SlideShow';
 import Navbar2 from '../../Components/Navbar2';
 import QuickFilter from '../../Components/QuickFilter';
-import Footer from './Footer';
+import Footer from '../../Components/Footer';
 
 const HomePage = () =>{
     return(
