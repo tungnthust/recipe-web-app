@@ -34,6 +34,7 @@ const Navbar2 = () =>{
     useEffect ( () => {
         console.log(window.scrollY);
         console.log(window.innerWidth);
+        
         console.log(effect);
     },[show, responsive])
 

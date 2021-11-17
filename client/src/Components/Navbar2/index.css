@@ -9,15 +9,15 @@
 }
 .navbar .container {
     max-width: 100%;
-    width: 1150px;
+    width: 1920px;
     margin-right: auto;
     margin-left: auto;
     padding: 0 15px;
 }
 .navbar .container .navbar-collapse {
     max-width: 100%;
-    width: 1150px;
-    padding-left: 50px;
+    /*width: 1150px;*/
+    padding-left: 450px;
     padding-right: 50px;
     font-size: 18px;
     font-family: "Lato", sans-serif;
@@ -47,9 +47,7 @@
     top: 0;
     left: 0;
 }
-space1{
-    margin-top: 1000px;
-}
+
 @media only screen and (max-width: 600px) {
     .navbar {
         flex-direction: column;
