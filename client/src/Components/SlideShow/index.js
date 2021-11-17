@@ -1,9 +1,9 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';   
 import Carousel from 'react-bootstrap/Carousel'  
-import img1 from './Image/slide_1.jpg'
-import img2 from './Image/slide_2.jpg'
-import img3 from './Image/slide_3.jpg'
+import img1 from './Image/slide_5.jpg'
+import img2 from './Image/slide_6.jpg'
+import img3 from './Image/slide_7.jpg'
 import { Container } from './SlideShow.js';
 
 const SlideShow = () => {
