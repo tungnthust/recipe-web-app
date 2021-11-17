@@ -5,8 +5,8 @@ import HomePage from './Pages/HomePage';
 function App() {
   return (
     <div>
-      <SignInPage/>
-      {/* <HomePage/> */}
+      {/* <SignInPage/> */}
+      <HomePage/>
     </div>
   );
 }
