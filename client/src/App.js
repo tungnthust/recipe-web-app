@@ -1,22 +1,12 @@
 import './App.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Navbar1 from './Components/Navbar1';
-import SlideShow from './Components/SlideShow';
-import Navbar2 from './Components/Navbar2';
-import QuickFilter from './Components/QuickFilter';
-import Footer from './Components/Footer';
+import SignInPage from './Pages/SignIn';
+import HomePage from './Pages/HomePage';
 
 function App() {
   return (
     <div>
-      <Router>
-        <Navbar1/>
-      </Router>
-      <SlideShow/>
-      <Navbar2/>
-      <QuickFilter/>
-      
-      <Footer/>
+      <SignInPage/>
+      {/* <HomePage/> */}
     </div>
   );
 }
