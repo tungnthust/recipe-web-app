@@ -1,5 +1,6 @@
 import './App.css';
 import SignInPage from './Pages/SignIn';
+import SignUp from './Pages/SignIn/SignUp';
 import HomePage from './Pages/HomePage';
 import GeneralRecipes from './Pages/Recipe/GeneralRecipes';
 
