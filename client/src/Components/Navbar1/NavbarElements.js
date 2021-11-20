@@ -1,7 +1,6 @@
-import { FaBars } from 'react-icons/fa';
 import { NavLink as Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { FaSignInAlt, FaUser } from 'react-icons/fa';
+import { FaSignInAlt, FaUser,FaBars } from 'react-icons/fa';
   
 export const Nav = styled.nav`
   background: #3a9691;
