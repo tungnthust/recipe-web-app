@@ -59,9 +59,7 @@ const GeneralRecipes = () =>{
 
     return(
         <section className="recipe_section">
-            <Router>
-                <Navbar1/>
-            </Router>
+            <Navbar1/>
             <Navbar2/>
             <div className="container">
                 <div className="search">
