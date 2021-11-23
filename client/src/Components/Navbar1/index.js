@@ -6,7 +6,7 @@ const Navbar1 = () => {
   return (
     <div>
       <Media queries={{
-        mobile: "(max-width:770px)"
+        mobile: "(max-width:599px)"
       }}>
         {matches => matches.mobile ? <Navbar1MB/> : <Navbar1PC/>}
       </Media>

@@ -18,7 +18,7 @@ const Navbar2 = () =>{
     }
 
     const handleResponsive = () => {
-        if ( window.innerWidth <= 600 ) {
+        if ( window.innerWidth <= 599 ) {
             setResponsive(true);
         }
         else {
