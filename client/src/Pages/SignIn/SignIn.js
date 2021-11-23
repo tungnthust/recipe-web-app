@@ -38,8 +38,8 @@ const SignIn = () =>{
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <a href='/SignUp'>Don't have an account?</a>
-                <a href='/Recover'>Forget your password?</a>
+                <a href='/signup'>Don't have an account?</a>
+                <a href='/recover'>Forget your password?</a>
                 <div className='btnContainer'>
                     <Button type='submit' variant='contained' color="primary">Sign In</Button>
                 </div>
