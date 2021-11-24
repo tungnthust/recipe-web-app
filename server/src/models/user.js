@@ -81,7 +81,7 @@ userSchema.method.toJSON = function() {
 
 userSchema.methods.generateAuthToken = async function () {
     const user = this
-    const token = jwt.sign({ _id: user._id.toString() }, 'oneloveonefuture')
+    const token = jwt.sign({ _id: user._id.toString() }, process.env.JWT_SECRET)
 
     user.tokens = user.tokens.concat({ token })
     await user.save()
@@ -94,13 +94,13 @@ userSchema.statics.findByCredentials = async(username, password) => {
     const user = await User.findOne({username})
 
     if(!user) {
-        throw new Error('Unable to login')
+        throw new Error('Username is not exists.')
     }
 
     const isMatch = await bcrypt.compare(password, user.password)
 
     if(!isMatch) {
-        throw new Error('Unable to login')
+        throw new Error('Wrong password.')
     }
 
     return user
