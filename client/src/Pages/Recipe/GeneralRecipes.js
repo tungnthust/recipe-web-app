@@ -5,6 +5,8 @@ import Navbar1 from '../../Components/Navbar1';
 import Navbar2 from '../../Components/Navbar2';
 import Footer from '../../Components/Footer';
 import Select from 'react-select';
+// import RecipeItem from "../../../../../REACT-PROJECT-main/frontend/src/RecipesComponents/RecipeItem";
+import RecipeItems from "./recipeItems";
 
 const category = [
     { value: 'beer', label: 'Beer' },
@@ -61,6 +63,7 @@ const GeneralRecipes = () =>{
         <section className="recipe_section">
             <Navbar1/>
             <Navbar2/>
+            
             <div className="container">
                 <div className="search">
                     <div className="search_content">
@@ -105,7 +108,12 @@ const GeneralRecipes = () =>{
                     </div>
                 </div>
             </div>
+            
+            <div>
+            <RecipeItems/>
+            </div>
             <Footer/>
+
         </section>
     )
 }
