@@ -7,9 +7,7 @@ import Contact from "./Contact";
 const ContactPage = () =>{
     return(
         <div>
-            <Router>
-                <Navbar1/>
-            </Router>
+            <Navbar1/>
             <Navbar2/>
             <Contact/>
         </div>
