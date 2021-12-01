@@ -24,11 +24,11 @@ const Navbar1MB = () => {
                     <NavTitleMB to='/' activeStyle>Noice Recipe</NavTitleMB>
                 </NavMenuMB>
                 <NavBtnMB>
-                    <NavBtnLinkMB to='/signin'>
+                    <NavBtnLinkMB to='/SignIn'>
                         <NavIconSignInMB />
                         Sign In
                     </NavBtnLinkMB>
-                    <NavBtnLinkMB to='/signup'>
+                    <NavBtnLinkMB to='/SignUp'>
                         <NavIconUserMB />
                         Sign Up
                     </NavBtnLinkMB>

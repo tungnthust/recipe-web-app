@@ -27,11 +27,11 @@ const Navbar1PC = () => {
           </NavLink> */}
         </NavMenu>
         <NavBtn>
-          <NavBtnLink to='/signin'>
+          <NavBtnLink to='/SignIn'>
             <NavIconSignIn/>
             Sign In
           </NavBtnLink>
-          <NavBtnLink to='/signup'>
+          <NavBtnLink to='/SignUp'>
             <NavIconUser/>
             Sign Up
           </NavBtnLink>
