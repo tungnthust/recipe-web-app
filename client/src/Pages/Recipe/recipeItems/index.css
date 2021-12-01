@@ -18,7 +18,7 @@
     width: 30%;
     font-size: 14px;
     line-height: 24px;
-    /* font-weight: 300; */
+    /* font-weight: 350; */
     margin-left: 0px;
     padding-left: 0px;
     padding-right: 25px;
@@ -27,6 +27,11 @@
 }
 .author p:hover{
     color: rgb(73, 160, 73);
+}
+
+.avatar{
+    width: 20px;
+    border-radius: 50%;
 }
 
 .card-footer{
