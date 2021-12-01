@@ -3,6 +3,7 @@ import SignInPage from './Pages/SignIn';
 import SignUpPage from './Pages/SignUp';
 import HomePage from './Pages/HomePage';
 import GeneralRecipes from './Pages/Recipe/GeneralRecipes';
+import RecipeItem from './Pages/RecipeItem';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -12,7 +13,8 @@ function App() {
         <Route path='/signin' element={<SignInPage/>}/>
         <Route path='/signup' element={<SignUpPage/>}/>
         <Route path='/' element={<HomePage/>}/>
-        <Route path='/generalrecipes' element={<GeneralRecipes/>}/>
+        {/* <Route path='/generalrecipes' element={<GeneralRecipes/>}/> */}
+        <Route path='/generalrecipes' element={<RecipeItem/>}/>
       </Routes>
     </Router>
   );
