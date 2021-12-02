@@ -31,7 +31,7 @@
   list-style: none;
   color: #fff;
   margin: 10px 0;
-  
+  padding-left: 10px;
 }
 .App-footer .footer-container .footer-content ul li .footer-link i {
   width: 30px;
@@ -44,6 +44,7 @@
   text-align: center;
   line-height: 30px;
   font-size: 20px;
+  
 }
 .App-footer .footer-container .footer-content ul li .footer-link .fa-facebook:hover {
   color: blue;

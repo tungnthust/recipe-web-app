@@ -8,7 +8,7 @@ const Footer = () =>{
     return(
         <div className="App-footer" style={styleFixedBottom}>
             <div className="footer-container">
-                <div className="footer-content flex flex-jc-sb flex-ai-c">
+                <div className="footer-content flex flex-jc-c flex-ai-c">
                 <h4>Food Recipe Website - Group 10 - MoSD</h4>
                 <ul className="flex flex-jc-c flex-ai-c">
                     <li><a href="https://www.facebook.com" target="_blank" className="footer-link"><i className="fa fa-facebook" aria-hidden="false">
