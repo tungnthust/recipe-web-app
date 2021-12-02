@@ -20,7 +20,7 @@ const RecipeItems = () =>{
                 <h5 class='card-title'>recipe name</h5>
                 <p class='card-text'>description</p>
                 <div class='author'>
-                  <img class='avatar' src='ddsdf' alt='authorAvatar '></img>
+                  <img class='avatar' src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png' alt='authorAvatar '></img>
                   By 
                   <p> authorName</p>
                 </div>
@@ -46,7 +46,7 @@ const RecipeItems = () =>{
                 <h5 class='card-title'>recipe name</h5>
                 <p class='card-text'>description</p>
                 <div class='author'>
-                  <img class='avatar' src='ddsdf' alt='authorAvatar '></img>
+                  <img class='avatar' src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png' alt='authorAvatar '></img>
                     By
                     <p> authorName</p>
                   
@@ -73,7 +73,7 @@ const RecipeItems = () =>{
                 <h5 class='card-title'>recipe name</h5>
                 <p class='card-text'>description</p>
                 <div class='author'>
-                  <img class='avatar' src='ddsdf' alt='authorAvatar '></img>
+                  <img class='avatar' src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png' alt='authorAvatar '></img>
                   By 
                   <p> authorName</p>
                 </div>
@@ -99,7 +99,7 @@ const RecipeItems = () =>{
                 <h5 class='card-title'>recipe name</h5>
                 <p class='card-text'>description</p>
                 <div class='author'>
-                  <img class='avatar' src='ddsdf' alt='authorAvatar '></img>
+                  <img class='avatar' src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png' alt='authorAvatar '></img>
                   By 
                   <p> authorName</p>
                 </div>
@@ -125,7 +125,7 @@ const RecipeItems = () =>{
                 <h5 class='card-title'>recipe name</h5>
                 <p class='card-text'>description</p>
                 <div class='author'>
-                  <img class='avatar' src='ddsdf' alt='authorAvatar '></img>
+                  <img class='avatar' src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png' alt='authorAvatar '></img>
                   By 
                   <p> authorName</p>
                 </div>
