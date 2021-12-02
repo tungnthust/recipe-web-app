@@ -1,13 +1,13 @@
 import React from "react";
 import './index.css';
-import {Link} from 'react-router-dom';
 import { FaTable,FaUsers, FaClock } from "react-icons/fa";
 
-const RecipeItems = () =>{
+const RecipeItems = (props) =>{
+  const {list} = props;
   return (
     <section id="recipeItems">
       <div class="container">
-        <div class="tilte">
+        <div class="title">
           <h1>Top Recipes </h1>
         </div>
         <div class='row'>
@@ -29,7 +29,7 @@ const RecipeItems = () =>{
                 <div class='card-footer-content'>
                   <ul>
                     <li title='difficulty'>difficulty </li>
-                    <li title='yeild'><FaTable/> Yeild </li>
+                    <li title='yield'><FaTable/> Yield </li>
                     <li title='number of people'><FaUsers/> number ppl </li>
                     <li title='time'><FaClock/> time</li>
                   </ul>
