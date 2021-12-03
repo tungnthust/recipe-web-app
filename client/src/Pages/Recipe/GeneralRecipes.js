@@ -4,6 +4,7 @@ import Navbar1 from '../../Components/Navbar1';
 import Navbar2 from '../../Components/Navbar2';
 import Select from 'react-select';
 import RecipeItems from "./recipeItems";
+import Media from "react-media";
 
 const category = [
     { label: 'Khai vị', value: 'kv' },
@@ -57,50 +58,101 @@ const GeneralRecipes = () =>{
         <Navbar1/>
         <Navbar2/>
         <section className="recipe_section"> 
-            <div className="container">
-                <div className="search">
-                    <div className="search_content">
-                        <div className="select">
-                            <p>Recipe Category</p>
-                            <Select
-                            value={currentCategory}
-                            onChange={onChangeSelectedCategory}
-                            options={category}
-                            getOptionLabel={(option)=>option.label}
-                            getOptionValue={(option)=>option.value}
-                            />
+        <Media queries={{
+                mobile:"(max-width:599px)"
+            }}>
+                {matches=>matches.mobile?
+                <div className="container">
+                    <div className="search">
+                        <div className="search_content_mb">
+                            <div className="select">
+                                <p>Recipe Category</p>
+                                <Select
+                                value={currentCategory}
+                                onChange={onChangeSelectedCategory}
+                                options={category}
+                                getOptionLabel={(option)=>option.label}
+                                getOptionValue={(option)=>option.value}
+                                />
+                            </div>
+                            <div className="select">
+                                <p>Recipe Cuisine</p>
+                                <Select
+                                value={currentCuisine}
+                                onChange={onChangeSelectedCuisine}
+                                options={cuisine}
+                                getOptionLabel={(option)=>option.label}
+                                getOptionValue={(option)=>option.value}
+                                />
+                            </div>
+                            <div className="select">
+                                <p>Sort recipes</p>
+                                <Select
+                                value={currentSort}
+                                onChange={onChangeSelectedSort}
+                                options={sort}
+                                getOptionLabel={(option)=>option.label}
+                                getOptionValue={(option)=>option.value}
+                                />
+                            </div>
+                            <div className="select">
+                                <p>Ingredients</p>
+                                <input type="text" onChange={onChangeIngredient}/>
+                            </div>
+                            <div className="select">
+                                <p>Keyword</p>
+                                <input type="text" onChange={onChangeKeyword}/>
+                            </div>
                         </div>
-                        <div className="select">
-                            <p>Recipe Cuisine</p>
-                            <Select
-                            value={currentCuisine}
-                            onChange={onChangeSelectedCuisine}
-                            options={cuisine}
-                            getOptionLabel={(option)=>option.label}
-                            getOptionValue={(option)=>option.value}
-                            />
-                        </div>
-                        <div className="select">
-                            <p>Sort recipes</p>
-                            <Select
-                            value={currentSort}
-                            onChange={onChangeSelectedSort}
-                            options={sort}
-                            getOptionLabel={(option)=>option.label}
-                            getOptionValue={(option)=>option.value}
-                            />
-                        </div>
-                        <div className="select">
-                            <p>Ingredients</p>
-                            <input type="text" onChange={onChangeIngredient}/>
-                        </div>
-                        <div className="select">
-                            <p>Keyword</p>
-                            <input type="text" onChange={onChangeKeyword}/>
+                    </div>
+                </div>:
+                <div className="container">
+                    <div className="search">
+                        <div className="search_content">
+                            <div className="select">
+                                <p>Recipe Category</p>
+                                <Select
+                                value={currentCategory}
+                                onChange={onChangeSelectedCategory}
+                                options={category}
+                                getOptionLabel={(option)=>option.label}
+                                getOptionValue={(option)=>option.value}
+                                />
+                            </div>
+                            <div className="select">
+                                <p>Recipe Cuisine</p>
+                                <Select
+                                value={currentCuisine}
+                                onChange={onChangeSelectedCuisine}
+                                options={cuisine}
+                                getOptionLabel={(option)=>option.label}
+                                getOptionValue={(option)=>option.value}
+                                />
+                            </div>
+                            <div className="select">
+                                <p>Sort recipes</p>
+                                <Select
+                                value={currentSort}
+                                onChange={onChangeSelectedSort}
+                                options={sort}
+                                getOptionLabel={(option)=>option.label}
+                                getOptionValue={(option)=>option.value}
+                                />
+                            </div>
+                            <div className="select">
+                                <p>Ingredients</p>
+                                <input type="text" onChange={onChangeIngredient}/>
+                            </div>
+                            <div className="select">
+                                <p>Keyword</p>
+                                <input type="text" onChange={onChangeKeyword}/>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+                }
+        </Media>
+            
             <RecipeItems /*list={[...list]}*//>
         </section>
         </div>

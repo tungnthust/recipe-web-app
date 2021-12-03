@@ -4,6 +4,7 @@ import './index.css';
 
 const SignUp = () =>{
     const [email,setEmail] = useState('');
+    const [name,setName] = useState('');
     const [username,setUsername] = useState('');
     const [password,setPassword] = useState('');
     const [image,setImage] = useState(null);
@@ -11,6 +12,7 @@ const SignUp = () =>{
     const handleSignUp = async(Event) =>{
         Event.preventDefault();
         //check if email already registered
+        console.log(name);
         return false;
     }
 
@@ -18,6 +20,14 @@ const SignUp = () =>{
         <section className='login'>
             <form className='formContainer' onSubmit={e => handleSignUp(e)}>
                 <h1>Sign Up</h1>
+                <label>Your Name</label>
+                <input
+                    type='name'
+                    autoFocus
+                    required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                />
                 <label>Email</label>
                 <input
                     type='email'
@@ -42,7 +52,7 @@ const SignUp = () =>{
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <label>Avatar</label>
+                {/* <label>Avatar</label>
                 <input
                     type="file"
                     name="myImage"
@@ -50,7 +60,7 @@ const SignUp = () =>{
                         console.log(event.target.files[0]);
                         setImage(event.target.files[0]);
                     }}
-                />
+                /> */}
                 <div className='btnContainer'>
                     <Button type='submit' variant='contained' color="primary">Sign Up</Button>
                 </div>
