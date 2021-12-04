@@ -2,13 +2,11 @@ import { React,useState } from "react";
 import {Button} from "@material-ui/core";
 import './index.css';
 
-const SignIn = () =>{
+const Recover = () =>{
     const [email,setEmail] = useState('');
-    const [showCheckEmailMessage, setShowCheckEmailMessage] = useState(false);
-    const [password, setPassword] = useState('');
-    const [showCheckPasswordMessage, setShowCheckPasswordMessage] = useState(false);
+    const [userName, setUserName] = useState('');
     
-    const handleLogin = async(Event) =>{
+    const handleRecover = async(Event) =>{
         Event.preventDefault();
         if(email !== ''){
             //check if email existed
@@ -20,8 +18,8 @@ const SignIn = () =>{
     }
     return(
         <section className='login'>
-            <form className='formContainer' onSubmit={e => handleLogin(e)}>
-                <h1>Sign In</h1>
+            <form className='formContainer' onSubmit={e => handleRecover(e)}>
+                <h1>Recover</h1>
                 <label>Email</label>
                 <input
                     type='email'
@@ -30,21 +28,19 @@ const SignIn = () =>{
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 />
-                <label>Password</label>
+                <label>Username</label>
                 <input
-                    type='password'
+                    type='username'
                     autoFocus
                     required
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    value={userName}
+                    onChange={(e) => setUserName(e.target.value)}
                 />
-                <a href='/signup'>Don't have an account?</a>
-                <a href='/recover'>Forget your password?</a>
                 <div className='btnContainer'>
-                    <Button type='submit' variant='contained' color="primary">Sign In</Button>
+                    <Button type='submit' variant='contained' color="primary">Submit</Button>
                 </div>
             </form>
         </section>        
     )
 }
-export default SignIn;
+export default Recover;

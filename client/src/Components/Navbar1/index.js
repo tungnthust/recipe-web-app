@@ -1,43 +1,16 @@
 import React from 'react';
-import noiceChef from './img/noice-chef.png';
-import {
-  Nav,
-  NavLink,
-  Bars,
-  NavMenu,
-  NavBtn,
-  NavBtnLink,
-  NavImage,
-  NavTitle,
-  NavIconSignIn,
-  NavIconUser
-} from './NavbarElements';
-
+import Media from 'react-media';
+import Navbar1PC from './Navbar1PC';
+import Navbar1MB from './Navbar1MB';
 const Navbar1 = () => {
   return (
-    <>
-      <Nav>
-        <Bars />
-        
-        <NavMenu>
-          <NavImage src={noiceChef} />
-          <NavTitle to='/' activeStyle>Noice Recipe</NavTitle>
-          {/* <NavLink to='/' activeStyle>
-            About
-          </NavLink> */}
-        </NavMenu>
-        <NavBtn>
-          <NavBtnLink to='/'>
-            <NavIconSignIn/>
-            Sign In
-          </NavBtnLink>
-          <NavBtnLink to='/'>
-            <NavIconUser/>
-            Sign Up
-          </NavBtnLink>
-        </NavBtn>
-      </Nav>
-    </>
+    <div>
+      <Media queries={{
+        mobile: "(max-width:599px)"
+      }}>
+        {matches => matches.mobile ? <Navbar1MB/> : <Navbar1PC/>}
+      </Media>
+    </div>
   );
 };
 

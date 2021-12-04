@@ -1,16 +1,16 @@
 import React from "react";
 import Navbar1 from '../../Components/Navbar1';
 import Navbar2 from '../../Components/Navbar2';
-import SignIn from "./SignIn";
+import Recover from "./Recover";
 
-const SignInPage = () =>{
+const RecoverPage = () =>{
     return(
         <div>
             <Navbar1/>
             <Navbar2/>
-            <SignIn/>
+            <Recover/>
         </div>
     )
 }
 
-export default SignInPage;
+export default RecoverPage;

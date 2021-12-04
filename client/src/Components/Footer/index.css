@@ -4,10 +4,10 @@
   padding: 0px 0;
   color: #fff;
   height: auto;
-
+  
 }
-.App-footer:hover {
-  padding: 20px 0;
+.App-footer:hover{
+  padding: 10px 0;
 }
 .App-footer .footer-container {
   max-width: 100%;

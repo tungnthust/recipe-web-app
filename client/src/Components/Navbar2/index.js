@@ -18,7 +18,7 @@ const Navbar2 = () =>{
     }
 
     const handleResponsive = () => {
-        if ( window.innerWidth <= 600 ) {
+        if ( window.innerWidth <= 599 ) {
             setResponsive(true);
         }
         else {
@@ -34,6 +34,7 @@ const Navbar2 = () =>{
     useEffect ( () => {
         console.log(window.scrollY);
         console.log(window.innerWidth);
+        
         console.log(effect);
     },[show, responsive])
 
@@ -50,7 +51,7 @@ const Navbar2 = () =>{
                             <a class="nav-link" href="/">Home</a>
                         </li>
                         <li class="nav-item" active>
-                            <a class="nav-link" href="/recipes">Recipes</a>
+                            <a class="nav-link" href="/generalrecipes">Recipes</a>
                         </li>
                         <li class="nav-item" active>
                             <a class="nav-link" href="/members">Members</a>
