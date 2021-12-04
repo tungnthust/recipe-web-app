@@ -1,6 +1,6 @@
 import { React,useState } from "react";
 import {Link} from 'react-router-dom';
-import {FaEyeDropper, FaSortNumericUpAlt, FaThumbsUp, FaHeart, FaPencilAlt, FaCamera, FaPhotoVideo, FaFile, FaThumbsDown, FaMobile} from'react-icons/fa';
+import {FaEyeDropper, FaSortNumericUpAlt, FaThumbsUp, FaPencilAlt, FaCamera, FaPhotoVideo, FaFile, FaThumbsDown, FaMobile} from'react-icons/fa';
 import './index.css';
 
 const Item = () => {
@@ -70,12 +70,6 @@ const Item = () => {
                                     Cook time:
                                 </li>
                                 <li>
-                                    Yeild:
-                                </li>
-                                <li>
-                                    Serving:
-                                </li>
-                                <li>
                                     Cuisine:
                                 </li>
                                 <li>
@@ -95,7 +89,7 @@ const Item = () => {
                                     <i class="fa fa-thumbs-up" aria-hidden="true"><FaThumbsUp></FaThumbsUp></i>
                                 </li>
                                 <li>
-                                    <i class="fa fa-heart" aria-hidden="true"><FaHeart/></i>
+                                    <i class="fa fa-heart" aria-hidden="true"><FaThumbsDown/></i>
                                 </li>
                             </ul>
                         </div>
@@ -105,9 +99,9 @@ const Item = () => {
                                 <textarea className="form-control" rows="2" placeholder="What are you thinking?"></textarea>
                                 <div className="mar-top clearfix flex flex-jc-sb">
                                     <div className="action1"> 
-                                        <a class="take-photo" href="#"><FaCamera/></a>
+                                        {/* <a class="take-photo" href="#"><FaCamera/></a> */}
                                         <a class="photo" href="#"><FaPhotoVideo/></a>
-                                        <a class="file" href="#"><FaFile/></a>
+                                        {/* <a class="file" href="#"><FaFile/></a> */}
                                     </div>
                                     <div className="action2">
                                         <button class="btn btn-sm btn-primary" type="submit">
@@ -130,7 +124,7 @@ const Item = () => {
                                     <a href="#" class="btn-link">Lisa D.</a>
                                     <p class="text-muted text-sm">
                                         <i class="fa fa-mobile fa-lg"><FaMobile/></i> 
-                                        - From Mobile - 11 min ago
+                                        - 11 min ago
                                     </p>
                                 </div>
                                 <p>consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
