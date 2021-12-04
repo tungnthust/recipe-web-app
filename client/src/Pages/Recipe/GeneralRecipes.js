@@ -1,20 +1,15 @@
 import React,{useState,useEffect} from "react";
 import './index.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar1 from '../../Components/Navbar1';
 import Navbar2 from '../../Components/Navbar2';
-import Footer from '../../Components/Footer';
 import Select from 'react-select';
+import RecipeItems from "./recipeItems";
 
 const category = [
-    { value: 'beer', label: 'Beer' },
-    { value: 'desert', label: 'Desert' },
-    { value: 'meat', label: 'Meat' },
-    { value: 'egg', label: 'Egg' },
-    { value: 'vegetarian', label: 'Vegetarian' },
-    { value: 'fish', label: 'Fish' },
+    { label: 'Khai vị', value: 'kv' },
+    { label: 'Món chính', value: 'mc' },
+    { label: 'Tráng miệng', value: 'tm' },
 ]
-
 const cuisine = [
   { value: 'vn', label: 'Vietnam' },
   { value: 'ind', label: 'India' },
@@ -25,7 +20,7 @@ const cuisine = [
 const sort = [
     { value: 'top', label: 'Top rated' },
     { value: 'latest', label: 'Latest' },
-    { value: 'favorite', label: 'Most favorite' }
+    { value: 'oldest', label: 'Oldest' },
 ]
 
 const GeneralRecipes = () =>{
@@ -58,9 +53,10 @@ const GeneralRecipes = () =>{
     // useEffect(()=>{},[keyword]);
 
     return(
-        <section className="recipe_section">
-            <Navbar1/>
-            <Navbar2/>
+        <div>
+        <Navbar1/>
+        <Navbar2/>
+        <section className="recipe_section"> 
             <div className="container">
                 <div className="search">
                     <div className="search_content">
@@ -105,8 +101,9 @@ const GeneralRecipes = () =>{
                     </div>
                 </div>
             </div>
-            <Footer/>
+            <RecipeItems /*list={[...list]}*//>
         </section>
+        </div>
     )
 }
 
