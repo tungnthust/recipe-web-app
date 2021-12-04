@@ -1,6 +1,6 @@
 import React from "react";
 import './index.css';
-import { FaBeer,FaBreadSlice,FaHamburger,FaIceCream,FaPizzaSlice,FaSeedling,FaBacon,FaEgg,FaFish } from 'react-icons/fa';
+import { FaBeer,FaHamburger,FaIceCream } from 'react-icons/fa';
 
 const ItemList = (props) =>{
     const {class_name} = props;
@@ -11,15 +11,7 @@ const ItemList = (props) =>{
                         <icon_box>
                             <FaBeer/>
                         </icon_box>
-                        Beer
-                    </a>
-                </item>
-                <item>
-                    <a class="link" href="/">
-                        <icon_box>
-                            <FaBreadSlice/>
-                        </icon_box>
-                        Breads
+                        Khai vị
                     </a>
                 </item>
                 <item>
@@ -27,7 +19,7 @@ const ItemList = (props) =>{
                         <icon_box>
                             <FaHamburger/>
                         </icon_box>
-                        Hamburger
+                        Món chính
                     </a>
                 </item>
                 <item>
@@ -35,47 +27,7 @@ const ItemList = (props) =>{
                         <icon_box>
                             <FaIceCream/>
                         </icon_box>
-                        Ice cream
-                    </a>
-                </item>
-                <item>
-                    <a class="link" href="/">
-                        <icon_box>
-                            <FaPizzaSlice/>
-                        </icon_box>
-                        Dessert
-                    </a>
-                </item>
-                <item>
-                    <a class="link" href="/">
-                        <icon_box>
-                            <FaSeedling/>
-                        </icon_box>
-                        Vegetarian
-                    </a>
-                </item>
-                <item>
-                    <a class="link" href="/">
-                        <icon_box>
-                            <FaBacon/>
-                        </icon_box>
-                        Meat
-                    </a>
-                </item>
-                <item>
-                    <a class="link" href="/">
-                        <icon_box>
-                            <FaFish/>
-                        </icon_box>
-                        Fish
-                    </a>
-                </item>
-                <item>
-                    <a class="link" href="/">
-                        <icon_box>
-                            <FaEgg/>
-                        </icon_box>
-                        Egg
+                        Tráng miệng
                     </a>
                 </item>
             </div>
