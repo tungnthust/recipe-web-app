@@ -5,6 +5,7 @@ import RecoverPage from './Pages/Recover';
 import HomePage from './Pages/HomePage';
 import ContactPage from './Pages/Contact';
 import GeneralRecipes from './Pages/Recipe/GeneralRecipes';
+import RecipeItem from './Pages/RecipeItem';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
