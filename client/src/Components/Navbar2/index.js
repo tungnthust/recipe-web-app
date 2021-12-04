@@ -51,7 +51,7 @@ const Navbar2 = () =>{
                             <a class="nav-link" href="/">Home</a>
                         </li>
                         <li class="nav-item" active>
-                            <a class="nav-link" href="/recipes">Recipes</a>
+                            <a class="nav-link" href="/generalrecipes">Recipes</a>
                         </li>
                         <li class="nav-item" active>
                             <a class="nav-link" href="/members">Members</a>
