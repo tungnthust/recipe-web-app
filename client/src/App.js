@@ -3,11 +3,14 @@ import SignInPage from './Pages/SignIn';
 import SignUpPage from './Pages/SignUp';
 import RecoverPage from './Pages/Recover';
 import HomePage from './Pages/HomePage';
+
 import ContactPage from './Pages/Contact';
 import GeneralRecipes from './Pages/Recipe/GeneralRecipes';
 import RecipeItem from './Pages/RecipeItem';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SubmitPage from './Pages/Submit';
+import MembersPage from './Pages/MemberPage';
+import AuthorPage from './Pages/MemberPage/Author';
 
 function App() {
   return (
@@ -20,9 +23,12 @@ function App() {
         <Route path='/recipes' element={<GeneralRecipes/>}/>
         <Route path='/contact' element={<ContactPage/>}/>
         <Route path='/submit' element={<SubmitPage/>}/>
+        <Route path='/members' element={<MembersPage/>}/>
+          <Route path='/members/author1' element={<AuthorPage/>}/>
       </Routes>
     </Router>
   
+
   );
 }
 
