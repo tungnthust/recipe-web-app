@@ -3,6 +3,7 @@ const mongoose  = require('mongoose')
 const recipeSchema = mongoose.Schema({
     title: {
         type: String,
+        unique: true,
         required: true,
         trim: true
     },
@@ -44,6 +45,7 @@ const recipeSchema = mongoose.Schema({
     },
     numOfFavourite: {
         type: Number,
+        default: 0,
         required: false
     },
     comments: [{
