@@ -127,7 +127,7 @@ router.patch('/recipes/:id', auth, async (req, res) => {
     try {
         const recipe = await Recipe.findOne({
             _id,
-            owner: req.user._id
+            author: req.user._id
         })
 
         if (!recipe) {
@@ -194,11 +194,11 @@ router.delete('/recipes/:id', auth, async (req, res) => {
     try {
         const recipe = await Recipe.findOne({
             _id,
-            owner: req.user._id
+            author: req.user._id
         })
 
         if (!recipe) {
-            return res.status(404).send("You're not authorized to delete this task")
+            return res.status(404).send("You're not authorized to delete this recipe.")
         }
 
         recipe.remove()
