@@ -13,8 +13,14 @@
     border-bottom: 1px dashed #999;
     border-top: 1px dashed #999;
     display: flex;
+}
+.title.pc{
     align-items: center;
     justify-content: space-between;
+}
+.title.mobile{
+    flex-direction: column;
+    align-items: center;
 }
 .name{
     font-size: 28px;
@@ -28,7 +34,7 @@
 }
 .btn {
     text-decoration: none;
-    background-color: green;
+    background-color: forestgreen;
     padding: 4px 10px;
     color: #fff;
     cursor: pointer;
@@ -39,8 +45,14 @@
     margin-top: 50px;
     margin-left: -15px;
     margin-right: -15px;
+}
+.list.pc{
     display: grid;
     grid-template-columns: 33.33% 33.33% 33.33%;
+}
+.list.mobile{
+    display: grid;
+    grid-template-rows: auto;
 }
 .list item{
     position: relative;

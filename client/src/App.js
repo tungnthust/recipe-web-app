@@ -1,23 +1,34 @@
 import './App.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Navbar1 from './Components/Navbar1';
-import SlideShow from './Components/SlideShow';
-import Navbar2 from './Components/Navbar2';
-import QuickFilter from './Components/QuickFilter';
-import Footer from './Components/Footer';
+import SignInPage from './Pages/SignIn';
+import SignUpPage from './Pages/SignUp';
+import RecoverPage from './Pages/Recover';
+import HomePage from './Pages/HomePage';
+
+import ContactPage from './Pages/Contact';
+import GeneralRecipes from './Pages/Recipe/GeneralRecipes';
+import RecipeItem from './Pages/RecipeItem';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import SubmitPage from './Pages/Submit';
+import MembersPage from './Pages/MemberPage';
+import AuthorPage from './Pages/MemberPage/Author';
 
 function App() {
   return (
-    <div>
-      <Router>
-        <Navbar1/>
-      </Router>
-      <SlideShow/>
-      <Navbar2/>
-      <QuickFilter/>
-      
-      <Footer/>
-    </div>
+    <Router>
+      <Routes>
+        <Route path='/' element={<HomePage/>}/>
+        <Route path='/signin' element={<SignInPage/>}/>
+        <Route path='/signup' element={<SignUpPage/>}/>
+        <Route path='/recover' element={<RecoverPage/>}/>
+        <Route path='/recipes' element={<GeneralRecipes/>}/>
+        <Route path='/contact' element={<ContactPage/>}/>
+        <Route path='/submit' element={<SubmitPage/>}/>
+        <Route path='/members' element={<MembersPage/>}/>
+          <Route path='/members/author1' element={<AuthorPage/>}/>
+      </Routes>
+    </Router>
+  
+
   );
 }
 
