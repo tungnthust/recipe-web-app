@@ -98,6 +98,29 @@
 }
 
 
+.changeInforCon{
+    background-color: white;
+    margin-left: 10px;
+}
+
+.changeInforCon .changeInfor{
+    justify-content: center;
+}
+
+.changeInforCon  h2{
+    width:100%;
+}
+
+.changeInforCon  label{
+    width:100%;
+
+}
+
+.changeInforCon .btnChange{
+    margin: 10px 0 10px 0;
+}
+
+
 @media only screen and (max-width: 600px) {
 
     

@@ -6,6 +6,7 @@ import Navbar1 from '../../Components/Navbar1';
 import Navbar2 from '../../Components/Navbar2';
 import Footer from '../../Components/Footer';
 // import { Collapse, Card } from 'bootstrap-4-react';
+import {Button} from "@material-ui/core";
 import { FaHeart, FaCalendar, FaBook}  from 'react-icons/fa';
 
 
@@ -69,8 +70,22 @@ const AuthorPage = () =>{
                                     </button>
                                     </h2>
                                     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        To la ha beo, an nhieu nhat day
+                                    <div class="accordion-body" className='changeInforCon'>
+                                        
+                                        <div className="changeInfor">
+                                                <h2 >Change Infor</h2>
+                                                <hr/>
+                                                <label>New Name</label>
+                                                <input/>
+                                                <label>New Email</label>
+                                                <input/>
+                                                <label>New Avatar</label>
+                                                <input/>
+
+                                                <div className="btnChange">
+                                                    <Button type='submit' variant='contained' color="primary">Change</Button>
+                                                </div>
+                                        </div>
                                     </div>
                                     </div>
                                 </div>
