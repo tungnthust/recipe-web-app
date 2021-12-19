@@ -9,23 +9,25 @@
     justify-content: flex-start;
     flex-wrap: wrap;
     font-weight: 350;
+    
 }
 
 .card-title:hover{
     color: rgb(73, 160, 73);
 }
-.author p{
+
+.author1 p{
     width: 30%;
     font-size: 14px;
     line-height: 24px;
     /* font-weight: 350; */
-    margin-left: 0px;
-    padding-left: 0px;
-    padding-right: 25px;
+    /* margin-left: 0px;
+    padding-left: 50px;
+    padding-right: 25px; */
     display: inline;
     
 }
-.author p:hover{
+.author1 p:hover{
     color: rgb(73, 160, 73);
 }
 

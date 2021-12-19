@@ -229,7 +229,7 @@ const GeneralRecipes = () => {
             )
           }
         </Media>
-        <RecipeItems /*list={[...list]}*/ />
+        <RecipeItems />
       </section>
     </div>
   );
