@@ -11,7 +11,7 @@ class RecipeItems extends Component {
       {
         id: 0,
         name: 'burger',
-        decription:'sandwith that made with buns and ground beef in the middle',
+        description:'sandwith that made with buns and ground beef in the middle',
         author:'Hoang Thu',
         difficulty: 'Medium',
         time: '30min',
@@ -20,7 +20,7 @@ class RecipeItems extends Component {
       {
         id: 1,
         name: 'bread',
-        decription:'sandwith that made with buns and ground beef in the middle',
+        description:'sandwith that made with buns and ground beef in the middle',
         author:'Hoang Thu',
         difficulty: 'Medium',
         time: '30min',
@@ -29,7 +29,7 @@ class RecipeItems extends Component {
       {
         id: 2,
         name: 'bread',
-        decription:'sandwith that made with buns and ground beef in the middle',
+        description:'sandwith that made with buns and ground beef in the middle',
         author:'Hoang Thu',
         difficulty: 'Medium',
         time: '30min',
@@ -38,7 +38,7 @@ class RecipeItems extends Component {
       {
         id: 3,
         name: 'bread',
-        decription:'sandwith that made with buns and ground beef in the middle',
+        description:'sandwith that made with buns and ground beef in the middle',
         author:'Hoang Thu',
         difficulty: 'Medium',
         time: '30min',

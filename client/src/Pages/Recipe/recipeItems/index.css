@@ -3,8 +3,6 @@
     display: flex;
     flex-direction: row;
     
-    
-    
 }
 
 .card-text-center{
@@ -19,7 +17,10 @@
     font-weight: 350;
     
 }
-
+.card-title{
+    font-weight: 500; 
+    font-size: 25px;
+}
 .card-title:hover{
     color: rgb(73, 160, 73);
 }
