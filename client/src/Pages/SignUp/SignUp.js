@@ -9,8 +9,8 @@ const SignUp = () =>{
     const [password,setPassword] = useState('');
     const [image,setImage] = useState(null);
 
-    const handleSignUp = async(Event) =>{
-        Event.preventDefault();
+    const handleSignUp = async(user) =>{
+        user.preventDefault();
         //check if email already registered
         console.log(name);
         return false;
