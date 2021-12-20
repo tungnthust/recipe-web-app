@@ -13,7 +13,7 @@ class RecipeItems extends Component {
         name: 'burger',
         decription:'sandwith that made with buns and ground beef in the middle',
         author:'Hoang Thu',
-        difficulty: '5',
+        difficulty: 'Medium',
         time: '30min',
         imglink:'https://caresspet.com/wp-content/uploads/2018/10/s15-1024x640.jpg'
       },
@@ -22,10 +22,29 @@ class RecipeItems extends Component {
         name: 'bread',
         decription:'sandwith that made with buns and ground beef in the middle',
         author:'Hoang Thu',
-        difficulty: '5',
+        difficulty: 'Medium',
+        time: '30min',
+        imglink: 'https://www.thespruceeats.com/thmb/ZJyWw36nZ1lLNi5FHOKRy9daQqs=/940x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/loaf-of-bread-182835505-58a7008c5f9b58a3c91c9a14.jpg'
+      },
+      {
+        id: 2,
+        name: 'bread',
+        decription:'sandwith that made with buns and ground beef in the middle',
+        author:'Hoang Thu',
+        difficulty: 'Medium',
+        time: '30min',
+        imglink: 'https://www.thespruceeats.com/thmb/ZJyWw36nZ1lLNi5FHOKRy9daQqs=/940x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/loaf-of-bread-182835505-58a7008c5f9b58a3c91c9a14.jpg'
+      },
+      {
+        id: 3,
+        name: 'bread',
+        decription:'sandwith that made with buns and ground beef in the middle',
+        author:'Hoang Thu',
+        difficulty: 'Medium',
         time: '30min',
         imglink: 'https://www.thespruceeats.com/thmb/ZJyWw36nZ1lLNi5FHOKRy9daQqs=/940x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/loaf-of-bread-182835505-58a7008c5f9b58a3c91c9a14.jpg'
       }
+
     ]
   };
   render(){
@@ -36,9 +55,11 @@ class RecipeItems extends Component {
           <h1>Top Recipes </h1>
         </div>
         <div class='row'>
-          <React.Fragment>
+        {this.state.listitems.map(listitem => (
           <div class='col-md-4'>
-          {this.state.listitems.map(listitem => (<div class='card-text-center'>
+          
+          
+          <div class='card-text-center'>
             <div class='img-container'>
                 <img key={listitem.id} src={listitem.imglink} class='card-img-top'></img>
               </div>
@@ -60,9 +81,11 @@ class RecipeItems extends Component {
                   </ul>
                 </div>
               </div>
-            </div>))}
+            </div>
+            
+            
           </div>
-          </React.Fragment>
+          ))}
         </div>
           
       </div>
