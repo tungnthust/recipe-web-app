@@ -1,3 +1,11 @@
+.row{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    
+    
+    
+}
 
 .card-text-center{
     background-color: rgb(255, 255, 255);
@@ -9,23 +17,26 @@
     justify-content: flex-start;
     flex-wrap: wrap;
     font-weight: 350;
+    
 }
 
 .card-title:hover{
     color: rgb(73, 160, 73);
 }
-.author p{
+
+.author1 p{
     width: 30%;
     font-size: 14px;
     line-height: 24px;
-    /* font-weight: 350; */
+    font-weight: 350;
     margin-left: 0px;
     padding-left: 0px;
     padding-right: 25px;
     display: inline;
     
 }
-.author p:hover{
+
+.author1 p:hover{
     color: rgb(73, 160, 73);
 }
 
@@ -33,7 +44,6 @@
     width: 20px;
     border-radius: 50%;
 }
-
 .card-footer{
     background-color: rgb(255, 255, 255);
 }
@@ -53,6 +63,9 @@
     overflow: hidden;
     margin: 0px;
     padding: auto;
+    width: 100%;
+    height: 200px;
+
 }
 .card-img-top:hover{
     width: 100%;

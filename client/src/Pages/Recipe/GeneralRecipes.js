@@ -230,12 +230,12 @@ const GeneralRecipes = () => {
             )
           }
         </Media>
-            
-            <RecipeItems /*list={[...list]}*//>
+          <RecipeItems /*list={[...list]}*//>
         </section>
         <Footer/>
         </div>
     )
 }
+
 
 export default GeneralRecipes;
