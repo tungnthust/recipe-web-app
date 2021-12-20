@@ -2,6 +2,7 @@ import React,{useState,useEffect} from "react";
 import './index.css';
 import Navbar1 from '../../Components/Navbar1';
 import Navbar2 from '../../Components/Navbar2';
+import Footer from "../../Components/Footer";
 import Select from 'react-select';
 import RecipeItems from "./recipeItems";
 import Media from "react-media";
@@ -229,10 +230,12 @@ const GeneralRecipes = () => {
             )
           }
         </Media>
-        <RecipeItems />
-      </section>
-    </div>
-  );
-};
+          <RecipeItems /*list={[...list]}*//>
+        </section>
+        <Footer/>
+        </div>
+    )
+}
+
 
 export default GeneralRecipes;
