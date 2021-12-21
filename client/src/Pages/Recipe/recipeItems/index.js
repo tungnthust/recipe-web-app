@@ -2,6 +2,7 @@
 import './index.css';
 import { FaTable,FaUsers, FaClock } from "react-icons/fa";
 
+
 import React, { Component } from "react";
 import { ListItem } from '@material-ui/core';
 
@@ -48,6 +49,7 @@ class RecipeItems extends Component {
     ]
   };
   render(){
+
   return (
     <section id="recipeItems">
       <div class="container">
@@ -55,6 +57,7 @@ class RecipeItems extends Component {
           <h1>Top Recipes </h1>
         </div>
         <div class='row'>
+
         {this.state.listitems.map(listitem => (
           <div class='col-md-4'>
           
@@ -81,11 +84,14 @@ class RecipeItems extends Component {
                   </ul>
                 </div>
               </div>
+
             </div>
             
             
           </div>
           ))}
+        </div>
+      </div> 
         </div>
           
       </div>
@@ -95,7 +101,9 @@ class RecipeItems extends Component {
        
 
   );
+
   }
+
 }
 
 export default RecipeItems;
