@@ -1,16 +1,16 @@
 import React from "react";
 import Navbar1 from '../../Components/Navbar1';
 import Navbar2 from '../../Components/Navbar2';
-import Contact from "./Contact";
+import Recover from "./Recover";
 
-const ContactPage = () =>{
+const RecoverPage = () =>{
     return(
         <div>
             <Navbar1/>
             <Navbar2/>
-            <Contact/>
+            <Recover/>
         </div>
     )
 }
 
-export default ContactPage;
+export default RecoverPage;
