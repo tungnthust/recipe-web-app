@@ -230,7 +230,45 @@ const GeneralRecipes = () => {
             )
           }
         </Media>
-          <RecipeItems /*list={[...list]}*//>
+          <RecipeItems listitems={[
+      {
+        id: 0,
+        name: 'burger',
+        description:'sandwith that made with buns and ground beef in the middle',
+        author:'Hoang Thu',
+        difficulty: 'Medium',
+        time: '30min',
+        imglink:'https://caresspet.com/wp-content/uploads/2018/10/s15-1024x640.jpg'
+      },
+      {
+        id: 1,
+        name: 'bread',
+        description:'sandwith that made with buns and ground beef in the middle',
+        author:'Hoang Thu',
+        difficulty: 'Medium',
+        time: '30min',
+        imglink: 'https://www.thespruceeats.com/thmb/ZJyWw36nZ1lLNi5FHOKRy9daQqs=/940x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/loaf-of-bread-182835505-58a7008c5f9b58a3c91c9a14.jpg'
+      },
+      {
+        id: 2,
+        name: 'bread',
+        description:'sandwith that made with buns and ground beef in the middle',
+        author:'Hoang Thu',
+        difficulty: 'Medium',
+        time: '30min',
+        imglink: 'https://www.thespruceeats.com/thmb/ZJyWw36nZ1lLNi5FHOKRy9daQqs=/940x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/loaf-of-bread-182835505-58a7008c5f9b58a3c91c9a14.jpg'
+      },
+      {
+        id: 3,
+        name: 'bread',
+        description:'sandwith that made with buns and ground beef in the middle',
+        author:'Hoang Thu',
+        difficulty: 'Medium',
+        time: '30min',
+        imglink: 'https://www.thespruceeats.com/thmb/ZJyWw36nZ1lLNi5FHOKRy9daQqs=/940x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/loaf-of-bread-182835505-58a7008c5f9b58a3c91c9a14.jpg'
+      }
+
+    ]}/>
         </section>
         <Footer/>
         </div>
