@@ -28,7 +28,8 @@ const sort = [
 
 const API = "http://localhost:4000/recipes?";
 
-const GeneralRecipes = () => {
+const GeneralRecipes = (props) => {
+  const {filter} = props;
   const [currentCategory, setCurrentCategory] = useState();
   const [currentCuisine, setCurrentCuisine] = useState();
   const [currentSort, setCurrentSort] = useState();
@@ -113,8 +114,13 @@ const GeneralRecipes = () => {
 
   useEffect(() => {
     const getAllRecipes = async () => {
-      const res = await axios.get(API);
-      setRecipes(res.data);
+      if(filter === undefined){
+        const res = await axios.get(API);
+        setRecipes(res.data);
+      }else{
+        setApiSort(filter);
+      }
+      
     };
     getAllRecipes();
   }, []);
@@ -239,7 +245,7 @@ const GeneralRecipes = () => {
             )
           }
         </Media>
-          <RecipeItems listitems={[
+          <RecipeItems list_items={[
       {
         id: 0,
         name: 'burger',

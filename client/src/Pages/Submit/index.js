@@ -3,6 +3,7 @@ import Navbar1 from '../../Components/Navbar1';
 import Navbar2 from '../../Components/Navbar2';
 import { Button } from "@material-ui/core";
 import './index.css';
+import axios from "axios";
 
 const SubmitPage = () =>{
     const [title,setTitle] = useState('');
@@ -17,11 +18,14 @@ const SubmitPage = () =>{
 
     const handleSubmit = async(Event) =>{
         Event.preventDefault();
-        //do something
-        console.log(title);
-        console.log(category);
-        console.log(image);
-        return false;
+        await axios.post('http://localhost:4000/recipes',{
+            title: title,
+            description: description, 
+            ingredients: ingredient, 
+            category: category, 
+            steps: step, 
+            difficulty: difficulty
+        })
     }
     return(
         <section className="submit">
