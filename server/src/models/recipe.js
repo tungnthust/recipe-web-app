@@ -43,6 +43,14 @@ const recipeSchema = mongoose.Schema({
         type: Number,
         required: true
     },
+    cookTime: {
+        type: Number,
+        required: true
+    },
+    cuisine: {
+        type: String,
+        required: true
+    },
     numOfFavourite: {
         type: Number,
         default: 0,
@@ -55,6 +63,9 @@ const recipeSchema = mongoose.Schema({
         },
         content: {
             type: String
+        },
+        image: {
+            type: Buffer
         }
     }],
     image: {

@@ -35,6 +35,8 @@ const recipe_test = {
     category: 'Mon chinh',
     steps: ['Step1', 'Step2', 'Step3'],
     difficulty: 2,
+    cookTime: 30,
+    cuisine: "Asia",
     numOfFavourite: 2,
     comments: [{
         user: user_test_id,
@@ -68,9 +70,9 @@ test('Save User', async () => {
     await new User(user_test).save()
 
     const user = await User.findById(user_test_id)
-
+    const pick = ({_id, email, name, username}) => ({_id, email, name, username})
     // expect user retrieved from db match with user intialized before saving 
-    expect(user).toMatchObject(user_test)
+    expect(pick(user)).toMatchObject(pick(user_test))
 })
 
 

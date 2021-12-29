@@ -50,6 +50,8 @@ const recipe1_test = {
     category: 'Mon chinh',
     steps: ['Step1', 'Step2', 'Step3'],
     difficulty: 2,
+    cookTime: 30,
+    cuisine: "Asia",
     numOfFavourite: 2,
     comments: [{
         user: user1_test_id,
@@ -78,6 +80,8 @@ const recipe2_test = {
     category: 'Mon chinh',
     steps: ['Step1', 'Step2', 'Step3'],
     difficulty: 3,
+    cookTime: 60,
+    cuisine: "Europe",
     numOfFavourite: 6,
     comments: [{
         user: user2_test_id,
@@ -106,6 +110,8 @@ const recipe3_test = {
     category: 'Mon chinh',
     steps: ['Step1', 'Step2', 'Step3'],
     difficulty: 4,
+    cookTime: 60,
+    cuisine: "Asia",
     numOfFavourite: 0,
     comments: [{
         user: user1_test_id,

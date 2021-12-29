@@ -2,31 +2,34 @@ import { React,useState } from "react";
 import {Link} from 'react-router-dom';
 import {FaEyeDropper, FaSortNumericUpAlt, FaThumbsUp, FaPencilAlt, FaCamera, FaPhotoVideo, FaFile, FaThumbsDown, FaMobile} from'react-icons/fa';
 import './index.css';
+import axios from 'axios'
 
-const Item = () => {
+const Item = (item_id) => {
+    let props = item_id;
+
+    onClickLike(event) {
+        event.preventDefault();
+        const likeRecipe = {
+            
+        }
+    }
     return(
         <section className='recipe-blog'>
             <div className='container'>
                 <div className="recipe-infor flex flex-jc-sb">
                     <div className="recipe-item">
                         <div className="img-container">
-                            <img src="https://image.freepik.com/free-photo/delicious-vietnamese-food-including-pho-ga-noodles-spring-rolls-white-table_181624-34062.jpg" alt="recipe title"></img>
+                            <img key={props.id} src={props.imglink} alt="recipe title"></img>
                         </div>
                         <div className="recipe-content">
-                            <h1 className="recipe-content-title">Recipe Title</h1>
+                            <h1 className="recipe-content-title" key={props.id}>{props.name}</h1>
                             <div className="recipe-content-inner">
                                 <h4>
                                     <i className="fa fa-eyedropper"><FaEyeDropper/></i>
                                     Description
                                 </h4>
                                 <p>
-                                    Acerbic is anything sour, bitter or sharp - cutting, caustic, acid, mordant, barbed, prickly, biting, pointed. The opposite flavor would be mild, sweet, or honeyed.
-                                    Acid or Acidic food can be sharp, tart, sour, bitter. Just the opposite of sweet, sugary, honey.
-                                    Acrid taste can be considered pungent, bitter, choking, sharp, unpleasant, harsh - sharp, cutting, caustic, bitter, vitriolic, mordant, trenchant - sour, tart, sharp, biting, acerbic.
-                                    Aftertaste is the trace, hint, smack, relish, savor food leaves behind.
-                                    Ambrosia is the food of the gods, and epicurean delight, food fit for a king, delicacy, heavenly spread, gastronomical delight, some apply this term to the pièce de résistance in a meal.
-                                    Ambrosial is, therefore, fit for the gods, delectable, mouthwatering, heavenly, savory, delicious, tasty, toothsome, divine. It is not distasteful or disgusting at all.
-                                    Appealing food is attractive, tempting, interesting, pleasing, alluring, likable, engaging, charming, fascinating, glamorous. It is never repulsive, disgusting, or repellent.
+                                   {props.description}
                                 </p>
                             </div>
                             <hr></hr>
@@ -36,11 +39,11 @@ const Item = () => {
                                     Ingredients
                                 </h4>
                                 <ul>
-                                    <li className="list-style" key="index">Hello</li>
-                                    <li className="list-style" key="index">From</li>
-                                    <li className="list-style" key="index">The</li>
-                                    <li className="list-style" key="index">Other</li>
-                                    <li className="list-style" key="index">Side</li>
+                                    {
+                                        props.ingredients.map(function(item, index){
+                                            return <li className="list-style" key={index}>{item}</li>
+                                        })
+                                    }
                                 </ul>
                             </div>
                             <div className="recipe-content-steps">
@@ -49,11 +52,16 @@ const Item = () => {
                                     Steps
                                 </h4>
                                 <ul>
-                                    <li className="list-style" key="index">Step 1</li>
-                                    <li className="list-style" key="index">Step 2</li>
-                                    <li className="list-style" key="index">Step 3</li>
-                                    <li className="list-style" key="index">Step 4</li>
-                                    <li className="list-style" key="index">Step 5</li>
+                                   {
+                                       props.steps.map(function(item, index) {
+                                           return (
+                                               <div>
+                                                   <div>Step {index+1}</div>
+                                                    <li className="list-style" key={index}>{item}</li>
+                                                </div>
+                                           )
+                                       })
+                                   }
                                 </ul>
                             </div>
                         </div>
@@ -62,31 +70,36 @@ const Item = () => {
                         <div className="author-item-infor">
                             <ul>
                                 <li className="author-avatar">
-                                    <img src="https://cdnmedia.webthethao.vn/thumb/720-405/uploads/img/files/images/fullsize/faker-sb.jpg" alt="fullname"></img>
+                                    <img src={props.author.avatar} alt="fullname"></img>
                                     By
-                                    <Link to="/author">Faker: My husband</Link>
+                                    <Link to="/author">{props.author.name}</Link>
                                 </li>
                                 <li>
                                     Cook time:
+                                    <span>{props.times}</span>
                                 </li>
                                 <li>
                                     Cuisine:
+                                    <span>{props.cuisine}</span>
                                 </li>
                                 <li>
                                     Category:
+                                    <span>{props.category}</span>
                                 </li>
                                 <li>
                                     Difficulty level:
+                                    <span>{props.difficulty}</span>
                                 </li>
                                 <li>
                                     Created Date:
+                                    <span>{props.date}</span>
                                 </li>
                             </ul>
                         </div>
                         <div className="author-item-like">
                             <ul>
                                 <li>
-                                    <i class="fa fa-thumbs-up" aria-hidden="true"><FaThumbsUp></FaThumbsUp></i>
+                                    <i class="fa fa-thumbs-up" onClick={} aria-hidden="true"><FaThumbsUp></FaThumbsUp></i>
                                 </li>
                                 <li>
                                     <i class="fa fa-heart" aria-hidden="true"><FaThumbsDown/></i>
@@ -99,9 +112,7 @@ const Item = () => {
                                 <textarea className="form-control" rows="2" placeholder="What are you thinking?"></textarea>
                                 <div className="mar-top clearfix flex flex-jc-sb">
                                     <div className="action1"> 
-                                        {/* <a class="take-photo" href="#"><FaCamera/></a> */}
                                         <a class="photo" href="#"><FaPhotoVideo/></a>
-                                        {/* <a class="file" href="#"><FaFile/></a> */}
                                     </div>
                                     <div className="action2">
                                         <button class="btn btn-sm btn-primary" type="submit">
@@ -128,17 +139,6 @@ const Item = () => {
                                     </p>
                                 </div>
                                 <p>consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-                                {/* <div class="pad-ver">
-                                <div class="btn-group">
-                                    <a class="btn btn-sm btn-default btn-hover-success" href="#">
-                                        <i class="fa fa-thumbs-up"><FaThumbsUp/></i>
-                                    </a>
-                                    <a class="btn btn-sm btn-default btn-hover-danger" href="#">
-                                        <i class="fa fa-thumbs-down"><FaThumbsDown/></i>
-                                    </a>
-                                </div>
-                                    <a class="btn btn-sm btn-default btn-hover-primary" href="#"><FaPencilAlt/>Comment</a>
-                                </div> */}
                                 <hr/>
                             </div>
                         </div>
