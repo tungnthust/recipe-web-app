@@ -7,9 +7,21 @@ const auth = require('../middleware/auth')
 const mongoose = require('mongoose')
 
 
-router.get('/recipes', async (req, res) => {
-
-    const recipes = await Recipe.find().populate([
+router.get('/recipes?', async (req, res) => {
+    var query = req.query
+    var sort = {}
+    if (query.ingredients) {
+        var ingredients = query.ingredients.split(',')
+        var ingredientsArray = await Ingredient.find({"name": {$in: ingredients}}, '_id')
+        var ingredientsId = ingredientsArray.map(a => a._id)
+        query["ingredients.ingredient"] = {$all: ingredientsId}
+        delete query.ingredients
+    }
+    if (req.query.sortBy) {
+        const parts = req.query.sortBy.split(':')
+        sort[parts[0]] = parts[1]
+    }
+    const recipes = await Recipe.find(query).populate([
         {
             path: "author",
             model: User,
@@ -24,7 +36,7 @@ router.get('/recipes', async (req, res) => {
             model: User,
             
         }
-    ])
+    ]).sort(sort).limit(parseInt(req.query.limit))
 
 
     try {
@@ -83,7 +95,6 @@ router.post('/recipes', auth, async (req, res) => {
 
 router.get('/recipes/:id', async (req, res) => {
     const _id = req.params.id
-
     try {
         const recipe = await Recipe.findById(_id)
         if (!recipe) {
@@ -115,7 +126,7 @@ router.get('/recipes/:id', async (req, res) => {
 router.patch('/recipes/:id', auth, async (req, res) => {
     let recipeData = req.body
     const updates = Object.keys(recipeData)
-    const allowedUpdates = ['title', 'description', 'ingredients', 'category', 'steps', 'difficulty']
+    const allowedUpdates = ['title', 'description', 'ingredients', 'category', 'steps', 'difficulty', 'cookTime', 'cuisine']
     const isValidOperation = updates.every((update) => allowedUpdates.includes(update))
     const _id = req.params.id
     if (!isValidOperation) {
