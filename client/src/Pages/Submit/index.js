@@ -24,7 +24,8 @@ const SubmitPage = () =>{
             ingredients: ingredient, 
             category: category, 
             steps: step, 
-            difficulty: difficulty
+            difficulty: difficulty,
+            image: image
         })
     }
     return(

@@ -28,20 +28,18 @@ const sort = [
 
 const API = "http://localhost:4000/recipes?";
 
-const GeneralRecipes = (props) => {
+const Recipe = (props) => {
   const {filter} = props;
   const [currentCategory, setCurrentCategory] = useState();
   const [currentCuisine, setCurrentCuisine] = useState();
   const [currentSort, setCurrentSort] = useState();
   const [ingredient, setIngredient] = useState("");
-  const [keyword, setKeyword] = useState("");
   const [recipes, setRecipes] = useState([]);
   const [api,setAPI] = useState(API);
   const [apiCat,setApiCat] = useState('');
   const [apiCui,setApiCui] = useState('');
   const [apiSort,setApiSort] = useState('');
   const [apiIng,setApiIng] = useState('');
-  const [apiKey,setApiKey] = useState('');
 
   const onChangeSelectedCategory = (cat) => {
     setCurrentCategory(cat);
@@ -54,9 +52,6 @@ const GeneralRecipes = (props) => {
   };
   const onChangeIngredient = (e) => {
     setIngredient(e.target.value);
-  };
-  const onChangeKeyword = (e) => {
-    setKeyword(e.target.value);
   };
 
   useEffect(()=>{
@@ -72,9 +67,8 @@ const GeneralRecipes = (props) => {
     if(apiCui!=="") tempAPI = tempAPI+'cuisine='+apiCui+'&';
     if(apiSort!=="") tempAPI = tempAPI+'sort='+apiSort+'&';
     if(apiIng!=="") tempAPI = tempAPI+'ingredient='+apiIng+'&';
-    if(apiKey!=="") tempAPI = tempAPI+'keyword='+apiKey+'&';
     setAPI(tempAPI);
-  },[apiCat,apiCui,apiSort,apiIng,apiKey])
+  },[apiCat,apiCui,apiSort,apiIng])
   useEffect(()=>{
       const getByCategory = async (cat) =>{
         setApiCat(cat);
@@ -105,12 +99,6 @@ const GeneralRecipes = (props) => {
       }
       getByIngredient(ingredient);
   },[ingredient]);
-  useEffect(()=>{
-    const getByKeyword = async (data) =>{
-      setApiKey(data);
-    }
-    getByKeyword(keyword);
-  },[keyword]);
 
   useEffect(() => {
     const getAllRecipes = async () => {
@@ -178,14 +166,6 @@ const GeneralRecipes = (props) => {
                         value={ingredient}
                       />
                     </div>
-                    <div className="select">
-                      <p>Keyword</p>
-                      <input
-                        type="text"
-                        onChange={onChangeKeyword}
-                        value={keyword}
-                      />
-                    </div>
                   </div>
                 </div>
               </div>
@@ -229,14 +209,6 @@ const GeneralRecipes = (props) => {
                         type="text"
                         onChange={onChangeIngredient}
                         value={ingredient}
-                      />
-                    </div>
-                    <div className="select">
-                      <p>Keyword</p>
-                      <input
-                        type="text"
-                        onChange={onChangeKeyword}
-                        value={keyword}
                       />
                     </div>
                   </div>
@@ -291,4 +263,4 @@ const GeneralRecipes = (props) => {
 }
 
 
-export default GeneralRecipes;
+export default Recipe;

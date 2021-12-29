@@ -99,7 +99,7 @@ const Item = (item_id) => {
                         <div className="author-item-like">
                             <ul>
                                 <li>
-                                    <i class="fa fa-thumbs-up" onClick={} aria-hidden="true"><FaThumbsUp></FaThumbsUp></i>
+                                    <i class="fa fa-thumbs-up"  aria-hidden="true"><FaThumbsUp></FaThumbsUp></i>
                                 </li>
                                 <li>
                                     <i class="fa fa-heart" aria-hidden="true"><FaThumbsDown/></i>
