@@ -1,6 +1,7 @@
 import { React,useState } from "react";
 import {Button} from "@material-ui/core";
 import './index.css';
+import axios from "axios";
 
 const SignUp = () =>{
     const [email,setEmail] = useState('');
@@ -9,11 +10,14 @@ const SignUp = () =>{
     const [password,setPassword] = useState('');
     const [image,setImage] = useState(null);
 
-    const handleSignUp = async(user) =>{
-        user.preventDefault();
-        //check if email already registered
-        console.log(name);
-        return false;
+    const handleSignUp = async(event) =>{
+        event.preventDefault();
+        await axios.post("http://localhost:4000/users",{
+            email: email,
+            name: name,
+            username: username,
+            password: password
+        })
     }
 
     return(

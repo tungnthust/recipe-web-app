@@ -118,7 +118,7 @@ const GeneralRecipes = (props) => {
         const res = await axios.get(API);
         setRecipes(res.data);
       }else{
-        setApiSort(filter);
+        setApiCat(filter);
       }
       
     };
