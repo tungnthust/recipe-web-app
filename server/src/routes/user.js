@@ -49,5 +49,19 @@ router.post('/users/logoutAll', auth, async (req, res) => {
     }
 })
 
+// ------ start Hoang Ha ------------------
+
+// API return [menbers]
+router.get('/members', async (req, res) => {
+    try {
+        const members = await User.find()
+        res.status(201).send(members)
+    } catch(error){
+        res.status(400).send(error)
+    }
+})
+
+
+// ------ end Hoang Ha ---------------------------
 
 module.exports = router
