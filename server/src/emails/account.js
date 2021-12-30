@@ -14,7 +14,7 @@ sgMail.setApiKey(sendgridAPIKey)
 const sendWelcomeEmail = (email, name) => {
     sgMail.send({
         to: email,
-        from: 'recipeapp.group10@gmail.com',
+        from: 'recipewebapp.group10@gmail.com',
         subject: 'Thanks for joining in!',
         text: `Welcome ${name} to our food website.`
     })
@@ -23,7 +23,7 @@ const sendWelcomeEmail = (email, name) => {
 const sendResetpassEmail = (email, name, pass) => {
     sgMail.send({
         to: email,
-        from: 'recipeapp.group10@gmail.com',
+        from: 'recipewebapp.group10@gmail.com',
         subject: 'Reset Password',
         text: `Hello, ${name}. Your password has been changed to: ${pass}`
     })
