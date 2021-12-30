@@ -1,13 +1,20 @@
 const sgMail = require('@sendgrid/mail')
 
-const sendgridAPIKey = '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'
+const sendgridAPIKey = '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'
 
 sgMail.setApiKey(sendgridAPIKey)
+
+// sgMail.send({
+//             to: 'trung.ntt1210@gmail.com',
+//             from: 'recipeapp.group10@gmail.com',
+//             subject: 'Thanks for joining in!',
+//             text: "test lai"
+//         })
 
 const sendWelcomeEmail = (email, name) => {
     sgMail.send({
         to: email,
-        from: 'group10ict@gmail.com',
+        from: 'recipeapp.group10@gmail.com',
         subject: 'Thanks for joining in!',
         text: `Welcome ${name} to our food website.`
     })
@@ -16,7 +23,7 @@ const sendWelcomeEmail = (email, name) => {
 const sendResetpassEmail = (email, name, pass) => {
     sgMail.send({
         to: email,
-        from: 'group10ict@gmail.com',
+        from: 'recipeapp.group10@gmail.com',
         subject: 'Reset Password',
         text: `Hello, ${name}. Your password has been changed to: ${pass}`
     })
