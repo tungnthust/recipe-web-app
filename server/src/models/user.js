@@ -9,12 +9,14 @@ const userSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
+
     username: { 
         type: String,
         required: true,
         trim: true,
         unique: true
     },
+
     email: {
         type: String,
         unique: true,
@@ -27,6 +29,7 @@ const userSchema = new mongoose.Schema({
             }
         }
     },
+    
     password: {
         type: String,
         required: true,
@@ -91,10 +94,13 @@ userSchema.methods.generateAuthToken = async function () {
 
 
 userSchema.statics.findByCredentials = async(username, password) => {
-    const user = await User.findOne({username})
-
+    var user = await User.findOne({username : username})
     if(!user) {
-        throw new Error('Unable to login')
+        user = await User.findOne({email : username})
+        if(!user){
+            console.log("hello")
+            throw new Error('Unable to login')
+        }
     }
 
     const isMatch = await bcrypt.compare(password, user.password)
