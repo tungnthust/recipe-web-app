@@ -2,7 +2,7 @@ import React from 'react';
 import noiceChef from './img/noice-chef.png';
 import Navbar from 'react-bootstrap/Navbar'
 import { Container, Nav } from 'react-bootstrap';
-// import "./index.css"
+import "./index.css"
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min';
 
