@@ -9,15 +9,15 @@ import Media from "react-media";
 import axios from "axios";
 
 const category = [
-  { label: "Khai vị", value: "kv" },
-  { label: "Món chính", value: "mc" },
-  { label: "Tráng miệng", value: "tm" },
+  { label: "Khai vị", value: "Khai vi" },
+  { label: "Món chính", value: "Mon chinh" },
+  { label: "Tráng miệng", value: "Trang mieng" },
 ];
 const cuisine = [
-  { value: "vn", label: "Vietnam" },
-  { value: "ind", label: "India" },
-  { value: "mex", label: "Mexico" },
-  { value: "ita", label: "Italia" },
+  { value: "Vietnam", label: "Vietnam" },
+  { value: "India", label: "India" },
+  { value: "Mexico", label: "Mexico" },
+  { value: "Italia", label: "Italia" },
 ];
 
 const sort = [
@@ -58,6 +58,7 @@ const Recipe = (props) => {
     const getData = async(Api)=>{
       const res = await axios.get(Api);
       setRecipes(res.data);
+      console.log(res.data);
     }
     getData(api);
   },[api])

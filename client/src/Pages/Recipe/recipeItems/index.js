@@ -14,22 +14,14 @@ const RecipeItems = (list_items) => {
         </div>
         <div class="row">
           {props.list_items.map((item) => (
-            <div class="col-md-4">
+            <div class="col-md-4" key={item.id}>
               <div class="card-text-center">
                 <div class="img-container">
-                  <img
-                    key={item.id}
-                    src={item.imglink}
-                    class="card-img-top"
-                  ></img>
+                  <img src={item.imglink} class="card-img-top"></img>
                 </div>
                 <div class="card-body">
-                  <h5 key={item.id} class="card-title">
-                    {item.name}
-                  </h5>
-                  <p key={item.id} class="card-text">
-                    {item.description}
-                  </p>
+                  <h5 class="card-title">{item.name}</h5>
+                  <p class="card-text">{item.description}</p>
                   <div class="author1">
                     <img
                       class="avatar"
@@ -37,16 +29,14 @@ const RecipeItems = (list_items) => {
                       alt="authorAvatar "
                     ></img>
                     By
-                    <p key={item.id}> {item.author}</p>
+                    <p> {item.author}</p>
                   </div>
                 </div>
                 <div class="card-footer">
                   <div class="card-footer-content">
                     <ul>
-                      <li key={item.id} title="difficulty">
-                        {item.difficulty}{" "}
-                      </li>
-                      <li key={item.id} title="time">
+                      <li title="difficulty">{item.difficulty} </li>
+                      <li title="time">
                         <FaClock /> {item.time}
                       </li>
                     </ul>
