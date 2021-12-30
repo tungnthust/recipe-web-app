@@ -78,6 +78,42 @@ router.get('/members/:id', async (req, res) => {
     }
 })
 
+
+// API update member infor
+router.patch('/members/:id', auth, async (req, res) => {
+    let memberData = req.body
+    const updates = Object.keys(memberData)
+    const allowedUpdates = ['name', 'avatar']
+    const isValidOperation = updates.every((update) => allowedUpdates.includes(update))
+    const _id = req.params.id
+
+    if (!isValidOperation) {
+        return res.status(400).send({
+            error: 'Invalid updates'
+        })
+    }
+
+    try {
+        const member = await User.findOne({
+            _id,
+            author: req.user._id
+        })
+
+        if(!member) {
+            return res.status(404).send("You're not authorized to update this member infor")
+        }
+
+        updates.forEach((update) => member[update] = memberData[update])
+        await member.save()
+        
+        res.send(member)   
+    } catch (error) {
+        res.status(400).send(error)
+    }
+})
+
+// API send mail 
+// TODO
 // ------ end Hoang Ha ---------------------------
 
 module.exports = router
