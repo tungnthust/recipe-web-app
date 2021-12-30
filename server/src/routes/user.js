@@ -61,6 +61,22 @@ router.get('/members', async (req, res) => {
     }
 })
 
+// API find member by id
+router.get('/members/:id', async (req, res) => {
+    const _id = req.params.id 
+
+    try {
+        const member = await User.findById(_id)
+        if (!member) {
+            return res.status(404).send("You can not find this member infor")
+            
+        }
+        res.status(200).send(member)
+        
+    } catch (error) {
+        res.status(500).send(error)
+    }
+})
 
 // ------ end Hoang Ha ---------------------------
 
