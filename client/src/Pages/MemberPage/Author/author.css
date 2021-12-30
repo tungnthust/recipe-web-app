@@ -1,0 +1,157 @@
+.author{
+    background-color: #eee !important;
+    /* width:100% !important; */
+    height: max(2000px, 100vw);
+}
+
+.author .container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    
+}
+.author .container .row{
+    margin-top: 20px;
+}
+
+.author .container .white-block{
+    background: #fff;
+    margin-top: 50px;
+    overflow: hidden;
+    position: relative;
+    display: block;
+    width: 25%;
+    box-shadow: 0px 1px 2px rgb(0 0 0 );
+    height: 400px;
+}
+
+.author .container .white-block .my-sidebar{
+    text-align: center !important;
+}
+
+.author .container .white-block .my-sidebar .my-avatar{
+    /* display: block;
+    background-position: center; */
+    padding: 30px 0px;
+}
+
+.author .container .white-block .my-sidebar .my-menu li{
+    text-align: left;
+}
+
+.author .container .white-block .my-sidebar .my-menu .fa-calendar{
+    padding-right: 5px;
+}
+
+.author .container .white-block .my-sidebar .my-menu .fa-heart{
+    padding-right: 5px;
+}
+
+.author .container .white-block .my-sidebar .my-menu .fa-book{
+    padding-right: 5px;
+}
+
+.author .container .white-block .my-sidebar .my-menu li .right-value{
+    float: right;
+}
+
+.accordion-button{
+    font-size: 20px;
+}
+
+
+.author .container .col-sm-9{
+    float : top;
+    position: relative;
+    display: flex;
+    width: 70%;
+    justify-content: center;
+    margin-top:50px;
+
+}
+
+.author .container .col-sm-9 .right-part{
+    width:100%;
+}
+
+.author .container .col-sm-9 .right-part .white-block2{
+    width:100%;
+}
+
+.collapse-button{
+    font-size:20px !important ;
+    font-weight: 700 !important;
+}
+
+.button-heart{
+    width:30px;
+    height: 30px;
+    background-color: green;
+    border-radius: 3px;
+}
+.button-heart:hover{
+    background-color: #000;
+}
+.icon-heart{
+        text-decoration: none;
+        padding: 0 3px 0 0;
+        color: #fff;
+}
+
+
+.changeInforCon{
+    background-color: white;
+    margin-left: 10px;
+}
+
+.changeInforCon .changeInfor{
+    justify-content: center;
+}
+
+.changeInforCon  h2{
+    width:100%;
+}
+
+.changeInforCon  label{
+    width:100%;
+
+}
+
+.changeInforCon .btnChange{
+    margin: 10px 0 10px 0;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+    
+    .author .container .white-block{
+        width: 80%;
+        margin: auto;
+    }
+
+    .author .container .col-sm-9{
+        width: 100%;
+    }
+
+    tr th:nth-child(2){
+            display:none;
+    }
+    tr th:nth-child(3){
+        display:none;
+    }
+    tr th:nth-child(4){
+        display:none;
+    }
+        
+    
+}
+
+
+
+
+
+
+
+

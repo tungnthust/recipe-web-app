@@ -1,22 +1,36 @@
 import { React,useState } from "react";
 import {Button} from "@material-ui/core";
 import './index.css';
+import axios from "axios";
 
 const SignUp = () =>{
     const [email,setEmail] = useState('');
+    const [name,setName] = useState('');
     const [username,setUsername] = useState('');
     const [password,setPassword] = useState('');
 
-    const handleSignUp = async(Event) =>{
-        Event.preventDefault();
-        //check if email already registered
-        return false;
+    const handleSignUp = async(event) =>{
+        event.preventDefault();
+        await axios.post("http://localhost:4000/users",{
+            email: email,
+            name: name,
+            username: username,
+            password: password
+        })
     }
 
     return(
         <section className='login'>
             <form className='formContainer' onSubmit={e => handleSignUp(e)}>
                 <h1>Sign Up</h1>
+                <label>Your Name</label>
+                <input
+                    type='name'
+                    autoFocus
+                    required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                />
                 <label>Email</label>
                 <input
                     type='email'

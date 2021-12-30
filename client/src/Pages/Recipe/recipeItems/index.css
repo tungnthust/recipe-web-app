@@ -1,0 +1,77 @@
+.row{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.card-text-center{
+    background-color: rgb(255, 255, 255);
+    color: #5a5a5a;
+    padding-bottom: 0px;
+    width: 100%;
+    font-family: "Ubuntu", sans-serif;
+    margin-top: 50px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    font-weight: 350;
+    
+}
+.card-title{
+    font-weight: 50git0; 
+    font-size: 25px;
+}
+.card-title:hover{
+    color: rgb(73, 160, 73);
+}
+
+.author1 p{
+    width: 30%;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 350;
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-right: 25px;
+    display: inline;
+    
+}
+
+.author1 p:hover{
+    color: rgb(73, 160, 73);
+}
+
+.avatar{
+    width: 20px;
+    border-radius: 50%;
+}
+.card-footer{
+    background-color: rgb(255, 255, 255);
+}
+.card-footer .card-footer-content ul {
+    margin: 0;
+    line-height: 35px;
+    padding-left: 0;
+    list-style: none;
+    
+}
+
+.card-footer .card-footer-content li{
+    display: inline;
+}
+
+.img-container{
+    overflow: hidden;
+    margin: 0px;
+    padding: auto;
+    width: 100%;
+    height: 200px;
+
+}
+.card-img-top:hover{
+    width: 100%;
+    transition: 0.5s linear;
+    height: auto;
+    transform: scale(1.3);
+    overflow: hidden;
+}
