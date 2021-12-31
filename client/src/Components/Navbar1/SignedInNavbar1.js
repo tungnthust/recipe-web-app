@@ -14,7 +14,7 @@ const SignedInNavbar1 = () => {
   const token = localStorage.getItem("token");
   const axiosInstance = axios.create({
     baseURL: API,
-    timeout: 10000,
+    timeout: 3000,
     headers: {'Authorization': 'Bearer '+token}
   });
   const handleLogout = async (user) => {
@@ -28,7 +28,7 @@ const SignedInNavbar1 = () => {
       localStorage.clear();
       window.location.reload();
     } catch (err) {
-      window.alert("Logout failed!");
+      window.alert("Logout failed! Have you logged in yet ?");
     }
   };
 
