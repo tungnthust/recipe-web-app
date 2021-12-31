@@ -31,7 +31,7 @@ const sendResetpassEmail = (email, name, pass) => {
 // API send email feedback of user 
 const sendFeedbackEmail = (email, name, topic, message) => {
     sgMail.send({
-        to: 'churuanho0.0@gmail.com',
+        to: 'recipeapp.group10@gmail.com',
         from: 'recipewebapp.group10@gmail.com',
         subject: `[${topic}] ${name} send you a feedback`,
         text: `Email: ${email}\nMessage: ${message}`
