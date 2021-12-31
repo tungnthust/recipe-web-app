@@ -4,12 +4,11 @@ import { FaClock } from "react-icons/fa";
 import React from "react";
 import { Link } from "react-router-dom";
 
-const API = "http://localhost:4000";
 
 const RecipeItems = (props) => {
   const {id,title,description,author,difficulty,time} = props;
 
-  const recipeInfor = {
+  const recipeInfo = {
     pathname: '/recipes/' + id,
     id : id,
   }
@@ -18,7 +17,7 @@ const RecipeItems = (props) => {
             <div class="col-md-4" key={id}>
               <div class="card-text-center">
                 <div class="img-container">
-                  <Link to={recipeInfor}>
+                  <Link to={recipeInfo}>
                     <img src='http://t1.gstatic.com/licensed-image?q=tbn:ANd9GcRjQrPU66ETKarsWq5fLe6vtR_ZnM5r4EVLnUJiAFN6wlcem9g94yAgh_9RP-MZ-W_n3eU1G96ptdcibkt-9H4' class="card-img-top"></img>
                   </Link>
                 </div>

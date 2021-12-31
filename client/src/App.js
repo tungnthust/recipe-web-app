@@ -22,9 +22,9 @@ function App() {
         <Route path='/recover' element={<RecoverPage/>}/>
         <Route path='/recipes' element={<Recipe/>}/>
         <Route path='/recipes/:id' element={<SpecificRecipe/>}/>
-        <Route path='/recipes/kv' element={<Recipe filter="kv"/>}/>
-        <Route path='/recipes/mc' element={<Recipe filter="mc"/>}/>
-        <Route path='/recipes/tm' element={<Recipe filter="tm"/>}/>
+        <Route path='/recipes/kv' element={<Recipe filter="Khai vi"/>}/>
+        <Route path='/recipes/mc' element={<Recipe filter="Mon chinh"/>}/>
+        <Route path='/recipes/tm' element={<Recipe filter="Trang mieng"/>}/>
         <Route path='/contact' element={<ContactPage/>}/>
         <Route path='/submit' element={<SubmitPage/>}/>
         <Route path='/members' element={<MembersPage/>}/>
