@@ -1,4 +1,4 @@
-import React from "react";
+import {React, useState} from "react";
 import './index.css';
 
 import Navbar1 from '../../Components/Navbar1';
@@ -11,6 +11,9 @@ import { avatarData } from "./data";
 
 
 const MembersPage = () =>{
+
+    const [items, setItems] = useState([]);
+
     return(
         <div className = "authorsPage">
             <Navbar1/>   
@@ -18,14 +21,12 @@ const MembersPage = () =>{
             <section className="author-section">
             <div className="container">
                 <div className="section-title">
-                    {/* <h4 className="dashLine">----------------------------------------------------------------------------------------------------------</h4> */}
                     <hr/>
                     <h1 className="text">    
                         <i className="faUser"> <FaUsers/> </i>  
                         Chefs In Our Kitchen
                     </h1>
                     <hr/>
-                    {/* <h4 className="dashLine">----------------------------------------------------------------------------------------------------------</h4> */}
 
                 </div>
 
@@ -42,10 +43,11 @@ const MembersPage = () =>{
                                 <div key={key} className = "avatarone" id = "onethird">
                                 <MemberItem
                                     key={key}
-                                    image={data.image}
-                                    author={data.author}
-                                    joinDate={data.joinDate}
-                                    recipeWrote={data.recipeWrote}
+                                    id={data.id}
+                                    avatar={data.avatar}
+                                    name={data.name}
+                                    time={data.time}
+                                    own_recipes={data.own_recipes}
                                 />
                                 </div>
                             );
