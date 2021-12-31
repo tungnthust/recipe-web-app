@@ -26,7 +26,6 @@ const sort = [
   { value: "oldest", label: "Oldest" },
 ];
 
-const API = "http://localhost:4000/recipes?";
 
 const Recipe = (props) => {
   const {filter} = props;
@@ -35,7 +34,7 @@ const Recipe = (props) => {
   const [currentSort, setCurrentSort] = useState();
   const [ingredient, setIngredient] = useState("");
   const [recipes, setRecipes] = useState([]);
-  const [api,setAPI] = useState(API);
+  const [api,setAPI] = useState("http://localhost:4000/recipes?");
   const [apiCat,setApiCat] = useState('');
   const [apiCui,setApiCui] = useState('');
   const [apiSort,setApiSort] = useState('');
@@ -54,65 +53,62 @@ const Recipe = (props) => {
     setIngredient(e.target.value);
   };
 
-  useEffect(()=>{
-    const getData = async(Api)=>{
+  useEffect(() => {
+    const getData = async (Api) => {
       const res = await axios.get(Api);
       setRecipes(res.data);
-      console.log(res.data);
-    }
-    getData(api);
-  },[api])
-  useEffect(()=>{
-    var tempAPI = API;
-    if(apiCat!=="") tempAPI = tempAPI+'category='+apiCat+'&';
-    if(apiCui!=="") tempAPI = tempAPI+'cuisine='+apiCui+'&';
-    if(apiSort!=="") tempAPI = tempAPI+'sort='+apiSort+'&';
-    if(apiIng!=="") tempAPI = tempAPI+'ingredient='+apiIng+'&';
-    setAPI(tempAPI);
-  },[apiCat,apiCui,apiSort,apiIng])
-  useEffect(()=>{
-      const getByCategory = async (cat) =>{
-        setApiCat(cat);
-      };
-      if(currentCategory!==undefined){
-          getByCategory(currentCategory.value);
-      }
-  },[currentCategory]);
-  useEffect(()=>{
-      const getByCuisine = async (cui) =>{
-        setApiCui(cui);
-      }
-      if(currentCuisine!==undefined){
-          getByCuisine(currentCuisine.value);
-      }
-  },[currentCuisine]);
-  useEffect(()=>{
-      const getBySort = async (method) =>{
-        setApiSort(method);
-      };
-      if(currentSort!==undefined){
-          getBySort(currentSort.value);
-      } 
-  },[currentSort]);
-  useEffect(()=>{
-      const getByIngredient = async (data) =>{
-        setApiIng(data);
-      }
-      getByIngredient(ingredient);
-  },[ingredient]);
-
+    };
+    if(api!=="http://localhost:4000/recipes?") getData(api);
+  }, [api]);
   useEffect(() => {
     const getAllRecipes = async () => {
-      if(filter === undefined){
-        const res = await axios.get(API);
+      if (filter === undefined) {
+        const res = await axios.get(api);
         setRecipes(res.data);
-      }else{
+      } else {
         setApiCat(filter);
       }
-      
     };
     getAllRecipes();
   }, []);
+  useEffect(() => {
+    var tempAPI = "http://localhost:4000/recipes?";
+    if (apiCat !== "") tempAPI = tempAPI + "category=" + apiCat + "&";
+    if (apiCui !== "") tempAPI = tempAPI + "cuisine=" + apiCui + "&";
+    if (apiSort !== "") tempAPI = tempAPI + "sort=" + apiSort + "&";
+    if (apiIng !== "") tempAPI = tempAPI + "ingredient=" + apiIng + "&";
+    setAPI(tempAPI);
+  }, [apiCat, apiCui, apiSort, apiIng]);
+  useEffect(() => {
+    const getByCategory = async (cat) => {
+      setApiCat(cat);
+    };
+    if (currentCategory !== undefined) {
+      getByCategory(currentCategory.value);
+    }
+  }, [currentCategory]);
+  useEffect(() => {
+    const getByCuisine = async (cui) => {
+      setApiCui(cui);
+    };
+    if (currentCuisine !== undefined) {
+      getByCuisine(currentCuisine.value);
+    }
+  }, [currentCuisine]);
+  useEffect(() => {
+    const getBySort = async (method) => {
+      setApiSort(method);
+    };
+    if (currentSort !== undefined) {
+      getBySort(currentSort.value);
+    }
+  }, [currentSort]);
+  useEffect(() => {
+    const getByIngredient = async (data) => {
+      setApiIng(data);
+    };
+    getByIngredient(ingredient);
+  }, [ingredient]);
 
   return (
     <div>
@@ -218,49 +214,12 @@ const Recipe = (props) => {
             )
           }
         </Media>
-          <RecipeItems list_items={[
-      {
-        id: 0,
-        name: 'burger',
-        description:'sandwith that made with buns and ground beef in the middle',
-        author:'Hoang Thu',
-        difficulty: 'Medium',
-        time: '30min',
-        imglink:'https://caresspet.com/wp-content/uploads/2018/10/s15-1024x640.jpg'
-      },
-      {
-        id: 1,
-        name: 'bread',
-        description:'sandwith that made with buns and ground beef in the middle',
-        author:'Hoang Thu',
-        difficulty: 'Medium',
-        time: '30min',
-        imglink: 'https://www.thespruceeats.com/thmb/ZJyWw36nZ1lLNi5FHOKRy9daQqs=/940x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/loaf-of-bread-182835505-58a7008c5f9b58a3c91c9a14.jpg'
-      },
-      {
-        id: 2,
-        name: 'bread',
-        description:'sandwith that made with buns and ground beef in the middle',
-        author:'Hoang Thu',
-        difficulty: 'Medium',
-        time: '30min',
-        imglink: 'https://www.thespruceeats.com/thmb/ZJyWw36nZ1lLNi5FHOKRy9daQqs=/940x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/loaf-of-bread-182835505-58a7008c5f9b58a3c91c9a14.jpg'
-      },
-      {
-        id: 3,
-        name: 'bread',
-        description:'sandwith that made with buns and ground beef in the middle',
-        author:'Hoang Thu',
-        difficulty: 'Medium',
-        time: '30min',
-        imglink: 'https://www.thespruceeats.com/thmb/ZJyWw36nZ1lLNi5FHOKRy9daQqs=/940x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/loaf-of-bread-182835505-58a7008c5f9b58a3c91c9a14.jpg'
-      }
-
-    ]}/>
-        </section>
-        <Footer/>
-        </div>
-    )
+        {/* <RecipeItems list_items={recipes}/> */}
+        {recipes.map((item)=>console.log(item))}
+      </section>
+      <Footer />
+    </div>
+  );
 }
 
 

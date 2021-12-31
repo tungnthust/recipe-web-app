@@ -3,8 +3,8 @@ import { FaClock } from "react-icons/fa";
 
 import React from "react";
 
-const RecipeItems = (list_items) => {
-  let props = list_items;
+const RecipeItems = (props) => {
+  const {list_items} = props;
 
   return (
     <section id="recipeItems">
@@ -13,7 +13,7 @@ const RecipeItems = (list_items) => {
           <h1>Top Recipes </h1>
         </div>
         <div class="row">
-          {props.list_items.map((item) => (
+          {list_items.map((item) => (
             <div class="col-md-4" key={item.id}>
               <div class="card-text-center">
                 <div class="img-container">
