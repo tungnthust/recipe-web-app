@@ -4,24 +4,18 @@ import { FaClock } from "react-icons/fa";
 import React from "react";
 
 const RecipeItems = (props) => {
-  const {list_items} = props;
+  const {id,title,description,author,difficulty,time} = props;
 
   return (
-    <section id="recipeItems">
-      <div class="container">
-        <div class="title">
-          <h1>Top Recipes </h1>
-        </div>
-        <div class="row">
-          {list_items.map((item) => (
-            <div class="col-md-4" key={item.id}>
+    
+            <div class="col-md-4" key={id}>
               <div class="card-text-center">
                 <div class="img-container">
-                  <img src={item.imglink} class="card-img-top"></img>
+                  <img src='http://t1.gstatic.com/licensed-image?q=tbn:ANd9GcRjQrPU66ETKarsWq5fLe6vtR_ZnM5r4EVLnUJiAFN6wlcem9g94yAgh_9RP-MZ-W_n3eU1G96ptdcibkt-9H4' class="card-img-top"></img>
                 </div>
                 <div class="card-body">
-                  <h5 class="card-title">{item.name}</h5>
-                  <p class="card-text">{item.description}</p>
+                  <h5 class="card-title">{title}</h5>
+                  <p class="card-text">{description}</p>
                   <div class="author1">
                     <img
                       class="avatar"
@@ -29,25 +23,23 @@ const RecipeItems = (props) => {
                       alt="authorAvatar "
                     ></img>
                     By
-                    <p> {item.author}</p>
+                    <p> {author}</p>
                   </div>
                 </div>
                 <div class="card-footer">
                   <div class="card-footer-content">
                     <ul>
-                      <li title="difficulty">{item.difficulty} </li>
+                      <li title="difficulty">{difficulty} </li>
                       <li title="time">
-                        <FaClock /> {item.time}
+                        <FaClock /> {time}
                       </li>
                     </ul>
                   </div>
                 </div>
               </div>
             </div>
-          ))}
-        </div>
-      </div>
-    </section>
+
+        
   );
 };
 
