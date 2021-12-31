@@ -2,7 +2,7 @@ const express = require('express')
 const User = require('../models/user')
 const router = new express.Router()
 const auth = require('../middleware/auth')
-const { sendWelcomeEmail, sendResetpassEmail } = require('../emails/account')
+const { sendWelcomeEmail, sendResetpassEmail, sendFeedbackEmail } = require('../emails/account')
 
 router.post('/users', async (req, res) => {
     const user = new User(req.body)
@@ -127,8 +127,19 @@ router.patch('/members/:id', auth, async (req, res) => {
     }
 })
 
-// API send mail 
-// TODO
+// API send mail
+router.post('/contact/', async (req, res) => {
+    const {email, name, topic, message} = req.body
+    try {
+        sendFeedbackEmail(email, name, topic, message)
+        res.status(200).send('Sent email successfully!')
+        
+    } catch (error) {
+        res.status(500).send(error)
+    }
+})
+
+
 // ------ end Hoang Ha ---------------------------
 
 module.exports = router
