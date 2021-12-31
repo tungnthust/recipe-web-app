@@ -21,6 +21,7 @@ const SignInWithUsername = () => {
         if (res.status === 200) {
           localStorage.setItem("token", resData["token"]);
           localStorage.setItem("username", username);
+          window.location.reload();
         }
       }
     } catch (err) {
