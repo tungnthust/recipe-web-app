@@ -89,6 +89,9 @@ router.post('/recipes', auth, async (req, res) => {
         ...recipeData,
         author: req.user._id
     })
+    req.user.numOfRecipes += 1
+    await req.user.save()
+
     try {
         await recipe.save()
         res.status(201).send(recipe)
@@ -219,7 +222,8 @@ router.delete('/recipes/:id', auth, async (req, res) => {
         }
 
         recipe.remove()
-
+        req.user.numOfRecipes -= 1
+        await req.user.save()
         res.send(recipe)
         
     } catch (error) {
