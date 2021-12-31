@@ -1,7 +1,5 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import { avatarData } from "./data";
-
 import './index.css';
 
 const MemberItem = ({ image, author, joinDate, recipeWrote }) =>{
