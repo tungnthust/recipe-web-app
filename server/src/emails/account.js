@@ -1,8 +1,7 @@
 const sgMail = require('@sendgrid/mail')
 
-const sendgridAPIKey = ""
 
-sgMail.setApiKey(sendgridAPIKey)
+sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
 // sgMail.send({
 //             to: 'trung.ntt1210@gmail.com',
@@ -29,7 +28,18 @@ const sendResetpassEmail = (email, name, pass) => {
     })
 }
 
+// API send email feedback of user 
+const sendFeedbackEmail = (email, name, topic, message) => {
+    sgMail.send({
+        to: 'churuanho0.0@gmail.com',
+        from: 'recipewebapp.group10@gmail.com',
+        subject: `[${topic}] ${name} send you a feedback`,
+        text: `Email: ${email}\nMessage: ${message}`
+    })
+}
+
 module.exports = {
     sendWelcomeEmail,
-    sendResetpassEmail
+    sendResetpassEmail,
+    sendFeedbackEmail
 }
