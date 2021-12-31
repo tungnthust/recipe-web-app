@@ -2,11 +2,19 @@ import "./index.css";
 import { FaClock, FaStar } from "react-icons/fa";
 
 import React from "react";
+import { Link } from "react-router-dom";
+
 
 const RecipeItems = (props) => {
   const { id, title, description, author, difficulty, time } = props;
 
+  const recipeInfo = {
+    pathname: '/recipes/' + id,
+    id : id,
+  }
+
   return (
+
     <div className="col-md-4" key={id}>
       <div className="card-text-center">
         <div className="img-container">
@@ -43,6 +51,7 @@ const RecipeItems = (props) => {
         </div>
       </div>
     </div>
+
   );
 };
 

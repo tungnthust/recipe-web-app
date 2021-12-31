@@ -21,6 +21,8 @@ const SignInWithEmail = () => {
         if (res.status === 200) {
           localStorage.setItem("token", resData["token"]);
           localStorage.setItem("email", email);
+          localStorage.setItem("username", resData["user"]["username"]);
+          // window.location.reload();
         }
       }
       return resData;
