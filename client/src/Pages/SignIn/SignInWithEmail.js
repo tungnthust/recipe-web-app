@@ -5,42 +5,40 @@ import axios from 'axios';
 
 const API = "http://localhost:4000";
 
-const SignIn = () => {
-  const [username, setUsername] = useState("");
+const SignInWithEmail = () => {
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = async (user) => {
     user.preventDefault();
-    console.log(username);
-    console.log(password);
     try {
       const res = await axios.post(API + "/users/login", {
-        username: username,
+        username: email,
         password: password,
       });
       let resData = res.data;
       if (res.data != null) {
         if (res.status === 200) {
           localStorage.setItem("token", resData["token"]);
-          localStorage.setItem("username", username);
+          localStorage.setItem("email", email);
         }
       }
       return resData;
     } catch (err) {
-      window.alert("username or Password not correct!");
+      window.alert("Email or Password not correct!");
     }
   };
   return (
     <section className="login">
       <form className="formContainer" onSubmit={(e) => handleLogin(e)}>
-        <h1>Sign In</h1>
-        <label>Username</label>
+        <h1>Sign In With Email</h1>
+        <label>Email</label>
         <input
-          type="username"
+          type="email"
           autoFocus
           required
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <label>Password</label>
         <input
@@ -61,4 +59,4 @@ const SignIn = () => {
     </section>
   );
 };
-export default SignIn;
+export default SignInWithEmail;

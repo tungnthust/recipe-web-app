@@ -1,11 +1,9 @@
 import React from "react";
 import './author.css';
 
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import Navbar1 from '../../../Components/Navbar1';
-import Navbar2 from '../../../Components/Navbar2';
-import Footer from '../../../Components/Footer';
-// import { Collapse, Card } from 'bootstrap-4-react';
+import Navbar1 from "../../../Components/Navbar1";
+import Navbar2 from "../../../Components/Navbar2";
+import Footer from "../../../Components/Footer";
 import {Button} from "@material-ui/core";
 import { FaHeart, FaCalendar, FaBook}  from 'react-icons/fa';
 
