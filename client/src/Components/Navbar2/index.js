@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import './index.css';
-
+import {FaBars} from 'react-icons/fa'
 
 const Navbar2 = () =>{
     const [show, setShow] = useState(false);
@@ -42,8 +42,7 @@ const Navbar2 = () =>{
         <nav class={ effect ? navbarClasses + ' scrolled' : navbarClasses}>
             <div class="container">
                 <button class="navbar-toggler button-white-menu collapsed"  data-toggle="collapse" data-target="#navbarSupportedContent">
-                        <span class="sr-only">Toggle navigation</span>
-                        <i class ="fa fa-bars fa-3x"></i>
+                        <FaBars class='menu-icon'/>                        
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
@@ -51,7 +50,7 @@ const Navbar2 = () =>{
                             <a class="nav-link" href="/">Home</a>
                         </li>
                         <li class="nav-item" active>
-                            <a class="nav-link" href="/generalrecipes">Recipes</a>
+                            <a class="nav-link" href="/recipes">Recipes</a>
                         </li>
                         <li class="nav-item" active>
                             <a class="nav-link" href="/members">Members</a>

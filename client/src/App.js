@@ -6,11 +6,10 @@ import HomePage from './Pages/HomePage';
 
 import ContactPage from './Pages/Contact';
 import GeneralRecipes from './Pages/Recipe/GeneralRecipes';
-import RecipeItem from './Pages/RecipeItem';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SubmitPage from './Pages/Submit';
 import MembersPage from './Pages/MemberPage';
-import AuthorPage from './Pages/MemberPage/Author';
+import AuthorPage from './Pages/MemberPage/Author/index';
 
 function App() {
   return (
@@ -21,14 +20,15 @@ function App() {
         <Route path='/signup' element={<SignUpPage/>}/>
         <Route path='/recover' element={<RecoverPage/>}/>
         <Route path='/recipes' element={<GeneralRecipes/>}/>
+        <Route path='/recipes/kv' element={<GeneralRecipes filter="kv"/>}/>
+        <Route path='/recipes/mc' element={<GeneralRecipes filter="mc"/>}/>
+        <Route path='/recipes/tm' element={<GeneralRecipes filter="tm"/>}/>
         <Route path='/contact' element={<ContactPage/>}/>
         <Route path='/submit' element={<SubmitPage/>}/>
         <Route path='/members' element={<MembersPage/>}/>
-          <Route path='/members/author1' element={<AuthorPage/>}/>
+        <Route path='/members/author1' element={<AuthorPage/>}/>
       </Routes>
     </Router>
-  
-
   );
 }
 

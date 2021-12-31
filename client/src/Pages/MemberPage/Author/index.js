@@ -2,10 +2,11 @@ import React from "react";
 import './author.css';
 
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import Navbar1 from '../../Components/Navbar1';
-import Navbar2 from '../../Components/Navbar2';
-import Footer from '../../Components/Footer';
-import { Collapse, Card } from 'bootstrap-4-react';
+import Navbar1 from '../../../Components/Navbar1';
+import Navbar2 from '../../../Components/Navbar2';
+import Footer from '../../../Components/Footer';
+// import { Collapse, Card } from 'bootstrap-4-react';
+import {Button} from "@material-ui/core";
 import { FaHeart, FaCalendar, FaBook}  from 'react-icons/fa';
 
 
@@ -23,7 +24,7 @@ const AuthorPage = () =>{
                         <div className="white-block" >
                             <div className="my-sidebar">
                                 <div className="my-avatar">
-                                    <img src= 'https://nhatbanonline.net/wp-content/uploads/2020/02/co-4-la-may-man-3.jpg' width="150" height="150" alt="Avatar" className="avatar"></img>
+                                    <img src= 'https://nhatbanonline.net/wp-content/uploads/2020/02/co-4-la-may-man-3.jpg' width="150" height="150" alt="Avatar"></img>
                                     <h4>Hoang Thuy Ha</h4>
                                     <ul className="list-unstyled list-inline post-share"></ul>
                                 </div>
@@ -59,51 +60,53 @@ const AuthorPage = () =>{
                     
                     
                         <div className="col-sm-9" >
-                            {/* <ul className="nav nav-tabs" role="tablist">
-                                                <li role="presentation" active>
-                                                    <a href="#tab_about" role="tab" data-toggle="tab">About Author</a>
-                                                </li>
-                                                <li role="presentation">
-                                                    <a href="#tab_recipies" role="tab" data-toggle="tab">Author Recipes</a>
-                                                </li>
-                                                <li role="presentation">
-                                                    <a href="#tab_fav_recipies" role="tab" data-toggle="tab">Favourited Recipes</a>
-                                                </li>
-                            </ul> */}
+                            
 
-                            <div id="accordionExample" className="right-part">
-                                <Card>
-                                    <Card.Header mb="0">
-                                        <Collapse.Button link target="#collapseOne" id="headingOne" aria-expanded="true" className="collapse-button">
-                                        About Author
-                                        </Collapse.Button>
-                                    </Card.Header>
-                                    <Collapse id="collapseOne" show aria-labelledby="headingOne" data-parent="#accordionExample">
-                                        <Card.Body>
-                                         To la ha beo, an nhieu nhat day
-                                        </Card.Body>
-                                    </Collapse>
-                                </Card>
+                            <div class="accordion" id="accordionExample" className="right-part">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    About Author 
+                                    </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body" className='changeInforCon'>
+                                        
+                                        <div className="changeInfor">
+                                                <h2 >Change Infor</h2>
+                                                <hr/>
+                                                <label>New Name</label>
+                                                <input/>
+                                                <label>New Email</label>
+                                                <input/>
+                                                <label>New Avatar</label>
+                                                <input type="file" id="myFile" name="filename"></input>
+                                                {/* <input/> */}
 
-                                <Card>
-                                    <Card.Header mb="0">
-                                        <Collapse.Button link target="#collapseTwo" id="headingTwo" aria-expanded="false" className="collapse-button">
+                                                <div className="btnChange">
+                                                    <Button type='submit' variant='contained' color="primary">Change</Button>
+                                                </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                         About Recipes
-                                        </Collapse.Button>
-                                    </Card.Header>
-                                    <Collapse id="collapseTwo" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                                        <Card.Body>
-
-                                        <div className="white-block2">
+                                    </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                    <div className="white-block2">
                                             <div className="content-inner">
                                                 <h4 className="no-top-margin">ha's recipes</h4>
                                                 <hr/>
-                                                {/* <p className="pretable-loading">Loading...</p> */}
                                                 <div className="bt-table">
                                                     <div className="boostrap-table">
                                                         <div className="fixed-table-toolbar">
                                                             <div className="pull-left-search">
-                                                                {/* add it to input onChange={this.handleChangeRecipeTitle} */}
                                                                 <input className="form-control" type="text"  placeholder="Search for Recipes..."></input>
                                                             </div>
                                                         </div>
@@ -185,32 +188,27 @@ const AuthorPage = () =>{
                                                 <div className="clearfix"></div> 
                                                 </div>
                                             </div>
+                                    </div>                                    
                                     </div>
-                                
+                                    </div>
+                                </div>
 
-                                        </Card.Body>
-                                    </Collapse>
-                                </Card>
-
-                                <Card>
-                                    <Card.Header mb="0">
-                                        <Collapse.Button link target="#collapseThree" id="headingThree" aria-expanded="false"  className="collapse-button">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                         Favourited Recipes
-                                        </Collapse.Button>
-                                    </Card.Header>
-                                    <Collapse id="collapseThree" aria-labelledby="headingThree" data-parent="#accordionExample">
-                                        <Card.Body>
-                                            
-                                            <div className="white-block2">
+                                    </button>
+                                    </h2>
+                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                    <div className="white-block2">
                                                 <div className="content-inner">
                                                     <h4 className="no-top-margin">ha's favorite recipes</h4>
                                                     <hr/>
-                                                    {/* <p className="pretable-loading">Loading...</p> */}
                                                     <div className="bt-table">
                                                         <div className="boostrap-table">
                                                             <div className="fixed-table-toolbar">
                                                                 <div className="pull-left-search">
-                                                                    {/* add it to input onChange={this.handleChangeRecipeTitle} */}
                                                                     <input className="form-control" type="text"  placeholder="Search for Recipes..."></input>
                                                                 </div>
                                                             </div>
@@ -293,11 +291,18 @@ const AuthorPage = () =>{
                                                         <div className="clearfix"></div> 
                                                     </div>
                                                 </div>
-                                            </div>                                            
-                                        </Card.Body>
-                                    </Collapse>
-                                </Card>
-                            </div>
+                                            </div>                                    
+
+                                    </div>
+                                    </div>
+                                </div> 
+                            </div>  
+
+                            
+
+                                                     
+
+                            
 
                         </div>
 
