@@ -228,7 +228,7 @@ const Recipe = (props) => {
                   description={item.description}
                   author={item.author.name}
                   difficulty={item.difficulty}
-                  time={item.cooktime}
+                  time={item.cookTime}
                 />
               ))}
             </div>
