@@ -2,26 +2,37 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import './index.css';
 
-const MemberItem = ({ image, author, joinDate, recipeWrote }) =>{
-    
+const MemberItem = ({id, avatar, name, time, own_recipes }) =>{
+    // const path = '/members/'+{id}.id;
+    const memberInfor = {
+        pathname: '/members/'+{id}.id,
+        // id:this.props.id,
+        // recipesID:this.props.recipes,
+        // avatar:this.props.avatar,
+        // fullname:this.props.fullname,
+        // username:this.props.username,
+        // recipes:this.props.recipes,
+        // favouritedRecipes:this.props.favouritedRecipes,
+        // date:this.props.date
+    };
     
     return(
     <div className="col">
         <div className="white-block member-block">
             
-            <Link to='/members/author1' className="member-avatar">
-                <img src={image}  width="150" height="150" alt="Avatar" ></img>
+            <Link to={memberInfor} className="member-avatar">
+                <img src={avatar}  width="150" height="150" alt="Avatar" ></img>
             </Link>
 
             <div className="member-holder">
-                <Link to='/members/author1' className="blog-title">
+                <Link to={memberInfor} className="blog-title">
                     <h5>
-                        {author}
+                        {name}
                     </h5>
                 </Link>
                 <ul >
-                    <li> Joined in:   {joinDate}</li>
-                    <li>Wrote: {recipeWrote} recipes</li>
+                    <li> Joined in:   {time}</li>
+                    <li>Wrote: {own_recipes.length} recipes</li>
                 </ul>
             </div>
         </div>
