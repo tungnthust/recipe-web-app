@@ -1,26 +1,24 @@
 import { React,useState } from "react";
 import {Button} from "@material-ui/core";
 import './index.css';
+import axios from 'axios';
 
 const API = "http://localhost:4000";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
-  const [showCheckEmailMessage, setShowCheckEmailMessage] = useState(false);
   const [password, setPassword] = useState("");
-  const [showCheckPasswordMessage, setShowCheckPasswordMessage] =
-    useState(false);
 
   const handleLogin = async (user) => {
     user.preventDefault();
     try {
       const res = await axios.post(API + "/api_token_auth/", {
-        username: user.email,
-        password: user.password,
+        username: email,
+        password: password,
       });
       let resData = res.data;
       if (res.data != null) {
-        if (res.status == 200) {
+        if (res.status === 200) {
           localStorage.setItem("token", resData["token"]);
           localStorage.setItem("email", user.email);
         }

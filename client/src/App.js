@@ -20,6 +20,9 @@ function App() {
         <Route path='/signup' element={<SignUpPage/>}/>
         <Route path='/recover' element={<RecoverPage/>}/>
         <Route path='/recipes' element={<GeneralRecipes/>}/>
+        <Route path='/recipes/kv' element={<GeneralRecipes filter="kv"/>}/>
+        <Route path='/recipes/mc' element={<GeneralRecipes filter="mc"/>}/>
+        <Route path='/recipes/tm' element={<GeneralRecipes filter="tm"/>}/>
         <Route path='/contact' element={<ContactPage/>}/>
         <Route path='/submit' element={<SubmitPage/>}/>
         <Route path='/members' element={<MembersPage/>}/>

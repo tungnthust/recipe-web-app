@@ -2,18 +2,20 @@ const express = require('express')
 const User = require('../models/user')
 const router = new express.Router()
 const auth = require('../middleware/auth')
+const { sendWelcomeEmail, sendResetpassEmail } = require('../emails/account')
 
 router.post('/users', async (req, res) => {
     const user = new User(req.body)
 
     try {
         await user.save()
+        sendWelcomeEmail(user.email, user.name)
         res.status(201).send({user})
     } catch(e){
         res.status(400).send(e)
     }
 })
-
+ 
 
 
 router.post('/users/login', async (req, res) => {
@@ -23,6 +25,19 @@ router.post('/users/login', async (req, res) => {
         res.status(200).send({ user, token })
     } catch (e) {
         res.status(400).send(e)
+    }
+})
+
+router.post('/users/resetpass', async (req, res) => {
+    try {
+        var user = await User.findOne({email : req.body.email})
+        var randomstring = Math.random().toString(36).slice(-8);
+        user.password = randomstring
+        sendResetpassEmail(user.email, user.username, randomstring)
+        await user.save()
+        res.send(user)
+    } catch (e) {
+        res.status(400).send()
     }
 })
 
