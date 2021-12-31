@@ -214,8 +214,26 @@ const Recipe = (props) => {
             )
           }
         </Media>
-        {/* <RecipeItems list_items={recipes}/> */}
-        {recipes.map((item)=>console.log(item))}
+
+        <section id="recipeItems">
+          <div class="container">
+            <div class="title">
+              <h1>Recipes </h1>
+            </div>
+            <div class="row">
+              {recipes.map((item) => (
+                <RecipeItems
+                  id={item._id}
+                  title={item.title}
+                  description={item.description}
+                  author={item.author.name}
+                  difficulty={item.difficulty}
+                  time={item.cooktime}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
       </section>
       <Footer />
     </div>
