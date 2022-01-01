@@ -36,7 +36,7 @@ const AuthorPage = (props) =>{
           setMember(item);
           setArray1(item.own_recipes); 
           setArray2(item.favourited_recipes); 
-          console.log(item);
+          console.log(item.avatar);
         };
         getRecipe();
         console.log(member);
@@ -58,7 +58,7 @@ if (member !== undefined) {
                         <div className="white-block" >
                             <div className="my-sidebar">
                                 <div className="my-avatar">
-                                    <img src= {member.avatar} onError={(e)=>{e.target.onerror = null; e.target.src="https://nhatbanonline.net/wp-content/uploads/2020/02/co-4-la-may-man-3.jpg"}} width="150" height="150" alt="Avatar"></img>
+                                    <img src= {member.avatar} onError={(e)=>{e.target.onerror = null; e.target.style.display = 'none';e.target.src="https://nhatbanonline.net/wp-content/uploads/2020/02/co-4-la-may-man-3.jpg"}} width="150" height="150" alt="Avatar"></img>
                                     <h4>{member.name}</h4>
                                     <ul className="list-unstyled list-inline post-share"></ul>
                                 </div>
