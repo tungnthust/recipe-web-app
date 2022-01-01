@@ -93,8 +93,7 @@ const ChangeInforPage = (props) =>{
             //   window.alert('Change successful');
           }
         } catch(e) {
-        window.alert(e);
-          window.alert("Account duplicate!");
+          window.alert(e.response.data["message"]);
         }
         
       };
