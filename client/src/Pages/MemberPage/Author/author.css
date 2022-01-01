@@ -90,6 +90,12 @@
     background-color: green;
     border-radius: 3px;
 }
+/* .button-heart:focus{
+    width:30px;
+    height: 30px;
+    background-color: red;
+    border-radius: 3px;
+} */
 .button-heart:hover{
     background-color: #000;
 }

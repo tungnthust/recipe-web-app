@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const API = "http://localhost:4000";
 
-const SignInWithUsername = () => {
+const SignIn = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -60,4 +60,4 @@ const SignInWithUsername = () => {
     </section>
   );
 };
-export default SignInWithUsername;
+export default SignIn;

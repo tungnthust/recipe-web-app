@@ -18,16 +18,46 @@ const SubmitPage = () =>{
 
     const handleSubmit = async(Event) =>{
         Event.preventDefault();
-        await axios.post('http://localhost:4000/recipes',{
-            title: title,
-            description: description, 
-            ingredients: ingredient, 
-            category: category, 
-            steps: step, 
-            difficulty: difficulty,
-            image: image
-        })
+        const convertBase64 = (file) => {
+            return new Promise((resolve, reject) => {
+              const fileReader = new FileReader();
+              fileReader.readAsDataURL(file)
+              fileReader.onload = () => {
+                resolve(fileReader.result);
+              }
+              fileReader.onerror = (error) => {
+                reject(error);
+              }
+            })
+          }
+        const base64 = await convertBase64(image)
+        const API = "http://localhost:4000";
+        const token = localStorage.getItem("token");
+
+        const axiosInstance = axios.create({
+            baseURL: API,
+            timeout: 3000,
+            headers: {'Authorization': 'Bearer '+token}
+        });
+        const isLoggedIn = localStorage.getItem("token") != null ? localStorage.getItem("id") : null;
+        if(isLoggedIn === null){
+            alert("You must log in to add this recipe to favourited list");
+            window.location = '/signUp';
+        }
+        else {
+            await axiosInstance.post('http://localhost:4000/recipes',{
+                title: title,
+                description: description, 
+                ingredients: ingredient, 
+                category: category, 
+                steps: step, 
+                difficulty: difficulty,
+                image: base64
+            })
+            alert("SUbmit new recipe successfully");
+        }
     }
+
     return(
         <section className="submit">
             <Navbar1/>
