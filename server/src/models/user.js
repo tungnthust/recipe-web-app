@@ -61,7 +61,7 @@ const userSchema = new mongoose.Schema({
         ref: 'Recipe'
     }],
     avatar: {
-        type: Buffer
+        type: String
     }
 }, {
     timestamps: true
