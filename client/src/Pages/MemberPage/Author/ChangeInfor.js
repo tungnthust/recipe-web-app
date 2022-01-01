@@ -21,6 +21,8 @@ const ChangeInforPage = (props) =>{
     const[arrayOwnRecipes, setArray1] = useState([]);
     const[arrayFavoritedRecipes, setArray2] = useState([]);
     const [member, setMember] = useState({});
+    const [name, setName] = useState("");
+    const [avatar, setAvatar] = useState(null);
 
     const [filter, setFilter] = useState('');
 
@@ -43,6 +45,92 @@ const ChangeInforPage = (props) =>{
         // console.log(arrayOwnRecipes);
       }, []);
 
+      const handleChange = async (event) => {
+        event.preventDefault();
+        try {
+            const token = localStorage.getItem("token");
+
+            const axiosInstance = axios.create({
+            baseURL: API,
+            timeout: 3000,
+            headers: {'Authorization': 'Bearer '+token}
+        });
+            // const file = event.target.files[0]
+            // 
+            // console.log(base64)
+            
+
+            const convertBase64 = (file) => {
+                return new Promise((resolve, reject) => {
+                  const fileReader = new FileReader();
+                  fileReader.readAsDataURL(file)
+                  fileReader.onload = () => {
+                    resolve(fileReader.result);
+                  }
+                  fileReader.onerror = (error) => {
+                    reject(error);
+                  }
+                })
+              }
+              
+            const base64 = await convertBase64(avatar)
+            // var avatar = base64.toString().split(",")[1];
+            console.log(base64)
+
+          const res = await axiosInstance.patch("http://localhost:4000/members/"+ id, {
+            
+            name: name,
+            avatar: base64,
+            
+          });
+         
+          let resData = res.data;
+          
+
+          console.log(resData);
+          if(resData!==null){
+              window.alert('Change successful');
+          }
+        } catch(e) {
+        window.alert(e);
+          window.alert("Account duplicate!");
+        }
+      };
+
+      const onClickHeart = () => {
+        const token = localStorage.getItem("token");
+
+        const axiosInstance = axios.create({
+            baseURL: API,
+            timeout: 3000,
+            headers: {'Authorization': 'Bearer '+token}
+        });
+        const isLoggedIn = localStorage.getItem("token") != null ? localStorage.getItem("id") : null;
+        if(isLoggedIn === null){
+            alert("You must log in to add this recipe to favourited list");
+            window.location = '/signUp';
+        }
+        else {
+            // alert("Come in");
+            // const checkLike = async () => {
+            //     const res = await axios.get(API + '/recipes/isliked/' + localStorage.getItem("id"));
+            //     setIsLike(res.data)
+            // };
+
+            const postLike = async () => {
+               const res = await axiosInstance.post(API + '/recipes/like/' + id);
+                if ( res.data === null ){
+                    alert("SOME THING IS WRONG!!!");
+                }
+                else{
+                    alert("Add to favorite recipes successfully");
+                }
+            }
+            // checkLike();
+            // console.log(isLiked);
+            postLike();
+        }
+    }
     
 if (member !== undefined) {
     return(
@@ -57,8 +145,10 @@ if (member !== undefined) {
                     <div className="row">
                         <div className="white-block" >
                             <div className="my-sidebar">
-                                <div className="my-avatar">
-                                    <img src= {member.avatar} onError={(e)=>{e.target.onerror = null; e.target.style.display = 'none';e.target.src="https://nhatbanonline.net/wp-content/uploads/2020/02/co-4-la-may-man-3.jpg"}} width="150" height="150" alt="Avatar"></img>
+                                <div className="my-avatar" >
+                                {console.log(member.avatar)}
+                                    <img src={`${member.avatar}`} />
+                                    {/* <img src= {member.avatar} onError={(e)=>{e.target.onerror = null; e.target.style.display = 'none';e.target.src="https://nhatbanonline.net/wp-content/uploads/2020/02/co-4-la-may-man-3.jpg"}} width="150" height="150" alt="Avatar"></img> */}
                                     <h4>{member.name}</h4>
                                     <ul className="list-unstyled list-inline post-share"></ul>
                                 </div>
@@ -81,7 +171,7 @@ if (member !== undefined) {
                                                             <li>
                                                                 <div href="/" className="clearfix">
                                                                     <i className="fa-heart"><FaHeart/></i>
-                                                                    Favourited Recipes 
+                                                                    Favourited Number
                                                                     <span className="right-value"> {member.numOfFavourite}</span>
                                                                 </div>
                                                             </li>
@@ -107,19 +197,20 @@ if (member !== undefined) {
                                     <div class="accordion-body" className='changeInforCon'>
                                         
                                         <div className="changeInfor">
+                                            <form onSubmit={(e) => handleChange(e)}>
                                                 <h2 >Change Infor</h2>
                                                 <hr/>
-                                                <label>New Email</label>
-                                                <input/>
-                                                {/* <label>Recipes wrote: {arrayOwnRecipes.length}</label> */}
+                                                <label>New Name</label>
+                                                <input  onChange={(e) => setName(e.target.value)}/>
+                                                <label>New Avatar</label>
 
-                                                <hr/>
-                                                {/* <input type="file" id="myFile" name="filename"></input> */}
-                                                {/* <input/> */}
+                                                <input type="file" id="myFile" name="filename" onChange={(e) => setAvatar(e.target.files[0])}></input>
 
-                                                {/* <div className="btnChange">
+                                                <div className="btnChange">
                                                     <Button type='submit' variant='contained' color="primary">Change</Button>
-                                                </div> */}
+                                                </div>
+                                            </form>
+                                                
                                         </div>
                                     </div>
                                     </div>
@@ -167,10 +258,10 @@ if (member !== undefined) {
                                                                                 <div className="th-inner">Difficulty</div>
                                                                                 <div className="fht-cell"></div>
                                                                             </th>
-                                                                            <th>
+                                                                            {/* <th>
                                                                                 <div className="th-inner"></div>
                                                                                 <div className="fht-cell"></div>
-                                                                            </th>
+                                                                            </th> */}
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody >
@@ -209,14 +300,14 @@ if (member !== undefined) {
                                                                                         <div className="fht-cell"></div>
                                                                                     </th>
                                                                                     
-                                                                                    <th>
-                                                                                        <button class="button-heart">
+                                                                                    {/* <th>
+                                                                                        <button class="button-heart" onClick={onClickHeart}>
                                                                                             <i className="icon-heart" aria-hidden="true"><FaHeart/></i>
 
                                                                                         </button>
                                                                                         <div className="fht-cell"></div>
                                                                                         
-                                                                                    </th>
+                                                                                    </th> */}
                                                                                     
                                                                                 
                                                                                 </tr>
@@ -279,10 +370,10 @@ if (member !== undefined) {
                                                                                     <div className="th-inner">Difficulty</div>
                                                                                     <div className="fht-cell"></div>
                                                                                 </th>
-                                                                                <th>
+                                                                                {/* <th>
                                                                                     <div className="th-inner"></div>
                                                                                     <div className="fht-cell"></div>
-                                                                                </th>
+                                                                                </th> */}
                                                                             </tr>
                                                                         </thead>
 
@@ -323,14 +414,14 @@ if (member !== undefined) {
                                                                                                 <div className="fht-cell"></div>
                                                                                             </th>
                                                                                             
-                                                                                            <th>
+                                                                                            {/* <th>
                                                                                                 <button class="button-heart">
                                                                                                     <i className="icon-heart" aria-hidden="true"><FaHeart/></i>
 
                                                                                                 </button>
                                                                                                 <div className="fht-cell"></div>
                                                                                                 
-                                                                                            </th>
+                                                                                            </th> */}
                                                                                             
                                                                                         
                                                                                         </tr>                     

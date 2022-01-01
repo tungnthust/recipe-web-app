@@ -81,7 +81,7 @@ if (member !== undefined) {
                                                             <li>
                                                                 <div href="/" className="clearfix">
                                                                     <i className="fa-heart"><FaHeart/></i>
-                                                                    Favourited Recipes 
+                                                                    Favourited Number 
                                                                     <span className="right-value"> {member.numOfFavourite}</span>
                                                                 </div>
                                                             </li>
@@ -167,10 +167,10 @@ if (member !== undefined) {
                                                                                 <div className="th-inner">Difficulty</div>
                                                                                 <div className="fht-cell"></div>
                                                                             </th>
-                                                                            <th>
+                                                                            {/* <th>
                                                                                 <div className="th-inner"></div>
                                                                                 <div className="fht-cell"></div>
-                                                                            </th>
+                                                                            </th> */}
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody >
@@ -209,14 +209,14 @@ if (member !== undefined) {
                                                                                         <div className="fht-cell"></div>
                                                                                     </th>
                                                                                     
-                                                                                    <th>
+                                                                                    {/* <th>
                                                                                         <button class="button-heart">
                                                                                             <i className="icon-heart" aria-hidden="true"><FaHeart/></i>
 
                                                                                         </button>
                                                                                         <div className="fht-cell"></div>
                                                                                         
-                                                                                    </th>
+                                                                                    </th> */}
                                                                                     
                                                                                 
                                                                                 </tr>
@@ -279,10 +279,10 @@ if (member !== undefined) {
                                                                                     <div className="th-inner">Difficulty</div>
                                                                                     <div className="fht-cell"></div>
                                                                                 </th>
-                                                                                <th>
+                                                                                {/* <th>
                                                                                     <div className="th-inner"></div>
                                                                                     <div className="fht-cell"></div>
-                                                                                </th>
+                                                                                </th> */}
                                                                             </tr>
                                                                         </thead>
 
@@ -323,14 +323,14 @@ if (member !== undefined) {
                                                                                                 <div className="fht-cell"></div>
                                                                                             </th>
                                                                                             
-                                                                                            <th>
+                                                                                            {/* <th>
                                                                                                 <button class="button-heart">
                                                                                                     <i className="icon-heart" aria-hidden="true"><FaHeart/></i>
 
                                                                                                 </button>
                                                                                                 <div className="fht-cell"></div>
                                                                                                 
-                                                                                            </th>
+                                                                                            </th> */}
                                                                                             
                                                                                         
                                                                                         </tr>                     
