@@ -18,6 +18,19 @@ const SubmitPage = () =>{
 
     const handleSubmit = async(Event) =>{
         Event.preventDefault();
+        const convertBase64 = (file) => {
+            return new Promise((resolve, reject) => {
+              const fileReader = new FileReader();
+              fileReader.readAsDataURL(file)
+              fileReader.onload = () => {
+                resolve(fileReader.result);
+              }
+              fileReader.onerror = (error) => {
+                reject(error);
+              }
+            })
+          }
+        const base64 = await convertBase64(image)
         const API = "http://localhost:4000";
         const token = localStorage.getItem("token");
 
@@ -39,7 +52,7 @@ const SubmitPage = () =>{
                 category: category, 
                 steps: step, 
                 difficulty: difficulty,
-                image: image
+                image: base64
             })
             alert("SUbmit new recipe successfully");
         }

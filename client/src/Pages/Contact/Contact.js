@@ -1,8 +1,32 @@
 import { React,useState } from "react";
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../../../node_modules/bootstrap/dist/js/bootstrap.min.js';
+import axios from 'axios';
+
+const API = "http://localhost:4000";
 
 const Contact = () =>{
+    const [email, setEmail] = useState("");
+    const [name, setName] = useState("");
+    const [topic,setTopic] = useState("");
+    const [message, setMessage] = useState("");
+    const submitContact = async (user) => {
+        user.preventDefault();
+        try {
+            const res = await axios.post(API + "/contact", {
+            name: name,
+            topic: topic,
+            email: email,
+            message: message
+            });
+            if (res.status === 200) {
+                window.alert("We received your feedback and will get back to you soon!")
+                window.location.reload();
+            }
+        } catch (err) {
+            window.alert("Sorry, something went wrong and we cannot receive your feedback!");
+        }
+        };
 
     return(
         <section className="contact-container">
@@ -15,18 +39,21 @@ const Contact = () =>{
                         <div className="contact" class="jumbotron well">
                             <h3 className="contact__title">Contact us</h3>
                             <hr/>
-                            <form>
+                            <form onSubmit={(e) => submitContact(e)}>
                             <div class="form-group">
                                 <label for="Name">Your name</label>
-                                <input type="email" class="form-control" id="Name" placeholder="" />
+                                <input class="form-control" value={name} 
+                                    required onChange={(e) => setName(e.target.value)}id="Name" placeholder="" />
                             </div>
                             <div class="form-group">
                                 <label for="emailAddress">Email address</label>
-                                <input type="email" class="form-control" id="emailAddress" placeholder="name@example.com" />
+                                <input type="email" class="form-control" id="emailAddress" value={email} 
+                                    required onChange={(e) => setEmail(e.target.value)} placeholder="name@example.com" />
                             </div>
                             <div class="form-group">
                                 <label for="topic">Topics</label>
-                                <select id="topic" class="form-select">
+                                <select id="topic" class="form-select" value={topic} 
+                                    required onChange={(e) => setTopic(e.target.value)}>
                                     <option selected>Choose...</option>
                                     <option>Accounts</option>
                                     <option>Recipes</option>
@@ -35,11 +62,12 @@ const Contact = () =>{
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="message">Your message</label>
-                                <textarea class="form-control" id="message" rows="3" placeholder="Just put some of your thought here"></textarea>
+                                <label for="message" >Your message</label>
+                                <textarea class="form-control" id="message" rows="3" value={message} 
+                                    required onChange={(e) => setMessage(e.target.value)} placeholder="Just put some of your thought here"></textarea>
                             </div>
                             
-                            <button type="button" class="btn btn-success mt-3">Send</button>
+                            <button type="submit" class="btn btn-success mt-3">Send</button>
                             </form>
                         </div>
                     </div>
