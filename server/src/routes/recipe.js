@@ -89,6 +89,9 @@ router.post('/recipes', auth, async (req, res) => {
         ...recipeData,
         author: req.user._id
     })
+    req.user.numOfRecipes += 1
+    await req.user.save()
+
     try {
         await recipe.save()
         res.status(201).send(recipe)
@@ -219,7 +222,8 @@ router.delete('/recipes/:id', auth, async (req, res) => {
         }
 
         recipe.remove()
-
+        req.user.numOfRecipes -= 1
+        await req.user.save()
         res.send(recipe)
         
     } catch (error) {
@@ -259,6 +263,31 @@ router.post('/recipes/like/:id', auth, async (req, res) => {
         await recipe.save()
 
         res.send(recipe)
+        
+    } catch (error) {
+        res.status(500).send(error)
+    }
+
+})
+
+router.get('/recipes/isliked/:id', auth, async (req, res) => {
+    const _id = req.params.id
+
+    try {
+        let recipe = await Recipe.findById(_id)
+
+        if (!recipe) {
+            return res.status(404).send("Recipe does not exist.")
+        }
+
+        let user = req.user
+        const userFavouritedRecipes = user.favourited_recipes
+        let isLiked = false
+        if (userFavouritedRecipes.includes(_id)) {
+            isLiked = true
+        }
+        
+        res.send({isLiked})
         
     } catch (error) {
         res.status(500).send(error)
