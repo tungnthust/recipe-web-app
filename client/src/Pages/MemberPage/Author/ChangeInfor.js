@@ -1,14 +1,16 @@
 import React from "react";
 import './author.css';
 
-import Navbar1 from "../../../Components/Navbar1";
-import Navbar2 from "../../../Components/Navbar2";
-import Footer from "../../../Components/Footer";
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import Navbar1 from '../../../Components/Navbar1';
+import Navbar2 from '../../../Components/Navbar2';
+import Footer from '../../../Components/Footer';
+// import { Collapse, Card } from 'bootstrap-4-react';
 import {Button} from "@material-ui/core";
 import { FaHeart, FaCalendar, FaBook}  from 'react-icons/fa';
 
 
-const AuthorPage = (props) =>{
+const ChangeInforPage = () =>{
     return(
         <div className = "author">
             
@@ -23,7 +25,7 @@ const AuthorPage = (props) =>{
                             <div className="my-sidebar">
                                 <div className="my-avatar">
                                     <img src= 'https://nhatbanonline.net/wp-content/uploads/2020/02/co-4-la-may-man-3.jpg' width="150" height="150" alt="Avatar"></img>
-                                    <h4>{props.id}</h4>
+                                    <h4>Hoang Thuy Ha</h4>
                                     <ul className="list-unstyled list-inline post-share"></ul>
                                 </div>
 
@@ -71,19 +73,17 @@ const AuthorPage = (props) =>{
                                     <div class="accordion-body" className='changeInforCon'>
                                         
                                         <div className="changeInfor">
-                                                {/* <h2 >Change Infor</h2> */}
+                                                <h2 >Change Infor</h2>
                                                 <hr/>
-                                                <label>Email</label>
-                                                {/* <input/> */}
-                                                <label>Recipes wrote: 3</label>
-
-                                                <hr/>
-                                                {/* <input type="file" id="myFile" name="filename"></input> */}
+                                                <label>New Name</label>
+                                                <input/>
+                                                <label>New Avatar</label>
+                                                <input type="file" id="myFile" name="filename"></input>
                                                 {/* <input/> */}
 
-                                                {/* <div className="btnChange">
+                                                <div className="btnChange">
                                                     <Button type='submit' variant='contained' color="primary">Change</Button>
-                                                </div> */}
+                                                </div>
                                         </div>
                                     </div>
                                     </div>
@@ -316,4 +316,4 @@ const AuthorPage = (props) =>{
     )
 }
 
-export default AuthorPage;
+export default ChangeInforPage;

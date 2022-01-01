@@ -1,0 +1,25 @@
+.navbar.navbar-inverse {
+border: none;
+}
+.navbar .navbar-brand {
+padding-top: 7px;
+}
+.navbar .navbar-brand img {
+height: 50px;
+}
+
+.logo-text{
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    /* padding: 0 1rem; */
+    padding-top: 10px;
+
+    height: 100%;
+    cursor: pointer;
+    
+    font-size: 25px;
+    font-family: "Pacifico", cursive;
+    color: white;
+}

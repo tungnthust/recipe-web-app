@@ -5,40 +5,41 @@ import axios from 'axios';
 
 const API = "http://localhost:4000";
 
-const SignIn = () => {
-  const [email, setEmail] = useState("");
+const SignInWithUsername = () => {
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = async (user) => {
     user.preventDefault();
     try {
-      const res = await axios.post(API + "/api_token_auth/", {
-        username: email,
+      const res = await axios.post(API + "/users/login", {
+        username: username,
         password: password,
       });
       let resData = res.data;
       if (res.data != null) {
         if (res.status === 200) {
           localStorage.setItem("token", resData["token"]);
-          localStorage.setItem("email", user.email);
+          localStorage.setItem("username", resData["user"]["username"]);
+          localStorage.setItem("id", resData["user"]["_id"]);
+          window.location.reload();
         }
       }
-      return resData;
     } catch (err) {
-      window.alert("Email or Password not correct!");
+      window.alert("Username or Password not correct!");
     }
   };
   return (
     <section className="login">
       <form className="formContainer" onSubmit={(e) => handleLogin(e)}>
-        <h1>Sign In</h1>
-        <label>Email</label>
+        <h1>Sign In With Username</h1>
+        <label>Username</label>
         <input
-          type="email"
+          type="username"
           autoFocus
           required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
         />
         <label>Password</label>
         <input
@@ -59,4 +60,4 @@ const SignIn = () => {
     </section>
   );
 };
-export default SignIn;
+export default SignInWithUsername;
