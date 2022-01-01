@@ -116,8 +116,7 @@ if (member !== undefined) {
                             <div className="my-sidebar">
                                 <div className="my-avatar" >
                                 {console.log(member.avatar)}
-                                    <img src={`${member.avatar}`} width="150" height="150" alt="Avatar"/>
-                                    {/* <img src= {member.avatar} onError={(e)=>{e.target.onerror = null; e.target.style.display = 'none';e.target.src="https://nhatbanonline.net/wp-content/uploads/2020/02/co-4-la-may-man-3.jpg"}} width="150" height="150" alt="Avatar"></img> */}
+                                    <img src={`${member.avatar}`} onError={(e)=>{e.target.onerror = null; e.target.src="https://as2.ftcdn.net/v2/jpg/03/49/49/79/1000_F_349497933_Ly4im8BDmHLaLzgyKg2f2yZOvJjBtlw5.jpg"}} width="150" height="150" alt="Avatar"/>
                                     <h4>{member.name}</h4>
                                     <ul className="list-unstyled list-inline post-share"></ul>
                                 </div>
