@@ -22,6 +22,7 @@ const SignUp = () => {
       if(resData!==null){
           window.alert('Register successful');
       }
+      window.location.assign("/signin");
     } catch {
       window.alert("Account duplicate!");
     }
