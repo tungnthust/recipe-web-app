@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const API = "http://localhost:4000";
 
-const SignInWithUsername = () => {
+const SignIn = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -20,7 +20,7 @@ const SignInWithUsername = () => {
       if (res.data != null) {
         if (res.status === 200) {
           localStorage.setItem("token", resData["token"]);
-          localStorage.setItem("username", username);
+          localStorage.setItem("username", resData["user"]["username"]);
           localStorage.setItem("id", resData["user"]["_id"]);
           window.location.reload();
         }
@@ -60,4 +60,4 @@ const SignInWithUsername = () => {
     </section>
   );
 };
-export default SignInWithUsername;
+export default SignIn;

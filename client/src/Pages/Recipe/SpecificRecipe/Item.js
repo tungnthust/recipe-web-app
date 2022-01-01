@@ -5,18 +5,26 @@ import IconButton from '@material-ui/core/IconButton';
 import './index.css';
 import axios from 'axios'
 import moment from 'moment'
+import { Button } from "@material-ui/core";
 
 const API = "http://localhost:4000";
 
 const Item = (props) => {
-    const {id} = props;
+  const { id } = props;
+  const [recipe, setRecipe] = useState();
+  useEffect(() => {
+    const getRecipe = async () => {
+      const res = await axios.get(API + "/recipes/" + id);
+      setRecipe(res.data);
+    };
+    getRecipe();
+  }, []);
 
-    const [recipe, setRecipe] = useState({});
     const [ingredients, setIngredient] = useState([]);
     const [steps, setSteps] = useState([]);
     const [comments, setComments] = useState([]);
     const [author, setAuthor] = useState({});
-    const [isLiked, setIsLike] = useState('');
+    const [checkLike, setCheckLike] = useState();
 
     const [image,setImage] = useState(null);
     const [comment,setComment] = useState('');
@@ -34,11 +42,6 @@ const Item = (props) => {
         getRecipe();
     }, [])
 
-    const checkLike = async (authorID) => {
-        const res = await axios.get(API + '/recipes/islikes' + authorID);
-        setIsLike(res.data)
-    };
-
     const onClickHeart = () => {
         const token = localStorage.getItem("token");
 
@@ -54,54 +57,105 @@ const Item = (props) => {
         }
         else {
             // alert("Come in");
-            // const checkLike = async () => {
-            //     const res = await axios.get(API + '/recipes/isliked/' + localStorage.getItem("id"));
-            //     setIsLike(res.data)
-            // };
+            const checkIsLike = async () => {
+                const res = await axiosInstance.get(API + '/recipes/isliked/' + id);
+                setCheckLike(!res.data.isLiked)
+                console.log(res.data.isLiked)
+            };
 
             const postLike = async () => {
+                checkIsLike();
                const res = await axiosInstance.post(API + '/recipes/like/' + id);
                 if ( res.data === null ){
                     alert("SOME THING IS WRONG!!!");
                 }
-                else{
-                    alert("Add to favorite recipes successfully");
-                }
+                // else{
+                //     if (checkLike) {
+                //         alert("Add to favorite recipes list successfully");
+                //     }
+                //     else {
+                //         alert("Remove from favorite recipes list successfully");
+                //     }
+                // }
             }
-            // checkLike();
-            // console.log(isLiked);
             postLike();
         }
     }
 
     const handleComment = async(Event) =>{
         Event.preventDefault();
-        const token = localStorage.getItem("token");
+        // const token = localStorage.getItem("token");
 
-        const axiosInstance = axios.create({
-            baseURL: API,
-            timeout: 3000,
-            headers: {'Authorization': 'Bearer '+token}
-        });
-        const isLoggedIn = localStorage.getItem("token") != null ? localStorage.getItem("id") : null;
+        // const axiosInstance = axios.create({
+        //     baseURL: API,
+        //     timeout: 3000,
+        //     headers: {'Authorization': 'Bearer '+token}
+        // });
+        // const isLoggedIn = localStorage.getItem("token") != null ? localStorage.getItem("id") : null;
         
-        if(isLoggedIn === null){
-            alert("You must log in to add this recipe to favourited list");
-            window.location = '/signUp';
-        }
-        else {
-            const res = await axiosInstance.post(API + '/recipes/comment/' + id , {
-                comment : comment,
-                image : image
-            })
-            if ( res.data === null ){
-                alert("SOME THING IS WRONG!!!");
-            }
-            else{
-                alert("Post comment successfully");
-            }
-        }
+        // if(isLoggedIn === null){
+        //     alert("You must log in to add this recipe to favourited list");
+        //     window.location = '/signUp';
+        // }
+        // else {
+        //     const res = await axiosInstance.post(API + '/recipes/comment/' + id , {
+        //         comment : comment,
+        //         image : image
+        //     })
+        //     if ( res.data === null ){
+        //         alert("SOME THING IS WRONG!!!");
+        //     }
+        //     else{
+        //         alert("Post comment successfully");
+        //     }
+        // }
+
+        setCheckComment(true);
     }
+
+
+
+    const [checkComment, setCheckComment] = useState(false);
+    useEffect ( () => {
+        const getComment = async () => {
+            if (checkComment) {
+                const token = localStorage.getItem("token");
+    
+                const axiosInstance = axios.create({
+                    baseURL: API,
+                    timeout: 3000,
+                    headers: {'Authorization': 'Bearer '+token}
+                });
+                const isLoggedIn = localStorage.getItem("token") != null ? localStorage.getItem("id") : null;
+                
+                if(isLoggedIn === null){
+                    alert("You must log in to add this recipe to favourited list");
+                    window.location = '/signUp';
+                }
+                else {
+                    const res = await axiosInstance.post(API + '/recipes/comment/' + id , {
+                        content : comment,
+                        image : image
+                    })
+                    if ( res.data === null ){
+                        alert("SOME THING IS WRONG!!!");
+                    }
+                    else{
+                        alert("Post comment successfully");
+                        setCheckComment(false);
+                       setComment('');
+                    }
+                }
+            }
+        }
+        const getRecipe = async () => {
+            const res = await axios.get(API + '/recipes/' + id);
+            setComments(res.data.comments);
+        };
+        getComment();
+        getRecipe();
+        console.log(comments);
+    }, [checkComment])
 
     const authorInfor = {
         pathname: '/members/'+author._id,
@@ -138,11 +192,10 @@ const Item = (props) => {
                                         </h4>
                                         <ul>
                                             {
-                                                ingredients.map(item => {
-                                                    console.log(item.ingredient.name)
+                                                ingredients.map((item, index) => {
                                                     return (
                                                         <div>
-                                                            <li className="list-style" >{item.ingredient.name} : {item.quantity} {item.quantityType}</li>
+                                                            <li className="list-style" key={index}>{item.ingredient.name} : {item.quantity} {item.quantityType}</li>
                                                         </div>
                                                     )
                                                 })
@@ -202,20 +255,26 @@ const Item = (props) => {
                                 <div className="author-item-like">
                                     {/* <ul>
                                         <li> */}
-                                            <i class="fa fa-heart" aria-hidden="true" onClick={onClickHeart}><FaHeart/></i>
+                                        {checkLike? 
+                                        <div className="button1"> 
+                                            <i className="fa fa-heart" aria-hidden="true" onClick={onClickHeart}><FaHeart/></i>
+                                        </div> :
+                                         <div className="button2">
+                                            <i className="fa-heart" aria-hidden="true" onClick={onClickHeart}><FaHeart/></i>
+                                        </div>}
                                         {/* </li>
                                     </ul> */}
                                 </div>
         
                                 <div className="comment">
                                     <div className="pannel-body">
-                                        <textarea className="form-control" rows="2" placeholder="What are you thinking?" value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
+                                        <textarea className="form-control" id="CommentBox" rows="2" placeholder="What are you thinking?" value={comment} onChange={(e) => setComment(e.target.value)}></textarea>
                                         <div className="mar-top clearfix flex flex-jc-sb">
                                             <div className="action1">
                                                 <input accept="image/*" id="icon-button-file"
                                                     type="file" style={{ display: 'none' }} />
                                                 <label htmlFor="icon-button-file">
-                                                    <IconButton color="#676767" aria-label="upload picture"component="span">
+                                                    <IconButton className='button' aria-label="upload picture"component="span">
                                                         <FaPhotoVideo />
                                                     </IconButton>
                                                 </label>
@@ -238,7 +297,6 @@ const Item = (props) => {
                                                     pathname: '/members/' + item.user._id,
                                                     id : item.user._id,
                                                 }
-                                                console.log(userInfor)
                                                 return (
                                                     <div className="available-comment flex flex-jc-sb">
                                                         <div className="media-left">

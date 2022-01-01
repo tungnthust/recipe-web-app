@@ -17,6 +17,7 @@ const SignedInNavbar1 = () => {
     timeout: 3000,
     headers: {'Authorization': 'Bearer '+token}
   });
+  
   const handleLogout = async (user) => {
     user.preventDefault();
     console.log(username);
@@ -26,7 +27,7 @@ const SignedInNavbar1 = () => {
       let resData = res.data;
       window.alert(resData);
       localStorage.clear();
-      window.location.reload();
+      window.location.assign("/");
     } catch (err) {
       window.alert("Logout failed! Have you logged in yet ?");
     }
@@ -41,7 +42,7 @@ const SignedInNavbar1 = () => {
     <Navbar.Brand href="/"><p class="logo-text">Noice Recipe</p></Navbar.Brand>
     
     <Nav className="ms-auto">
-      <Nav.Link href="/members">{username}</Nav.Link>
+      <Nav.Link href={"/changeinfo/"+localStorage.getItem("id")}>{username}</Nav.Link>
       <Nav.Link href="/submit">New Recipe</Nav.Link>
       <Nav.Link href="/" onClick={handleLogout}>Sign out</Nav.Link>
     </Nav>

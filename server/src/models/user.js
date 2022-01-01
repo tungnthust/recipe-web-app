@@ -48,6 +48,10 @@ const userSchema = new mongoose.Schema({
             required: false
         }
     }],
+    numOfRecipes: {
+        type: Number,
+        default: 0
+    },
     numOfFavourite: {
         type: Number,
         default: 0
@@ -68,6 +72,10 @@ userSchema.virtual('own_recipes', {
     localField: '_id',
     foreignField: 'author'
 })
+
+
+userSchema.set('toObject', { virtuals: true });
+userSchema.set('toJSON', { virtuals: true });
 
 userSchema.method.toJSON = function() {
     const user = this
@@ -91,16 +99,19 @@ userSchema.methods.generateAuthToken = async function () {
 
 
 userSchema.statics.findByCredentials = async(username, password) => {
-    const user = await User.findOne({username})
-
+    var user = await User.findOne({username : username})
     if(!user) {
-        throw new Error('Username is not exists.')
+        user = await User.findOne({email : username})
+        if(!user){
+            // console.log("hello")
+            throw new Error('Unable to login')
+        }
     }
 
     const isMatch = await bcrypt.compare(password, user.password)
 
     if(!isMatch) {
-        throw new Error('Wrong password.')
+        throw new Error('Unable to login')
     }
 
     return user
