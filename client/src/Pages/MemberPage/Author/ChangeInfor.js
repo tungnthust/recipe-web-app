@@ -89,48 +89,17 @@ const ChangeInforPage = (props) =>{
 
           console.log(resData);
           if(resData!==null){
-              window.alert('Change successful');
+            window.location.reload();
+            //   window.alert('Change successful');
           }
         } catch(e) {
         window.alert(e);
           window.alert("Account duplicate!");
         }
+        
       };
 
-      const onClickHeart = () => {
-        const token = localStorage.getItem("token");
-
-        const axiosInstance = axios.create({
-            baseURL: API,
-            timeout: 3000,
-            headers: {'Authorization': 'Bearer '+token}
-        });
-        const isLoggedIn = localStorage.getItem("token") != null ? localStorage.getItem("id") : null;
-        if(isLoggedIn === null){
-            alert("You must log in to add this recipe to favourited list");
-            window.location = '/signUp';
-        }
-        else {
-            // alert("Come in");
-            // const checkLike = async () => {
-            //     const res = await axios.get(API + '/recipes/isliked/' + localStorage.getItem("id"));
-            //     setIsLike(res.data)
-            // };
-
-            const postLike = async () => {
-               const res = await axiosInstance.post(API + '/recipes/like/' + id);
-                if ( res.data === null ){
-                    alert("SOME THING IS WRONG!!!");
-                }
-                else{
-                    alert("Add to favorite recipes successfully");
-                }
-            }
-            // checkLike();
-            // console.log(isLiked);
-            postLike();
-        }
-    }
+      
     
 if (member !== undefined) {
     return(
@@ -147,7 +116,7 @@ if (member !== undefined) {
                             <div className="my-sidebar">
                                 <div className="my-avatar" >
                                 {console.log(member.avatar)}
-                                    <img src={`${member.avatar}`} />
+                                    <img src={`${member.avatar}`} width="150" height="150" alt="Avatar"/>
                                     {/* <img src= {member.avatar} onError={(e)=>{e.target.onerror = null; e.target.style.display = 'none';e.target.src="https://nhatbanonline.net/wp-content/uploads/2020/02/co-4-la-may-man-3.jpg"}} width="150" height="150" alt="Avatar"></img> */}
                                     <h4>{member.name}</h4>
                                     <ul className="list-unstyled list-inline post-share"></ul>
