@@ -23,7 +23,6 @@ const SubmitPage = () =>{
     const [time, setTime] = useState("");
 
     const handleIngredientInputChange = (e,data, index) => {
-    //   const { data, value } = e.target;
       const list = [...ingredients];
       list[index][data] = e.target.value;
       setIngredients(list);
