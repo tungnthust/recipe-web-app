@@ -1,5 +1,6 @@
 const express = require('express')
 const User = require('../models/user')
+const Recipe = require('../models/recipe')
 const router = new express.Router()
 const auth = require('../middleware/auth')
 const { sendWelcomeEmail, sendResetpassEmail, sendFeedbackEmail } = require('../emails/account')
@@ -67,14 +68,18 @@ router.post('/users/logoutAll', auth, async (req, res) => {
 // ------ start Hoang Ha ------------------
 
 // API return [menbers]
-router.get('/members', async (req, res) => {
-    try {
-        const members = await User.find()
-        res.status(201).send(members)
-    } catch(error){
-        res.status(400).send(error)
-    }
-})
+// router.get('/members', async (req, res) => {
+//     try {
+//         const members = await User.find()
+//         console.log(members[0].own_recipes)
+//         // TODO
+//         // # member'recipe >= 1
+
+//         res.status(201).send(members)
+//     } catch(error){
+//         res.status(400).send(error)
+//     }
+// })
 
 // API find member by id
 router.get('/members/:id', async (req, res) => {
@@ -128,7 +133,7 @@ router.patch('/members/:id', auth, async (req, res) => {
 })
 
 // API send mail
-router.post('/contact/', async (req, res) => {
+router.post('/contact', async (req, res) => {
     const {email, name, topic, message} = req.body
     try {
         sendFeedbackEmail(email, name, topic, message)
@@ -139,6 +144,48 @@ router.post('/contact/', async (req, res) => {
     }
 })
 
+// API return [menbers] (sort if want)
+router.get('/members?', async (req, res) => {
+    var sort = {}
+    if(req.query.sortBy) {
+        const parts = req.query.sortBy.split(':')
+        sort[parts[0]] = parts[1]
+    }
+    const members = await User.find({ numOfRecipes: {$gt: 0}})
+                        .populate([
+                        {
+                            path: "own_recipes", 
+                            model: Recipe
+                        },
+                        { 
+                            path: "favourited_recipes",
+                            model: Recipe
+                        }
+                        ])
+                        .sort(sort)
+                        .limit(parseInt(req.query.limit))
+    
+    try {
+        res.status(201).send(members)
+
+    } catch (error) {
+        res.status(400).send(error)
+    }
+})
+
+// API return [recipe of author] by author Id
+router.get('/members/recipes/:id', async (req, res) => {
+    var _id = req.params.id
+    
+    const member = await User.findById(_id).populate({path: "own_recipes"})
+
+    try {
+        res.status(201).send(member.own_recipes)
+
+    } catch (error) {
+        res.status(400).send(error)
+    }
+})
 
 // ------ end Hoang Ha ---------------------------
 
