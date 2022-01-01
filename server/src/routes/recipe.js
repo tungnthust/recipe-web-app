@@ -297,7 +297,7 @@ router.get('/recipes/isliked/:id', auth, async (req, res) => {
 
 router.post('/recipes/comment/:id', auth, async (req, res) => {
     const _id = req.params.id
-    const commentContent = req.body.content
+    const comment = req.body
     try {
         let recipe = await Recipe.findById(_id)
 
@@ -307,9 +307,9 @@ router.post('/recipes/comment/:id', auth, async (req, res) => {
 
         recipe.comments.push({
             user: req.user._id,
-            content: commentContent
+            content: comment.content,
+            image: comment.image
         })
-
         recipe.save()
         
         res.send(recipe)
