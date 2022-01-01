@@ -8,7 +8,6 @@ const SignUp = () => {
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
   const handleSignUp = async (event) => {
     event.preventDefault();
     try {
@@ -23,8 +22,9 @@ const SignUp = () => {
           window.alert('Register successful');
       }
       window.location.assign("/signin");
-    } catch {
-      window.alert("Account duplicate!");
+    } catch (err) {
+      const errorMsg= err.response.data["message"]
+      window.alert(errorMsg);
     }
   };
 
