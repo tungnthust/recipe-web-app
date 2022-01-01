@@ -270,6 +270,31 @@ router.post('/recipes/like/:id', auth, async (req, res) => {
 
 })
 
+router.get('/recipes/isliked/:id', auth, async (req, res) => {
+    const _id = req.params.id
+
+    try {
+        let recipe = await Recipe.findById(_id)
+
+        if (!recipe) {
+            return res.status(404).send("Recipe does not exist.")
+        }
+
+        let user = req.user
+        const userFavouritedRecipes = user.favourited_recipes
+        let isLiked = false
+        if (userFavouritedRecipes.includes(_id)) {
+            isLiked = true
+        }
+        
+        res.send({isLiked})
+        
+    } catch (error) {
+        res.status(500).send(error)
+    }
+
+})
+
 router.post('/recipes/comment/:id', auth, async (req, res) => {
     const _id = req.params.id
     const commentContent = req.body.content

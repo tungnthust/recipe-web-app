@@ -87,6 +87,18 @@ router.get('/members/:id', async (req, res) => {
 
     try {
         const member = await User.findById(_id)
+                                .populate([
+                                {
+                                    path: "own_recipes", 
+                                    model: Recipe
+                                },
+                                { 
+                                    path: "favourited_recipes",
+                                    model: Recipe
+                                }
+                                ])
+                                
+
         if (!member) {
             return res.status(404).send("You can not find this member infor")
             
@@ -152,16 +164,16 @@ router.get('/members?', async (req, res) => {
         sort[parts[0]] = parts[1]
     }
     const members = await User.find({ numOfRecipes: {$gt: 0}})
-                        .populate([
-                        {
-                            path: "own_recipes", 
-                            model: Recipe
-                        },
-                        { 
-                            path: "favourited_recipes",
-                            model: Recipe
-                        }
-                        ])
+                        // .populate([
+                        // {
+                        //     path: "own_recipes", 
+                        //     model: Recipe
+                        // },
+                        // { 
+                        //     path: "favourited_recipes",
+                        //     model: Recipe
+                        // }
+                        // ])
                         .sort(sort)
                         .limit(parseInt(req.query.limit))
     
