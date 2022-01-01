@@ -147,15 +147,19 @@
     padding: 25px;
     background-color: #fff;
     margin-bottom: 50px;
+    text-align: center;
 }
 
-.recipe-blog .container .author-item .author-item-like ul {
+.recipe-blog .container .author-item .author-item-like .fa-heart {
     margin: 0;
     padding: 0;
     font-size: 30px;
     height: 40px;
+    cursor: pointer;
+    width: 50%;
 }
 
+/* 
 .recipe-blog .container .author-item .author-item-like ul li {
     list-style: none;
     padding: 5px 0;
@@ -163,20 +167,21 @@
     width: 50%;
     text-align: center;
     cursor: pointer;
-}
-
+} */
+/* 
 .recipe-blog .container .author-item .author-item-like ul li .fa-thumbs-up {
     color: #676767;
     transition: 0.1s linear;
-}
+} */
 
 
-.recipe-blog .container .author-item .author-item-like ul li .fa-thumbs-up:hover {
+/* .recipe-blog .container .author-item .author-item-like ul li .fa-thumbs-up:hover {
     color: #6ba72b;
-}
+} */
 
-.recipe-blog .container .author-item .author-item-like ul li .fa-heart:hover {
+.recipe-blog .container .author-item .author-item-like .fa-heart:hover {
     color: #cf1d1d;
+    transition: 0.1s linear;
 }
 
 .recipe-blog .container .author-item .comment {
