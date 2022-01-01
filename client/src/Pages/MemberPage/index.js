@@ -31,7 +31,7 @@ const MembersPage = () =>{
             });
             
             setMembers(res.data);
-            console.log(res.data[0]);
+            // console.log(res.data[0]);
         };
         getAllRecipes();
       }, []);
@@ -65,7 +65,7 @@ const MembersPage = () =>{
                                     avatar={data.avatar}
                                     name={data.name}
                                     time={data.createdAt}
-                                    //own_recipes={data.own_recipes}
+                                    numOfRecipes={data.numOfRecipes}
                                 />
                                 </div>
                             );

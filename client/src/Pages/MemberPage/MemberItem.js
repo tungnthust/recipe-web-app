@@ -5,7 +5,7 @@ import './index.css';
 const MemberItem = (props) =>{
 
     //{id, avatar, name, time, own_recipes }
-    const {id, avatar, name, time} = props;
+    const {id, avatar, name, time, numOfRecipes} = props;
 
     const memberInfor = {
         pathname: '/members/'+id,
@@ -36,7 +36,7 @@ const MemberItem = (props) =>{
                 </Link>
                 <ul >
                     <li> Joined in:   {time}</li>
-                    {/* <li>Wrote: {own_recipes.length} recipes</li> */}
+                    <li>Wrote: {numOfRecipes} recipes</li>
                 </ul>
             </div>
         </div>
