@@ -41,7 +41,7 @@ const SignedInNavbar1 = () => {
     <Navbar.Brand href="/"><p class="logo-text">Noice Recipe</p></Navbar.Brand>
     
     <Nav className="ms-auto">
-      <Nav.Link href="/members">{username}</Nav.Link>
+      <Nav.Link href={"/changeinfo?id="+localStorage.getItem("id")}>{username}</Nav.Link>
       <Nav.Link href="/submit">New Recipe</Nav.Link>
       <Nav.Link href="/" onClick={handleLogout}>Sign out</Nav.Link>
     </Nav>
