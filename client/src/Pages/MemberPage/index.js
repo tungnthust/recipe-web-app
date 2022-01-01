@@ -1,4 +1,4 @@
-import {React, useState} from "react";
+import {React, useState, useEffect} from "react";
 import './index.css';
 
 import Navbar1 from '../../Components/Navbar1';
@@ -7,12 +7,34 @@ import Footer from '../../Components/Footer';
 import MemberItem from './MemberItem'
 
 import {FaUsers} from 'react-icons/fa';
-import { avatarData } from "./data";
+// import { avatarData } from "./data";
+import axios from "axios";
 
+const API = "http://localhost:4000";
 
 const MembersPage = () =>{
 
-    const [items, setItems] = useState([]);
+    const [members, setMembers] = useState([]);
+
+    useEffect(() => {
+        const getAllRecipes = async () => {
+          
+            const res = await axios.get(API + '/members');
+            const items = res.data;
+            items.forEach(item => {
+                const newDate = new Date(item.createdAt);
+                const day = newDate.getDate();
+                const month = newDate.getMonth()+1;
+                const year = newDate.getFullYear();
+                item.createdAt = day+'-'+month+'-'+year;
+                console.log(item.createdAt);
+            });
+            
+            setMembers(res.data);
+            console.log(res.data[0]);
+        };
+        getAllRecipes();
+      }, []);
 
     return(
         <div className = "authorsPage">
@@ -31,23 +53,19 @@ const MembersPage = () =>{
                 </div>
 
 
-                {/* <div className="row">
-                    
-                        <MemberItem/>
-                    
-                </div> */}
+                
 
                         <div className="row">
-                            {avatarData.map((data, key) => {
+                            {members.map((data, key) => {
                             return (
                                 <div key={key} className = "avatarone" id = "onethird">
                                 <MemberItem
                                     key={key}
-                                    id={data.id}
+                                    id={data._id}
                                     avatar={data.avatar}
                                     name={data.name}
-                                    time={data.time}
-                                    own_recipes={data.own_recipes}
+                                    time={data.createdAt}
+                                    //own_recipes={data.own_recipes}
                                 />
                                 </div>
                             );

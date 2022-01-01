@@ -8,7 +8,7 @@ import {Button} from "@material-ui/core";
 import { FaHeart, FaCalendar, FaBook}  from 'react-icons/fa';
 
 
-const AuthorPage = (props) =>{
+const AuthorPage = () =>{
     return(
         <div className = "author">
             
@@ -23,7 +23,7 @@ const AuthorPage = (props) =>{
                             <div className="my-sidebar">
                                 <div className="my-avatar">
                                     <img src= 'https://nhatbanonline.net/wp-content/uploads/2020/02/co-4-la-may-man-3.jpg' width="150" height="150" alt="Avatar"></img>
-                                    <h4>{props.id}</h4>
+                                    <h4>ABC</h4>
                                     <ul className="list-unstyled list-inline post-share"></ul>
                                 </div>
 

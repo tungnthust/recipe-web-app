@@ -2,10 +2,14 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import './index.css';
 
-const MemberItem = ({id, avatar, name, time, own_recipes }) =>{
-    // const path = '/members/'+{id}.id;
+const MemberItem = (props) =>{
+
+    //{id, avatar, name, time, own_recipes }
+    const {id, avatar, name, time} = props;
+
     const memberInfor = {
-        pathname: '/members/'+{id}.id,
+        pathname: '/members/'+id,
+        id : id
         // id:this.props.id,
         // recipesID:this.props.recipes,
         // avatar:this.props.avatar,
@@ -32,7 +36,7 @@ const MemberItem = ({id, avatar, name, time, own_recipes }) =>{
                 </Link>
                 <ul >
                     <li> Joined in:   {time}</li>
-                    <li>Wrote: {own_recipes.length} recipes</li>
+                    {/* <li>Wrote: {own_recipes.length} recipes</li> */}
                 </ul>
             </div>
         </div>
