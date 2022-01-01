@@ -14,7 +14,6 @@ const SignInPage = () =>{
                 <Navbar2/>
                 <div className="index">
                     <SignInWithUsername/>
-                    <SignInWithEmail/>
                 </div>
             </div>
             }

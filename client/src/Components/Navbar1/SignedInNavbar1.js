@@ -26,7 +26,7 @@ const SignedInNavbar1 = () => {
       let resData = res.data;
       window.alert(resData);
       localStorage.clear();
-      window.location.reload();
+      window.location.assign("/");
     } catch (err) {
       window.alert("Logout failed! Have you logged in yet ?");
     }
