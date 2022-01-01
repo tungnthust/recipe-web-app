@@ -2,34 +2,28 @@ import "./index.css";
 import { FaClock } from "react-icons/fa";
 
 import React from "react";
+import { Link } from "react-router-dom";
 
-const RecipeItems = (list_items) => {
-  let props = list_items;
+
+const RecipeItems = (props) => {
+  const {id,title,description,author,difficulty,time} = props;
+
+  const recipeInfo = {
+    pathname: '/recipes/' + id,
+    id : id,
+  }
 
   return (
-    <section id="recipeItems">
-      <div class="container">
-        <div class="title">
-          <h1>Top Recipes </h1>
-        </div>
-        <div class="row">
-          {props.list_items.map((item) => (
-            <div class="col-md-4">
+            <div class="col-md-4" key={id}>
               <div class="card-text-center">
                 <div class="img-container">
-                  <img
-                    key={item.id}
-                    src={item.imglink}
-                    class="card-img-top"
-                  ></img>
+                  <Link to={recipeInfo}>
+                    <img src='http://t1.gstatic.com/licensed-image?q=tbn:ANd9GcRjQrPU66ETKarsWq5fLe6vtR_ZnM5r4EVLnUJiAFN6wlcem9g94yAgh_9RP-MZ-W_n3eU1G96ptdcibkt-9H4' class="card-img-top"></img>
+                  </Link>
                 </div>
                 <div class="card-body">
-                  <h5 key={item.id} class="card-title">
-                    {item.name}
-                  </h5>
-                  <p key={item.id} class="card-text">
-                    {item.description}
-                  </p>
+                  <h5 class="card-title">{title}</h5>
+                  <p class="card-text">{description}</p>
                   <div class="author1">
                     <img
                       class="avatar"
@@ -37,27 +31,23 @@ const RecipeItems = (list_items) => {
                       alt="authorAvatar "
                     ></img>
                     By
-                    <p key={item.id}> {item.author}</p>
+                    <p> {author}</p>
                   </div>
                 </div>
                 <div class="card-footer">
                   <div class="card-footer-content">
                     <ul>
-                      <li key={item.id} title="difficulty">
-                        {item.difficulty}{" "}
-                      </li>
-                      <li key={item.id} title="time">
-                        <FaClock /> {item.time}
+                      <li title="difficulty">{difficulty} </li>
+                      <li title="time">
+                        <FaClock /> {time}
                       </li>
                     </ul>
                   </div>
                 </div>
               </div>
             </div>
-          ))}
-        </div>
-      </div>
-    </section>
+
+        
   );
 };
 

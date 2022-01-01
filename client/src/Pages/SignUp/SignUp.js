@@ -1,72 +1,76 @@
-import { React,useState } from "react";
-import {Button} from "@material-ui/core";
-import './index.css';
+import { React, useState } from "react";
+import { Button } from "@material-ui/core";
+import "./index.css";
+import axios from "axios";
 
-const SignUp = () =>{
-    const [email,setEmail] = useState('');
-    const [name,setName] = useState('');
-    const [username,setUsername] = useState('');
-    const [password,setPassword] = useState('');
-    const [image,setImage] = useState(null);
+const SignUp = () => {
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
-    const handleSignUp = async(user) =>{
-        user.preventDefault();
-        //check if email already registered
-        console.log(name);
-        return false;
+  const handleSignUp = async (event) => {
+    event.preventDefault();
+    try {
+      const res = await axios.post("http://localhost:4000/users", {
+        email: email,
+        name: name,
+        username: username,
+        password: password,
+      });
+      let resData = res.data;
+      if(resData!==null){
+          window.alert('Register successful');
+      }
+    } catch {
+      window.alert("Account duplicate!");
     }
+  };
 
-    return(
-        <section className='login'>
-            <form className='formContainer' onSubmit={e => handleSignUp(e)}>
-                <h1>Sign Up</h1>
-                <label>Your Name</label>
-                <input
-                    type='name'
-                    autoFocus
-                    required
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                />
-                <label>Email</label>
-                <input
-                    type='email'
-                    autoFocus
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-                <label>Username</label>
-                <input
-                    type='username'
-                    autoFocus
-                    required
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                />
-                <label>Password</label>
-                <input
-                    type='password'
-                    autoFocus
-                    required
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                {/* <label>Avatar</label>
-                <input
-                    type="file"
-                    name="myImage"
-                    onChange={(event)=>{
-                        console.log(event.target.files[0]);
-                        setImage(event.target.files[0]);
-                    }}
-                /> */}
-                <div className='btnContainer'>
-                    <Button type='submit' variant='contained' color="primary">Sign Up</Button>
-                </div>
-            </form>
-        </section>
-    )
-}
+  return (
+    <section className="login">
+      <form className="formContainer" onSubmit={(e) => handleSignUp(e)}>
+        <h1>Sign Up</h1>
+        <label>Your Name</label>
+        <input
+          type="name"
+          autoFocus
+          required
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <label>Email</label>
+        <input
+          type="email"
+          autoFocus
+          required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <label>Username</label>
+        <input
+          type="username"
+          autoFocus
+          required
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <label>Password</label>
+        <input
+          type="password"
+          autoFocus
+          required
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <div className="btnContainer">
+          <Button type="submit" variant="contained" color="primary">
+            Sign Up
+          </Button>
+        </div>
+      </form>
+    </section>
+  );
+};
 
 export default SignUp;

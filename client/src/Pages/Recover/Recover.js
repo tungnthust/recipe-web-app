@@ -1,20 +1,24 @@
 import { React,useState } from "react";
 import {Button} from "@material-ui/core";
 import './index.css';
-
+import axios from "axios";
 const Recover = () =>{
     const [email,setEmail] = useState('');
-    const [userName, setUserName] = useState('');
     
     const handleRecover = async(Event) =>{
         Event.preventDefault();
-        if(email !== ''){
-            //check if email existed
-            //check if password existed
-        }else{
-            alert('Unknown Email');
+        try{
+            const res = await axios.post('http://localhost:4000/resetpass',{
+                email:email
+            });
+            let resData = res.data;
+            if(resData!==null){
+                window.alert('Check new password in your email!')
+            }
+        }catch{
+            window.alert("Email not found!");
         }
-        return false;
+
     }
     return(
         <section className='login'>
@@ -27,14 +31,6 @@ const Recover = () =>{
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                />
-                <label>Username</label>
-                <input
-                    type='username'
-                    autoFocus
-                    required
-                    value={userName}
-                    onChange={(e) => setUserName(e.target.value)}
                 />
                 <div className='btnContainer'>
                     <Button type='submit' variant='contained' color="primary">Submit</Button>
