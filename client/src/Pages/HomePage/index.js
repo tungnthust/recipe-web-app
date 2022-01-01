@@ -7,28 +7,36 @@ import RecipeItems from "../Recipe/recipeItems";
 import Footer from "../../Components/Footer";
 import axios from "axios";
 
-const API = "http://localhost:4000";
+const API = "http://localhost:4000/";
 
 const HomePage = () => {
-  const [topRated, setTopRated] = useState([]);
   const [mostFavorite, setMostFavorite] = useState([]);
   const [latestRecipes, setLatestRecipes] = useState([]);
   const [topAuthors, setTopAuthors] = useState([]);
 
-  // useEffect(()=>{
-  //     const getData = async () =>{
-  //         const res1 = await axios.get(API+'/top_rated');
-  //         setTopRated(res1.data);
-  //         const res2 = await axios.get(API+'/most_favorite');
-  //         setMostFavorite(res2.data);
-  //         const res3 = await axios.get(API+'/latest_recipes');
-  //         setLatestRecipes(res3.data);
-  //         const res4 = await axios.get(API+'/top_authors');
-  //         setTopAuthors(res4.data);
-  //     };
-  //     getData();
-  // }
-  // ,[])
+  useEffect(() => {
+    const getMostFavorite = async () => {
+      const res = await axios.get(
+        API + "recipes?sortBy=numOfFavourtie:desc&limit=5"
+      );
+      setMostFavorite(res.data);
+    };
+    const getLatest = async () => {
+      const res = await axios.get(
+        API + "recipes?sortBy=createdAt:desc&limit=5"
+      );
+      setLatestRecipes(res.data);
+    };
+    const getAuthors = async () => {
+      const res = await axios.get(
+        API + "members?sortBy=numOfFavourite:desc&limit=5"
+      );
+      setTopAuthors(res.data);
+    };
+    getMostFavorite();
+    getLatest();
+    getAuthors();
+  }, []);
   const recipes = [
     {
       _id: "0",
