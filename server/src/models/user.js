@@ -48,6 +48,10 @@ const userSchema = new mongoose.Schema({
             required: false
         }
     }],
+    numOfRecipes: {
+        type: Number,
+        default: 0
+    },
     numOfFavourite: {
         type: Number,
         default: 0
@@ -68,6 +72,10 @@ userSchema.virtual('own_recipes', {
     localField: '_id',
     foreignField: 'author'
 })
+
+
+userSchema.set('toObject', { virtuals: true });
+userSchema.set('toJSON', { virtuals: true });
 
 userSchema.method.toJSON = function() {
     const user = this
