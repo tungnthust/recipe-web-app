@@ -31,13 +31,6 @@ const Navbar2 = () =>{
         window.addEventListener('resize', handleResponsive);
     },[])
 
-    useEffect ( () => {
-        console.log(window.scrollY);
-        console.log(window.innerWidth);
-        
-        console.log(effect);
-    },[show, responsive])
-
     return (
         <nav class={ effect ? navbarClasses + ' scrolled' : navbarClasses}>
             <div class="container">

@@ -223,6 +223,7 @@ const Recipe = (props) => {
             <div className="row">
               {recipes.map((item) => (
                 <RecipeItems
+                  key={item._id}
                   id={item._id}
                   title={item.title}
                   description={item.description}

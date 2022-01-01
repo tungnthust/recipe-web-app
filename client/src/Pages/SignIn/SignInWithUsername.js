@@ -20,7 +20,8 @@ const SignInWithUsername = () => {
       if (res.data != null) {
         if (res.status === 200) {
           localStorage.setItem("token", resData["token"]);
-          localStorage.setItem("username", username);
+          localStorage.setItem("username", resData["user"]["username"]);
+          window.location.reload();
         }
       }
     } catch (err) {
