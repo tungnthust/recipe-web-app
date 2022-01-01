@@ -14,7 +14,6 @@ const RecipeItems = (props) => {
   }
 
   return (
-
     <div className="col-md-4" key={id}>
       <div className="card-text-center">
         <div className="img-container">
@@ -44,14 +43,13 @@ const RecipeItems = (props) => {
                 <FaStar />
               </li>
               <li className="cookTime" title="time">
-                <FaClock /> {time} min
+                <FaClock /> {time}min
               </li>
             </ul>
           </div>
         </div>
       </div>
     </div>
-
   );
 };
 
