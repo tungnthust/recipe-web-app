@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  mongo:
+    image: 'mongo:latest'
+  server:
+    build: ./server
+    ports:
+      - "4000:4000"
+    environment:
+      - PORT=4000
+      - MONGODB_URL=mongodb://127.0.0.1:27017/recipe
+      - SENDGRID_API_KEY='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'
+      - JWT_SECRET=oneloveonefuture
+  client:
+    build: ./server
+    ports:
+      - "3000:3000"
