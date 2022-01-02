@@ -48,3 +48,10 @@
     padding: 24px 0;
     text-align: center;
 }
+.input-group{
+    align-items: center!important;
+    margin: 5px!important;
+}
+.btnBox{
+    margin-left: 5px!important;
+}

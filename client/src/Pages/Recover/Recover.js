@@ -8,7 +8,7 @@ const Recover = () =>{
     const handleRecover = async(Event) =>{
         Event.preventDefault();
         try{
-            const res = await axios.post('http://localhost:4000/resetpass',{
+            const res = await axios.post('http://localhost:4000/users/resetpass',{
                 email:email
             });
             let resData = res.data;

@@ -180,10 +180,10 @@
     color: #6ba72b;
 } */
 
-.recipe-blog .container .author-item .author-item-like .button1 .fa-heart:hover {
+/* .recipe-blog .container .author-item .author-item-like .button1 .fa-heart:hover {
     color: #cf1d1d;
     transition: 0.1s linear;
-}
+} */
 
 .recipe-blog .container .author-item .author-item-like .button2 .fa-heart {
     margin: 0;
@@ -231,6 +231,7 @@
 
 .recipe-blog .container .author-item .available-comment .media-left {
    padding-right: 15px;
+   width: 30%;
 }
 .recipe-blog .container .author-item .available-comment .media-left img{
     width: 100px;
@@ -239,6 +240,7 @@
 
 .recipe-blog .container .author-item .available-comment .media-right {
     color: #676767;
+    width: 70%;
 }
 
 .recipe-blog .container .author-item .available-comment .media-right .mar-btm a {

@@ -13,7 +13,7 @@ const QuickFilterMB = () =>{
                     <FilterListIcon style={{color:green[500]}}/>
                     Quick Filter
                 </div>
-                <Link to='/recipes' className="btn">All categories</Link>
+                <Link to='/recipes' className="btn btn-outline-success">All categories</Link>
             </div>
             <ItemList class_name="list mobile"/>
         </div>
