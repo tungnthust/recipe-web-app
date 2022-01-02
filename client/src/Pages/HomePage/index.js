@@ -17,7 +17,7 @@ const HomePage = () => {
   useEffect(() => {
     const getMostFavorite = async () => {
       const res = await axios.get(
-        API + "recipes?sortBy=numOfFavourtie:desc&limit=5"
+        API + "recipes?sortBy=numOfFavourite:desc&limit=5"
       );
       setMostFavorite(res.data);
     };
