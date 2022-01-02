@@ -9,9 +9,9 @@ import Media from "react-media";
 import axios from "axios";
 
 const category = [
-  { label: "Khai vị", value: "Khai vi" },
-  { label: "Món chính", value: "Mon chinh" },
-  { label: "Tráng miệng", value: "Trang mieng" },
+  { label: "Appetizer", value: "Appetizer" },
+  { label: "Main Course", value: "Main Course" },
+  { label: "Dessert", value: "Dessert" },
 ];
 const cuisine = [
   { value: "Vietnam", label: "Vietnam" },
@@ -21,9 +21,9 @@ const cuisine = [
 ];
 
 const sort = [
-  { value: "top", label: "Top rated" },
-  { value: "latest", label: "Latest" },
-  { value: "oldest", label: "Oldest" },
+  { value: "numOfFavourtie:desc", label: "Top rated" },
+  { value: "createdAt:desc", label: "Latest" },
+  { value: "createdAt:asc", label: "Oldest" },
 ];
 
 
@@ -75,7 +75,7 @@ const Recipe = (props) => {
     var tempAPI = "http://localhost:4000/recipes?";
     if (apiCat !== "") tempAPI = tempAPI + "category=" + apiCat + "&";
     if (apiCui !== "") tempAPI = tempAPI + "cuisine=" + apiCui + "&";
-    if (apiSort !== "") tempAPI = tempAPI + "sort=" + apiSort + "&";
+    if (apiSort !== "") tempAPI = tempAPI + "sortBy=" + apiSort + "&";
     if (apiIng !== "") tempAPI = tempAPI + "ingredient=" + apiIng + "&";
     setAPI(tempAPI);
   }, [apiCat, apiCui, apiSort, apiIng]);
