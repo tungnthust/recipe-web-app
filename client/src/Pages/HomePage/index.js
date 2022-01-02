@@ -5,6 +5,7 @@ import Navbar2 from '../../Components/Navbar2';
 import QuickFilter from '../../Components/QuickFilter';
 import RecipeItems from "../Recipe/recipeItems";
 import Footer from "../../Components/Footer";
+import MemberItem from "../MemberPage/MemberItem";
 import axios from "axios";
 
 const API = "http://localhost:4000/";
@@ -37,40 +38,40 @@ const HomePage = () => {
     getLatest();
     getAuthors();
   }, []);
-  const recipes = [
-    {
-      _id: "0",
-      title: "pho",
-      description: "test desciption",
-      author: "author name",
-      difficulty: "3",
-      time: "30",
-    },
-    {
-      _id: "0",
-      title: "pho",
-      description: "test desciption",
-      author: "author name",
-      difficulty: "3",
-      time: "30",
-    },
-    {
-      _id: "0",
-      title: "pho",
-      description: "test desciption",
-      author: "author name",
-      difficulty: "3",
-      time: "30",
-    },
-    {
-      _id: "0",
-      title: "pho",
-      description: "test desciption",
-      author: "author name",
-      difficulty: "3",
-      time: "30",
-    },
-  ];
+  // const recipes = [
+  //   {
+  //     _id: "0",
+  //     title: "pho",
+  //     description: "test desciption",
+  //     author: "author name",
+  //     difficulty: "3",
+  //     time: "30",
+  //   },
+  //   {
+  //     _id: "0",
+  //     title: "pho",
+  //     description: "test desciption",
+  //     author: "author name",
+  //     difficulty: "3",
+  //     time: "30",
+  //   },
+  //   {
+  //     _id: "0",
+  //     title: "pho",
+  //     description: "test desciption",
+  //     author: "author name",
+  //     difficulty: "3",
+  //     time: "30",
+  //   },
+  //   {
+  //     _id: "0",
+  //     title: "pho",
+  //     description: "test desciption",
+  //     author: "author name",
+  //     difficulty: "3",
+  //     time: "30",
+  //   },
+  // ];
   return (
     <div>
       <Navbar1 />
@@ -80,29 +81,10 @@ const HomePage = () => {
       <section id="recipeItems">
         <div class="container">
           <div class="title">
-            <h1>Recipes </h1>
-          </div>
-          <div class="row">
-            {recipes.map((item) => (
-              <RecipeItems
-                id={item._id}
-                title={item.title}
-                description={item.description}
-                author={item.author.name}
-                difficulty={item.difficulty}
-                time={item.cookTime}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-      <section id="recipeItems">
-        <div class="container">
-          <div class="title">
             <h1>Top Rated Recipes </h1>
           </div>
           <div class="row">
-            {recipes.map((item) => (
+            {mostFavorite.map((item) => (
               <RecipeItems
                 id={item._id}
                 title={item.title}
@@ -121,7 +103,7 @@ const HomePage = () => {
             <h1>Latest Recipes </h1>
           </div>
           <div class="row">
-            {recipes.map((item) => (
+            {latestRecipes.map((item) => (
               <RecipeItems
                 id={item._id}
                 title={item.title}
@@ -131,6 +113,29 @@ const HomePage = () => {
                 time={item.cookTime}
               />
             ))}
+          </div>
+        </div>
+      </section>
+      <section id="recipeItems">
+        <div class="container">
+          <div class="title">
+            <h1>Latest Recipes </h1>
+          </div>
+          <div className="row">
+            {topAuthors.map((data, key) => {
+              return (
+                <div key={key} className="avatarone" id="onethird">
+                  <MemberItem
+                    key={key}
+                    id={data._id}
+                    avatar={data.avatar}
+                    name={data.name}
+                    time={data.createdAt}
+                    numOfRecipes={data.numOfRecipes}
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
