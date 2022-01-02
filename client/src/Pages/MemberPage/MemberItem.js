@@ -2,10 +2,14 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import './index.css';
 
-const MemberItem = ({id, avatar, name, time, own_recipes }) =>{
-    // const path = '/members/'+{id}.id;
+const MemberItem = (props) =>{
+
+    //{id, avatar, name, time, own_recipes }
+    const {id, avatar, name, time, numOfRecipes} = props;
+
     const memberInfor = {
-        pathname: '/members/'+{id}.id,
+        pathname: '/members/'+id,
+        id : id
         // id:this.props.id,
         // recipesID:this.props.recipes,
         // avatar:this.props.avatar,
@@ -21,7 +25,9 @@ const MemberItem = ({id, avatar, name, time, own_recipes }) =>{
         <div className="white-block member-block">
             
             <Link to={memberInfor} className="member-avatar">
-                <img src={avatar}  width="150" height="150" alt="Avatar" ></img>
+                {/* <img src={avatar}  width="150" height="150" alt="Avatar" ></img> */}
+                <img src={`${avatar}`} onError={(e)=>{e.target.onerror = null; e.target.src="https://as2.ftcdn.net/v2/jpg/03/49/49/79/1000_F_349497933_Ly4im8BDmHLaLzgyKg2f2yZOvJjBtlw5.jpg"}} width="150" height="150" alt="Avatar"/>
+
             </Link>
 
             <div className="member-holder">
@@ -32,7 +38,7 @@ const MemberItem = ({id, avatar, name, time, own_recipes }) =>{
                 </Link>
                 <ul >
                     <li> Joined in:   {time}</li>
-                    <li>Wrote: {own_recipes.length} recipes</li>
+                    <li>Wrote: {numOfRecipes} recipes</li>
                 </ul>
             </div>
         </div>

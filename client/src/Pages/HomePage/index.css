@@ -1,0 +1,20 @@
+.row{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    
+}
+.container{
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+    max-width: 100%;
+    width: 1150px;
+    background-color: #1b1b1b;
+}
+#recipeItems{
+    max-width: 100%;
+    width: 1150px;
+}
+.home{
+    background-color: #000000;
+}

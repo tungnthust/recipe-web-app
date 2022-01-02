@@ -68,6 +68,9 @@
     height: 200px;
 
 }
+.cookTime {
+    padding-left: 10px ;
+}
 .card-img-top:hover{
     width: 100%;
     transition: 0.5s linear;

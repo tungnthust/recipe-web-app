@@ -13,6 +13,8 @@
 }
 .author .container .row{
     margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .author .container .white-block{
@@ -90,6 +92,12 @@
     background-color: green;
     border-radius: 3px;
 }
+/* .button-heart:focus{
+    width:30px;
+    height: 30px;
+    background-color: red;
+    border-radius: 3px;
+} */
 .button-heart:hover{
     background-color: #000;
 }
@@ -139,7 +147,7 @@
             display:none;
     }
     tr th:nth-child(3){
-        display:none;
+        /* display:none; */
     }
     tr th:nth-child(4){
         display:none;
