@@ -112,6 +112,7 @@ const Recipe = (props) => {
 
   return (
     <div>
+      {console.log(recipes)}
       <Navbar1 />
       <Navbar2 />
       <section className="recipe_section">
@@ -230,6 +231,9 @@ const Recipe = (props) => {
                   author={item.author.name}
                   difficulty={item.difficulty}
                   time={item.cookTime}
+                  avatar={item.author.avatar}
+                  img={item.img}
+                  authorid={item.author.id}
                 />
               ))}
             </div>

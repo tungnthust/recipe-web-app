@@ -5,7 +5,8 @@ import { Button } from "@material-ui/core";
 import './index.css';
 import axios from "axios";
 import Select from "react-select";
-// import "bootstrap-icons/font/bootstrap-icons.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
+
 const category = [
   { label: "Appetizer", value: "Appetizer" },
   { label: "Main Course", value: "Main Course" },
