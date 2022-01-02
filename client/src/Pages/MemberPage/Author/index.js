@@ -1,4 +1,5 @@
-import React from "react";
+
+import {React, useState, useEffect} from "react";
 import './author.css';
 
 import Navbar1 from "../../../Components/Navbar1";
@@ -6,9 +7,44 @@ import Navbar2 from "../../../Components/Navbar2";
 import Footer from "../../../Components/Footer";
 import {Button} from "@material-ui/core";
 import { FaHeart, FaCalendar, FaBook}  from 'react-icons/fa';
+import { useParams } from 'react-router';
+import axios from "axios";
+import {Link} from 'react-router-dom'
 
+const API = "http://localhost:4000";
 
 const AuthorPage = (props) =>{
+    const { id } = useParams();
+    props = id;
+    // console.log(id);
+    // const [name, setName] = useState("");
+    const[arrayOwnRecipes, setArray1] = useState([]);
+    const[arrayFavoritedRecipes, setArray2] = useState([]);
+    const [member, setMember] = useState({});
+
+    const [filter, setFilter] = useState('');
+
+    useEffect(() => {
+        const getRecipe = async () => {
+          const res = await axios.get(API + "/members/" + id);
+          const item = res.data;
+            const newDate = new Date(item.createdAt);
+            const day = newDate.getDate();
+            const month = newDate.getMonth()+1;
+            const year = newDate.getFullYear();
+            item.createdAt = day+'-'+month+'-'+year;
+          setMember(item);
+          setArray1(item.own_recipes); 
+          setArray2(item.favourited_recipes); 
+          console.log(item.avatar);
+        };
+        getRecipe();
+        console.log(member);
+        // console.log(arrayOwnRecipes);
+      }, []);
+
+    
+if (member !== undefined) {
     return(
         <div className = "author">
             
@@ -22,8 +58,8 @@ const AuthorPage = (props) =>{
                         <div className="white-block" >
                             <div className="my-sidebar">
                                 <div className="my-avatar">
-                                    <img src= 'https://nhatbanonline.net/wp-content/uploads/2020/02/co-4-la-may-man-3.jpg' width="150" height="150" alt="Avatar"></img>
-                                    <h4>{props.id}</h4>
+                                    <img src= {member.avatar} onError={(e)=>{e.target.onerror = null; e.target.style.display = 'none';e.target.src="https://nhatbanonline.net/wp-content/uploads/2020/02/co-4-la-may-man-3.jpg"}} width="150" height="150" alt="Avatar"></img>
+                                    <h4>{member.name}</h4>
                                     <ul className="list-unstyled list-inline post-share"></ul>
                                 </div>
 
@@ -32,21 +68,21 @@ const AuthorPage = (props) =>{
                                                                 <div href="/" className="clearfix">
                                                                     <i className="fa-calendar"><FaCalendar/></i>
                                                                     Participating date 
-                                                                    <span className="right-value"> 24-11-2021</span>
+                                                                    <span className="right-value">{member.createdAt}</span>
                                                                 </div>
                                                             </li>
                                                             <li>
                                                                 <div href="/" className="clearfix">
                                                                     <i className="fa-book"><FaBook/></i>
                                                                     Recipes 
-                                                                    <span className="right-value"> 3</span>
+                                                                    <span className="right-value">{arrayOwnRecipes.length}</span>
                                                                 </div>
                                                             </li>
                                                             <li>
                                                                 <div href="/" className="clearfix">
                                                                     <i className="fa-heart"><FaHeart/></i>
-                                                                    Favourited Recipes 
-                                                                    <span className="right-value"> 0</span>
+                                                                    Favourited Number 
+                                                                    <span className="right-value"> {member.numOfFavourite}</span>
                                                                 </div>
                                                             </li>
                                 </ul>
@@ -73,9 +109,9 @@ const AuthorPage = (props) =>{
                                         <div className="changeInfor">
                                                 {/* <h2 >Change Infor</h2> */}
                                                 <hr/>
-                                                <label>Email</label>
+                                                <label>Email: {member.email}</label>
                                                 {/* <input/> */}
-                                                <label>Recipes wrote: 3</label>
+                                                <label>Recipes wrote: {arrayOwnRecipes.length}</label>
 
                                                 <hr/>
                                                 {/* <input type="file" id="myFile" name="filename"></input> */}
@@ -104,7 +140,7 @@ const AuthorPage = (props) =>{
                                                     <div className="boostrap-table">
                                                         <div className="fixed-table-toolbar">
                                                             <div className="pull-left-search">
-                                                                <input className="form-control" type="text"  placeholder="Search for Recipes..."></input>
+                                                                <input className="form-control" type="text" value={filter} onChange={event => setFilter(event.target.value)}  placeholder="Search for Recipes..."></input>
                                                             </div>
                                                         </div>
                                                         <div className="fixed-table-container">
@@ -131,51 +167,62 @@ const AuthorPage = (props) =>{
                                                                                 <div className="th-inner">Difficulty</div>
                                                                                 <div className="fht-cell"></div>
                                                                             </th>
-                                                                            <th>
+                                                                            {/* <th>
                                                                                 <div className="th-inner"></div>
                                                                                 <div className="fht-cell"></div>
-                                                                            </th>
+                                                                            </th> */}
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody >
-                                                                        
-                                                                        
-                                                                                <tr className="no-records-found" >
+                                                                        {
+                                                                            arrayOwnRecipes.filter(f => f.title.toLowerCase().includes(filter.toLowerCase()) || filter === '').map(recipe => {       
+                                                                                const recipeInfor = {
+                                                                                    pathname: '/recipes/'+recipe._id,
+                                                                                    id:recipe._id
+                                                                                };
+                                                                                const recipeUpdate = {
+                                                                                    pathname: '/update',
+                                                                                    recipeID:recipe._id,
+                                                                                }
+                                                                                return <tr className="no-records-found" > 
+                                                                                
                                                                                     <th >
-                                                                                        <a href="/">
-                                                                                            <div className="th-inner-route"><img src="https://img-global.cpcdn.com/recipes/3c872698969f85ec/400x400cq70/photo.jpg" alt="banh cuon" width="120" height="80"></img></div>
-                                                                                        </a>
+                                                                                        <Link to={recipeInfor}>
+                                                                                            <div className="th-inner-route"><img src={recipe.image} alt={recipe.title} width="120" height="80"></img></div>
+                                                                                        </Link>
                                                                                         <div className="fht-cell"></div>
                                                                                         
                                                                                     </th>
                                                                                     <th>
-                                                                                        <a href="/">
-                                                                                        <div className="th-inner-route sortable">banh cuon</div>
-                                                                                        </a>
+                                                                                        <Link to={recipeInfor}>
+                                                                                        <div className="th-inner-route sortable">{recipe.title}</div>
+                                                                                        </Link>
                                                                                         <div className="fht-cell"></div>
                                                                                         
                                                                                     </th>
                                                                                     <th>
-                                                                                        <div className="th-inner">Vegeterian</div>
+                                                                                        <div className="th-inner">{recipe.category}</div>
                                                                                         <div className="fht-cell"></div>
                                                                                     </th>
                                                                                     <th>
-                                                                                        <div className="th-inner">Medium</div>
+                                                                                        <div className="th-inner">{recipe.difficulty}</div>
                                                                                         <div className="fht-cell"></div>
                                                                                     </th>
                                                                                     
-                                                                                    <th>
+                                                                                    {/* <th>
                                                                                         <button class="button-heart">
                                                                                             <i className="icon-heart" aria-hidden="true"><FaHeart/></i>
 
                                                                                         </button>
                                                                                         <div className="fht-cell"></div>
                                                                                         
-                                                                                    </th>
+                                                                                    </th> */}
                                                                                     
                                                                                 
-                                                                                </tr>                     
-                                                                            
+                                                                                </tr>
+                                                                            }                                               
+                                                                        )                     
+                                                                        }    
                                                                     </tbody>
                                                                 </table>
                                                             </div>
@@ -205,7 +252,7 @@ const AuthorPage = (props) =>{
                                                         <div className="boostrap-table">
                                                             <div className="fixed-table-toolbar">
                                                                 <div className="pull-left-search">
-                                                                    <input className="form-control" type="text"  placeholder="Search for Recipes..."></input>
+                                                                    <input className="form-control" type="text" value={filter} onChange={event => setFilter(event.target.value)} placeholder="Search for Recipes..."></input>
                                                                 </div>
                                                             </div>
                                                             <div className="fixed-table-container">
@@ -232,51 +279,64 @@ const AuthorPage = (props) =>{
                                                                                     <div className="th-inner">Difficulty</div>
                                                                                     <div className="fht-cell"></div>
                                                                                 </th>
-                                                                                <th>
+                                                                                {/* <th>
                                                                                     <div className="th-inner"></div>
                                                                                     <div className="fht-cell"></div>
-                                                                                </th>
+                                                                                </th> */}
                                                                             </tr>
                                                                         </thead>
 
-                                                                            <tbody >                                                        
+                                                                            <tbody >
+                                                                            {
+                                                                            arrayFavoritedRecipes.filter(f => f.title.toLowerCase().includes(filter.toLowerCase()) || filter === '').map(recipe => {       
+                                                                                const recipeInfor = {
+                                                                                    pathname: '/recipes/'+recipe._id,
+                                                                                    id:recipe._id
+                                                                                };
+                                                                                const recipeUpdate = {
+                                                                                    pathname: '/update',
+                                                                                    recipeID:recipe._id,
+                                                                                }
+                                                                                                                                        
                                                                         
-                                                                                <tr className="no-records-found" >
-                                                                                    <th>
-                                                                                        <a href="/">
-                                                                                            <div className="th-inner-route"><img src="https://img-global.cpcdn.com/recipes/3c872698969f85ec/400x400cq70/photo.jpg" alt="banh cuon" width="120" height="80"></img></div>
-                                                                                        </a>
-                                                                                        <div className="fht-cell"></div>
-                                                                                        
-                                                                                    </th>
-                                                                                    <th>
-                                                                                        <a href="/">
-                                                                                        <div className="th-inner-route sortable">banh cuon</div>
-                                                                                        </a>
-                                                                                        <div className="fht-cell"></div>
-                                                                                        
-                                                                                    </th>
-                                                                                    <th>
-                                                                                        <div className="th-inner">Vegeterian</div>
-                                                                                        <div className="fht-cell"></div>
-                                                                                    </th>
-                                                                                    <th>
-                                                                                        <div className="th-inner">Medium</div>
-                                                                                        <div className="fht-cell"></div>
-                                                                                    </th>
-                                                                                    
-                                                                                    <th>
-                                                                                        <button class="button-heart">
-                                                                                            <i className="icon-heart" aria-hidden="true"><FaHeart/></i>
+                                                                                return    <tr className="no-records-found" >
+                                                                                            <th>
+                                                                                                <Link to={recipeInfor}>
+                                                                                                    <div className="th-inner-route"><img src={recipe.image} alt={recipe.title} width="120" height="80"></img></div>
+                                                                                                </Link>
+                                                                                                <div className="fht-cell"></div>
+                                                                                                
+                                                                                            </th>
+                                                                                            <th>
+                                                                                                <Link to={recipeInfor}>
+                                                                                                <div className="th-inner-route sortable">{recipe.title}</div>
+                                                                                                </Link>
+                                                                                                <div className="fht-cell"></div>
+                                                                                                
+                                                                                            </th>
+                                                                                            <th>
+                                                                                                <div className="th-inner">{recipe.category}</div>
+                                                                                                <div className="fht-cell"></div>
+                                                                                            </th>
+                                                                                            <th>
+                                                                                                <div className="th-inner">{recipe.difficulty}</div>
+                                                                                                <div className="fht-cell"></div>
+                                                                                            </th>
+                                                                                            
+                                                                                            {/* <th>
+                                                                                                <button class="button-heart">
+                                                                                                    <i className="icon-heart" aria-hidden="true"><FaHeart/></i>
 
-                                                                                        </button>
-                                                                                        <div className="fht-cell"></div>
+                                                                                                </button>
+                                                                                                <div className="fht-cell"></div>
+                                                                                                
+                                                                                            </th> */}
+                                                                                            
                                                                                         
-                                                                                    </th>
-                                                                                    
-                                                                                
-                                                                                </tr>                     
-                                                                            
+                                                                                        </tr>                     
+                                                                                    }                                               
+                                                                                )                     
+                                                                            }  
                                                                             </tbody>
 
                                                                         </table>
@@ -314,6 +374,10 @@ const AuthorPage = (props) =>{
             
         </div>
     )
+} else {
+    return <div>Loading</div>;
+  }
+
 }
 
 export default AuthorPage;

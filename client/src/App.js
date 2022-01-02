@@ -29,7 +29,7 @@ function App() {
         <Route path='/contact' element={<ContactPage/>}/>
         <Route path='/submit' element={<SubmitPage/>}/>
         <Route path='/members' element={<MembersPage/>}/>
-        <Route path="/changeinfo" element={<ChangeInforPage/>}/>
+        <Route path="/changeinfo/:id" element={<ChangeInforPage/>}/>
         {/* <Route path='/members/author1' element={<AuthorPage/>}/> */}
         <Route path='/members/:id' element={<AuthorPage/>}/>
       </Routes>

@@ -65,11 +65,11 @@ const recipeSchema = mongoose.Schema({
             type: String
         },
         image: {
-            type: Buffer
+            type: String
         }
     }],
     image: {
-        type: Buffer
+        type: String
     }
 }, {
     timestamps: true
