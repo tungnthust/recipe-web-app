@@ -32,30 +32,42 @@ const Navbar2 = () =>{
     },[])
 
     return (
-        <nav class={ effect ? navbarClasses + ' scrolled' : navbarClasses}>
-            <div class="container">
-                <button class="navbar-toggler button-white-menu collapsed"  data-toggle="collapse" data-target="#navbarSupportedContent">
-                        <FaBars class='menu-icon'/>                        
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item" active>
-                            <a class="nav-link" href="/">Home</a>
-                        </li>
-                        <li class="nav-item" active>
-                            <a class="nav-link" href="/recipes">Recipes</a>
-                        </li>
-                        <li class="nav-item" active>
-                            <a class="nav-link" href="/members">Members</a>
-                        </li>
-                        <li class="nav-item" active>
-                            <a class="nav-link" href="/contact">Contact Us</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>        
-        </nav>
-    )
+      <nav className={effect ? navbarClasses + " scrolled" : navbarClasses}>
+        <div className="container">
+          <button
+            className="navbar-toggler button-white-menu collapsed"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+          >
+            <FaBars className="menu-icon" />
+          </button>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav mr-auto">
+              <li className="nav-item" active="true">
+                <a className="nav-link" href="/">
+                  Home
+                </a>
+              </li>
+              <li className="nav-item" active="true">
+                <a className="nav-link" href="/recipes">
+                  Recipes
+                </a>
+              </li>
+              <li className="nav-item" active="true">
+                <a className="nav-link" href="/members">
+                  Members
+                </a>
+              </li>
+              <li className="nav-item" active="true">
+                <a className="nav-link" href="/contact">
+                  Contact Us
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    );
     
 }
 

@@ -35,23 +35,27 @@ const SignedInNavbar1 = () => {
 
   return (
     <>
- 
-  <Navbar bg="success" variant="dark">
-    <Container>
-    <a class="navbar-brand" href="/"><img src={noiceChef} /></a>
-    <Navbar.Brand href="/"><p class="logo-text">Noice Recipe</p></Navbar.Brand>
-    
-    <Nav className="ms-auto">
-      <Nav.Link href={"/changeinfo/"+localStorage.getItem("id")}>{username}</Nav.Link>
-      <Nav.Link href="/submit">New Recipe</Nav.Link>
-      <Nav.Link href="/" onClick={handleLogout}>Sign out</Nav.Link>
-    </Nav>
-    </Container>
-  </Navbar>
+      <Navbar bg="success" variant="dark">
+        <Container>
+          <a className="navbar-brand" href="/">
+            <img src={noiceChef} alt="Noice Chef" />
+          </a>
+          <Navbar.Brand href="/">
+            <p className="logo-text">Noice Recipe</p>
+          </Navbar.Brand>
 
-  
-</>
-  
+          <Nav className="ms-auto">
+            <Nav.Link href={"/changeinfo/" + localStorage.getItem("id")}>
+              {username}
+            </Nav.Link>
+            <Nav.Link href="/submit">New Recipe</Nav.Link>
+            <Nav.Link href="/" onClick={handleLogout}>
+              Sign out
+            </Nav.Link>
+          </Nav>
+        </Container>
+      </Navbar>
+    </>
   );
 };
 

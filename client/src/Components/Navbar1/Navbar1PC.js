@@ -2,7 +2,6 @@ import React from 'react';
 import noiceChef from './img/noice-chef.png';
 import {
   Nav,
-  NavLink,
   Bars,
   NavMenu,
   NavBtn,
@@ -10,8 +9,8 @@ import {
   NavImage,
   NavTitle,
   NavIconSignIn,
-  NavIconUser
-} from './NavbarElements';
+  NavIconUser,
+} from "./NavbarElements";
 
 const Navbar1PC = () => {
   return (
