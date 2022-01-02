@@ -1,11 +1,16 @@
 import { React,useState,useEffect  } from "react";
 import {Link} from 'react-router-dom';
-import {FaEyeDropper, FaSortNumericUpAlt, FaThumbsUp, FaPencilAlt, FaCamera, FaPhotoVideo, FaFile, FaThumbsDown, FaMobile, FaHeart} from'react-icons/fa';
-import IconButton from '@material-ui/core/IconButton';
-import './index.css';
-import axios from 'axios'
-import moment from 'moment'
-import { Button } from "@material-ui/core";
+import {
+  FaEyeDropper,
+  FaSortNumericUpAlt,
+  FaPencilAlt,
+  FaMobile,
+  FaHeart,
+} from "react-icons/fa";
+import "./index.css";
+import axios from "axios";
+import moment from "moment";
+
 
 const API = "http://localhost:4000";
 

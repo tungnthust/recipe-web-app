@@ -1,12 +1,12 @@
-import {React,useState} from "react";
-import Navbar1 from '../../Components/Navbar1';
-import Navbar2 from '../../Components/Navbar2';
+import { React, useState, useEffect } from "react";
+import Navbar1 from "../../Components/Navbar1";
+import Navbar2 from "../../Components/Navbar2";
 import { Button } from "@material-ui/core";
-import './index.css';
+import "./index.css";
 import axios from "axios";
 import Select from "react-select";
 import "bootstrap-icons/font/bootstrap-icons.css";
-
+import { Link } from "react-router-dom";
 const category = [
   { label: "Appetizer", value: "Appetizer" },
   { label: "Main Course", value: "Main Course" },
@@ -20,6 +20,8 @@ const cuisine = [
 ];
 
 const SubmitPage = () => {
+  const [id, setID] = useState("");
+  const [checkSubmit, setCheckSubmit] = useState(false);
   const [title, setTitle] = useState("");
   const [currentCategory, setCurrentCategory] = useState();
   const [currentCuisine, setCurrentCuisine] = useState();
@@ -32,7 +34,7 @@ const SubmitPage = () => {
       quantityType: "",
     },
   ]);
-  const [steps, setSteps] = useState([{Step:""}]);
+  const [steps, setSteps] = useState([{ Step: "" }]);
   const [difficulty, setDiff] = useState("");
   const [time, setTime] = useState("");
 
@@ -77,9 +79,7 @@ const SubmitPage = () => {
   };
 
   const handleAddClickStep = () => {
-    setSteps([
-      ...steps,{Step:""}
-    ]);
+    setSteps([...steps, { Step: "" }]);
   };
 
   const [id, setId] = useState('')
@@ -136,6 +136,9 @@ const SubmitPage = () => {
       }
     }
   };
+  useEffect(() => {
+    setCheckSubmit(true);
+  }, [id]);
 
   return (
     <section className="submit">
@@ -268,28 +271,23 @@ const SubmitPage = () => {
               <label for="step">Steps</label>
               {steps.map((x, i) => {
                 return (
-                  <div className="input-group">
-                    <span className="input-group-text">
-                      Step {i+1}
-                    </span>
+                  <div class="input-group">
+                    <span class="input-group-text">Step {i + 1}</span>
                     <input
                       type="text"
                       aria-label="Step"
-                      className="form-control"
-                      onChange={(e) =>
-                        handleStepInputChange(e, i)
-                      }
+                      class="form-control"
+                      onChange={(e) => handleStepInputChange(e, i)}
                     />
                     <div className="btnBox">
-                      {steps.length !== 1 &&
-                        steps.length - 1 !== i && (
-                          <button
-                            className="btn btn-outline-danger"
-                            onClick={() => handleRemoveClickStep(i)}
-                          >
-                            <i className="bi bi-x-circle"></i>
-                          </button>
-                        )}
+                      {steps.length !== 1 && steps.length - 1 !== i && (
+                        <button
+                          className="btn btn-outline-danger"
+                          onClick={() => handleRemoveClickStep(i)}
+                        >
+                          <i class="bi bi-x-circle"></i>
+                        </button>
+                      )}
                       {steps.length - 1 === i && (
                         <button
                           type="button"
@@ -329,10 +327,22 @@ const SubmitPage = () => {
                 ></input>
               </div>
             </div>
-            <div className="btnContainer">
-              <Button type="submit" variant="contained" color="primary">
-                Submit
-              </Button>
+            <div>
+              {checkSubmit && id!=='' ? (
+                <Link to={"/recipes/" + id}>
+                  <div className="btnContainer">
+                    <Button type="submit" variant="contained" color="primary">
+                      Go to Your Recipe
+                    </Button>
+                  </div>
+                </Link>
+              ) : (
+                <div className="btnContainer">
+                  <Button type="submit" variant="contained" color="primary">
+                    Submit
+                  </Button>
+                </div>
+              )}
             </div>
           </form>
         </div>
