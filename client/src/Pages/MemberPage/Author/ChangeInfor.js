@@ -74,18 +74,14 @@ const ChangeInforPage = (props) =>{
               }
               
             const base64 = await convertBase64(avatar)
-            // var avatar = base64.toString().split(",")[1];
             console.log(base64)
 
-          const res = await axiosInstance.patch("http://localhost:4000/members/"+ id, {
-            
+          const res = await axiosInstance.patch("http://localhost:4000/members/"+ id, {            
             name: name,
-            avatar: base64,
-            
+            avatar: base64,            
           });
          
-          let resData = res.data;
-          
+          let resData = res.data;          
 
           console.log(resData);
           if(resData!==null){
@@ -115,8 +111,7 @@ if (member !== undefined) {
                             <div className="my-sidebar">
                                 <div className="my-avatar" >
                                 {console.log(member.avatar)}
-                                    <img src={`${member.avatar}`} width="150" height="150" alt="Avatar"/>
-                                    {/* <img src= {member.avatar} onError={(e)=>{e.target.onerror = null; e.target.style.display = 'none';e.target.src="https://nhatbanonline.net/wp-content/uploads/2020/02/co-4-la-may-man-3.jpg"}} width="150" height="150" alt="Avatar"></img> */}
+                                    <img src={`${member.avatar}`} onError={(e)=>{e.target.onerror = null; e.target.src="https://as2.ftcdn.net/v2/jpg/03/49/49/79/1000_F_349497933_Ly4im8BDmHLaLzgyKg2f2yZOvJjBtlw5.jpg"}} width="150" height="150" alt="Avatar"/>
                                     <h4>{member.name}</h4>
                                     <ul className="list-unstyled list-inline post-share"></ul>
                                 </div>
@@ -139,7 +134,7 @@ if (member !== undefined) {
                                                             <li>
                                                                 <div href="/" className="clearfix">
                                                                     <i className="fa-heart"><FaHeart/></i>
-                                                                    Favourited Number
+                                                                    Number of Likes
                                                                     <span className="right-value"> {member.numOfFavourite}</span>
                                                                 </div>
                                                             </li>
@@ -247,7 +242,11 @@ if (member !== undefined) {
                                                                                 
                                                                                     <th >
                                                                                         <Link to={recipeInfor}>
-                                                                                            <div className="th-inner-route"><img src={recipe.image} alt={recipe.title} width="120" height="80"></img></div>
+                                                                                            <div className="th-inner-route">
+                                                                                                {/* <img src={recipe.image} alt={recipe.title} width="120" height="80"></img> */}
+                                                                                                <img src={`${recipe.image}`} onError={(e)=>{e.target.onerror = null; e.target.src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMqjnW3exxJNLtPV7reKRCjjELkyXcO4a_1Q&usqp=CAU"}} width="120" height="80"/>
+
+                                                                                            </div>
                                                                                         </Link>
                                                                                         <div className="fht-cell"></div>
                                                                                         
@@ -361,7 +360,10 @@ if (member !== undefined) {
                                                                                 return    <tr className="no-records-found" >
                                                                                             <th>
                                                                                                 <Link to={recipeInfor}>
-                                                                                                    <div className="th-inner-route"><img src={recipe.image} alt={recipe.title} width="120" height="80"></img></div>
+                                                                                                    <div className="th-inner-route">
+                                                                                                        {/* <img src={recipe.image} alt={recipe.title} width="120" height="80"></img> */}
+                                                                                                        <img src={`${recipe.image}`} onError={(e)=>{e.target.onerror = null; e.target.src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMqjnW3exxJNLtPV7reKRCjjELkyXcO4a_1Q&usqp=CAU"}} width="120" height="80"/>
+                                                                                                    </div>
                                                                                                 </Link>
                                                                                                 <div className="fht-cell"></div>
                                                                                                 
