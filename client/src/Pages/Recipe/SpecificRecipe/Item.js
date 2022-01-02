@@ -152,23 +152,23 @@ const Item = (props) => {
                     window.location = '/signUp';
                 }
                 else {
-                    const convertBase64 = (file) => {
-                        return new Promise((resolve, reject) => {
-                          const fileReader = new FileReader();
-                          fileReader.readAsDataURL(file)
-                          fileReader.onload = () => {
-                            resolve(fileReader.result);
-                          }
-                          fileReader.onerror = (error) => {
-                            reject(error);
-                          }
-                        })
-                      }
+                    // const convertBase64 = (file) => {
+                    //     return new Promise((resolve, reject) => {
+                    //       const fileReader = new FileReader();
+                    //       fileReader.readAsDataURL(file)
+                    //       fileReader.onload = () => {
+                    //         resolve(fileReader.result);
+                    //       }
+                    //       fileReader.onerror = (error) => {
+                    //         reject(error);
+                    //       }
+                    //     })
+                    //   }
                       
-                    const base64 = await convertBase64(image);
+                    // const base64 = await convertBase64(image);
                     const res = await axiosInstance.post(API + '/recipes/comment/' + id , {
                         content : comment,
-                        image : base64
+                        // image : base64
                     })
                     if ( res.data === null ){
                         alert("SOME THING IS WRONG!!!");
@@ -302,7 +302,7 @@ const Item = (props) => {
                       {/* <ul>
                                         <li> */}
                       {checkLike ? (
-                        <div className="button2">
+                        <div className="button1">
                           <i
                             className="fa fa-heart"
                             aria-hidden="true"
@@ -312,7 +312,7 @@ const Item = (props) => {
                           </i>
                         </div>
                       ) : (
-                        <div className="button1">
+                        <div className="button2">
                           <i
                             className="fa-heart"
                             aria-hidden="true"
