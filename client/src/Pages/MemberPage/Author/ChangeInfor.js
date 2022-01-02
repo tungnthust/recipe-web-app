@@ -135,7 +135,7 @@ if (member !== undefined) {
                                                             <li>
                                                                 <div href="/" className="clearfix">
                                                                     <i className="fa-heart"><FaHeart/></i>
-                                                                    Favourited Number
+                                                                    Number of Likes
                                                                     <span className="right-value"> {member.numOfFavourite}</span>
                                                                 </div>
                                                             </li>
