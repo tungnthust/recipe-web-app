@@ -1,8 +1,8 @@
-import {React,useState,useEffect} from "react";
-import Navbar1 from '../../Components/Navbar1';
-import SlideShow from '../../Components/SlideShow';
-import Navbar2 from '../../Components/Navbar2';
-import QuickFilter from '../../Components/QuickFilter';
+import { React, useState, useEffect } from "react";
+import Navbar1 from "../../Components/Navbar1";
+import SlideShow from "../../Components/SlideShow";
+import Navbar2 from "../../Components/Navbar2";
+import QuickFilter from "../../Components/QuickFilter";
 import RecipeItems from "../Recipe/recipeItems";
 import Footer from "../../Components/Footer";
 import MemberItem from "../MemberPage/MemberItem";
@@ -73,11 +73,12 @@ const HomePage = () => {
   //   },
   // ];
   return (
-    <div>
+    <div className="home">
       <Navbar1 />
       <SlideShow />
       <Navbar2 />
       <QuickFilter />
+      {topAuthors.map((item) => console.log(item))}
       <section id="recipeItems">
         <div class="container">
           <div class="title">
@@ -117,8 +118,8 @@ const HomePage = () => {
         </div>
       </section>
       <section id="recipeItems">
-        <div class="container">
-          <div class="title">
+        <div className="container">
+          <div className="title">
             <h1>Latest Recipes </h1>
           </div>
           <div className="row">
@@ -139,6 +140,7 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+
       <Footer />
     </div>
   );
