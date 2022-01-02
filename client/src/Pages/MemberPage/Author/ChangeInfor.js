@@ -165,7 +165,8 @@ if (member !== undefined) {
                                                 <h2 >Change Infor</h2>
                                                 <hr/>
                                                 <label>New Name</label>
-                                                <input  onChange={(e) => setName(e.target.value)}/>
+                                                <input type="text"     onChange={(e) => setName(e.target.value)}  placeholder={member.name} ></input>
+                                                {/* <textarea value={member.name} onChange= {(e) => setName(e.target.value)}/>    */}
                                                 <label>New Avatar</label>
 
                                                 <input type="file" id="myFile" name="filename" onChange={(e) => setAvatar(e.target.files[0])}></input>
