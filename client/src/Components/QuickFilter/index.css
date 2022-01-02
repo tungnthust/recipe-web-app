@@ -6,8 +6,8 @@
   width: 1150px;
   margin-right: auto;
   margin-left: auto;
-  padding-left: 50px;
-  padding-right: 50px;
+  /* padding-left: 50px; */
+  /* padding-right: 50px; */
 }
 .title {
   border-bottom: 1px dashed #999;

@@ -232,7 +232,7 @@ const Recipe = (props) => {
                   difficulty={item.difficulty}
                   time={item.cookTime}
                   avatar={item.author.avatar}
-                  img={item.image}
+                  image={item.image}
                   authorid={item.author.id}
                 />
               ))}

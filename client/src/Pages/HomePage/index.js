@@ -86,6 +86,7 @@ const HomePage = () => {
           </div>
           <div className="row">
             {mostFavorite.map((item) => (
+              // console.log(item)
               <RecipeItems
                 id={item._id}
                 title={item.title}
@@ -93,7 +94,7 @@ const HomePage = () => {
                 author={item.author.name}
                 difficulty={item.difficulty}
                 time={item.cookTime}
-                img={item.image}
+                image={item.image}
               />
             ))}
           </div>
@@ -113,7 +114,7 @@ const HomePage = () => {
                 author={item.author.name}
                 difficulty={item.difficulty}
                 time={item.cookTime}
-                img={item.image}
+                image={item.image}
               />
             ))}
           </div>

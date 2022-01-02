@@ -20,7 +20,7 @@ const cuisine = [
 ];
 
 const SubmitPage = () => {
-  const [id, setID] = useState("");
+  // const [id, setID] = useState("");
   const [checkSubmit, setCheckSubmit] = useState(false);
   const [title, setTitle] = useState("");
   const [currentCategory, setCurrentCategory] = useState();

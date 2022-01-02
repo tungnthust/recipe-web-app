@@ -19,7 +19,7 @@ const SignUp = () => {
       });
       let resData = res.data;
       if(resData!==null){
-          window.alert('Register successful');
+          // window.alert('Register successful');
       }
       window.location.assign("/signin");
     } catch (err) {
