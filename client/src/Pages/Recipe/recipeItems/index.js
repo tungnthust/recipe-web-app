@@ -14,7 +14,7 @@ const RecipeItems = (props) => {
     difficulty,
     time,
     avatar,
-    img,
+    image,
     authorid,
   } = props;
 
@@ -33,7 +33,7 @@ const RecipeItems = (props) => {
         <div className="img-container">
           <Link to={recipeInfo}>
             <img
-              src={`${img}`}
+              src={`${image}`}
               onError={(e) => {
                 e.target.onerror = null;
                 e.target.src =

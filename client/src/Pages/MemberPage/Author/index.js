@@ -247,10 +247,10 @@ const AuthorPage = (props) => {
                                                 "/recipes/" + recipe._id,
                                               id: recipe._id,
                                             };
-                                            const recipeUpdate = {
-                                              pathname: "/update",
-                                              recipeID: recipe._id,
-                                            };
+                                            // const recipeUpdate = {
+                                            //   pathname: "/update",
+                                            //   recipeID: recipe._id,
+                                            // };
                                             return (
                                               <tr className="no-records-found">
                                                 <th>
@@ -267,6 +267,7 @@ const AuthorPage = (props) => {
                                                         }}
                                                         width="120"
                                                         height="80"
+                                                        alt="img"
                                                       />
                                                     </div>
                                                   </Link>
@@ -417,10 +418,10 @@ const AuthorPage = (props) => {
                                                 "/recipes/" + recipe._id,
                                               id: recipe._id,
                                             };
-                                            const recipeUpdate = {
-                                              pathname: "/update",
-                                              recipeID: recipe._id,
-                                            };
+                                            // const recipeUpdate = {
+                                            //   pathname: "/update",
+                                            //   recipeID: recipe._id,
+                                            // };
 
                                             return (
                                               <tr className="no-records-found">
@@ -438,6 +439,7 @@ const AuthorPage = (props) => {
                                                         }}
                                                         width="120"
                                                         height="80"
+                                                        alt="img"
                                                       />
                                                     </div>
                                                   </Link>
