@@ -6,35 +6,65 @@ import { Link } from "react-router-dom";
 
 
 const RecipeItems = (props) => {
-  const { id, title, description, author, difficulty, time } = props;
+  const {
+    id,
+    title,
+    description,
+    author,
+    difficulty,
+    time,
+    avatar,
+    image,
+    authorid,
+  } = props;
 
   const recipeInfo = {
-    pathname: '/recipes/' + id,
-    id : id,
-  }
+    pathname: "/recipes/" + id,
+    id: id,
+  };
 
+  const authorInfo = {
+    pathname: "/members/" + authorid,
+    id: authorid,
+  };
   return (
     <div className="col-md-4" key={id}>
       <div className="card-text-center">
         <div className="img-container">
           <Link to={recipeInfo}>
-          <img 
-            src="http://t1.gstatic.com/licensed-image?q=tbn:ANd9GcRjQrPU66ETKarsWq5fLe6vtR_ZnM5r4EVLnUJiAFN6wlcem9g94yAgh_9RP-MZ-W_n3eU1G96ptdcibkt-9H4"
-            className="card-img-top"
-          ></img>
+            <img
+              src={`${image}`}
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src =
+                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMqjnW3exxJNLtPV7reKRCjjELkyXcO4a_1Q&usqp=CAU";
+              }}
+              alt="food"
+              className="card-img-top"
+            />
           </Link>
         </div>
         <div className="card-body">
-          <h5 className="card-title">{title}</h5>
+          <Link to={recipeInfo} className="titlelink">
+            <h5 className="card-title">{title}</h5>
+          </Link>
           <p className="card-text">{description}</p>
           <div className="author1">
-            <img
-              className="avatar"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png"
-              alt="authorAvatar "
-            ></img>
-            By
-            <p> {author}</p>
+            <Link to={authorInfo}>
+              <img
+                src={`${avatar}`}
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src =
+                    "https://as2.ftcdn.net/v2/jpg/03/49/49/79/1000_F_349497933_Ly4im8BDmHLaLzgyKg2f2yZOvJjBtlw5.jpg";
+                }}
+                alt="Avatar"
+                className="avatar"
+              />
+            </Link>
+            <Link to={authorInfo} className="titlelink">
+              <p> {author}</p>
+            </Link>
           </div>
         </div>
         <div className="card-footer">
