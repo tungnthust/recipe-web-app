@@ -18,7 +18,7 @@ const HomePage = () => {
   useEffect(() => {
     const getMostFavorite = async () => {
       const res = await axios.get(
-        API + "recipes?sortBy=numOfFavourtie:desc&limit=5"
+        API + "recipes?sortBy=numOfFavourite:desc&limit=5"
       );
       setMostFavorite(res.data);
     };
@@ -93,6 +93,7 @@ const HomePage = () => {
                 author={item.author.name}
                 difficulty={item.difficulty}
                 time={item.cookTime}
+                img={item.image}
               />
             ))}
           </div>
@@ -112,6 +113,7 @@ const HomePage = () => {
                 author={item.author.name}
                 difficulty={item.difficulty}
                 time={item.cookTime}
+                img={item.image}
               />
             ))}
           </div>

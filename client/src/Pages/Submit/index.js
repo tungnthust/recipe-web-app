@@ -82,6 +82,8 @@ const SubmitPage = () => {
     ]);
   };
 
+  const [id, setId] = useState('')
+
   const handleSubmit = async (Event) => {
     Event.preventDefault();
     const convertBase64 = (file) => {
@@ -124,8 +126,9 @@ const SubmitPage = () => {
           cookTime: time,
         });
         if (res.data !== null) {
-          if (res.status === 200) {
-            window.alert("SUbmit new recipe successfully");
+          setId(res.data._id);
+          if (res.status === 201) {
+            window.alert("Submit new recipe successfully\nClick the Go to Your Recipe button to review your new recipe.");
           }
         }
       } catch (e) {
