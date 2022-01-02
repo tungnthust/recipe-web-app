@@ -216,11 +216,11 @@ const Recipe = (props) => {
         </Media>
 
         <section id="recipeItems">
-          <div class="container">
-            <div class="title">
+          <div className="container">
+            <div className="title">
               <h1>Recipes </h1>
             </div>
-            <div class="row">
+            <div className="row">
               {recipes.map((item) => (
                 <RecipeItems
                   key={item._id}
