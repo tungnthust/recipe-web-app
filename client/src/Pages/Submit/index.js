@@ -144,11 +144,11 @@ const SubmitPage = () => {
             <h1 className="title">Submit Recipe</h1>
             <div className="group">
               <label for="title">Title</label>
-              <div class="input-group mb-3">
+              <div className="input-group mb-3">
                 <input
                   type="text"
                   required
-                  class="form-control"
+                  className="form-control"
                   placeholder="Title"
                   aria-label="Title"
                   aria-describedby="basic-addon1"
@@ -179,13 +179,13 @@ const SubmitPage = () => {
             </div>
             <div className="=group">
               <label for="image">Image:</label>
-              <div class="input-group mb-3">
-                <label class="input-group-text" for="inputGroupFile01">
+              <div className="input-group mb-3">
+                <label className="input-group-text" for="inputGroupFile01">
                   Upload
                 </label>
                 <input
                   type="file"
-                  class="form-control"
+                  className="form-control"
                   id="inputGroupFile01"
                   name="image"
                   onChange={(e) => setImage(e.target.files[0])}
@@ -194,9 +194,9 @@ const SubmitPage = () => {
             </div>
             <div className="group">
               <label for="description">Description</label>
-              <div class="input-group">
+              <div className="input-group">
                 <textarea
-                  class="form-control"
+                  className="form-control"
                   aria-label="With textarea"
                   required
                   value={description}
@@ -208,14 +208,14 @@ const SubmitPage = () => {
               <label>Ingredient(s)</label>
               {ingredients.map((x, i) => {
                 return (
-                  <div class="input-group">
-                    <span class="input-group-text">
+                  <div className="input-group">
+                    <span className="input-group-text">
                       Name, quantity and quantity type
                     </span>
                     <input
                       type="text"
                       aria-label="Ingredient name"
-                      class="form-control"
+                      className="form-control"
                       onChange={(e) =>
                         handleIngredientInputChange(e, "ingredient", i)
                       }
@@ -223,7 +223,7 @@ const SubmitPage = () => {
                     <input
                       type="text"
                       aria-label="Quantity"
-                      class="form-control"
+                      className="form-control"
                       onChange={(e) =>
                         handleIngredientInputChange(e, "quantity", i)
                       }
@@ -231,7 +231,7 @@ const SubmitPage = () => {
                     <input
                       type="text"
                       aria-label="Quantity type"
-                      class="form-control"
+                      className="form-control"
                       onChange={(e) =>
                         handleIngredientInputChange(e, "quantityType", i)
                       }
@@ -243,7 +243,7 @@ const SubmitPage = () => {
                             className="btn btn-outline-danger"
                             onClick={() => handleRemoveClick(i)}
                           >
-                            <i class="bi bi-x-circle"></i>
+                            <i className="bi bi-x-circle"></i>
                           </button>
                         )}
                       {ingredients.length - 1 === i && (
@@ -252,7 +252,7 @@ const SubmitPage = () => {
                           className="btn btn-outline-info"
                           onClick={handleAddClick}
                         >
-                          <i class="bi bi-plus-circle"></i>
+                          <i className="bi bi-plus-circle"></i>
                         </button>
                       )}
                     </div>
@@ -265,14 +265,14 @@ const SubmitPage = () => {
               <label for="step">Steps</label>
               {steps.map((x, i) => {
                 return (
-                  <div class="input-group">
-                    <span class="input-group-text">
+                  <div className="input-group">
+                    <span className="input-group-text">
                       Step {i+1}
                     </span>
                     <input
                       type="text"
                       aria-label="Step"
-                      class="form-control"
+                      className="form-control"
                       onChange={(e) =>
                         handleStepInputChange(e, i)
                       }
@@ -284,7 +284,7 @@ const SubmitPage = () => {
                             className="btn btn-outline-danger"
                             onClick={() => handleRemoveClickStep(i)}
                           >
-                            <i class="bi bi-x-circle"></i>
+                            <i className="bi bi-x-circle"></i>
                           </button>
                         )}
                       {steps.length - 1 === i && (
@@ -293,7 +293,7 @@ const SubmitPage = () => {
                           className="btn btn-outline-info"
                           onClick={handleAddClickStep}
                         >
-                          <i class="bi bi-plus-circle"></i>
+                          <i className="bi bi-plus-circle"></i>
                         </button>
                       )}
                     </div>
@@ -303,11 +303,11 @@ const SubmitPage = () => {
             </div>
             <div className="group">
               <label for="difficulty">Difficulty and Cook Time</label>
-              <div class="input-group mb-3">
+              <div className="input-group mb-3">
                 <input
                   type="text"
                   required
-                  class="form-control"
+                  className="form-control"
                   placeholder="Difficulty"
                   aria-label="Difficulty"
                   aria-describedby="basic-addon1"
@@ -317,7 +317,7 @@ const SubmitPage = () => {
                 <input
                   type="text"
                   required
-                  class="form-control"
+                  className="form-control"
                   placeholder="Cook Time"
                   aria-label="Cook Time"
                   aria-describedby="basic-addon1"

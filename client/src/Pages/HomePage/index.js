@@ -80,11 +80,11 @@ const HomePage = () => {
       <QuickFilter />
       {topAuthors.map((item) => console.log(item))}
       <section id="recipeItems">
-        <div class="container">
-          <div class="title">
+        <div className="container">
+          <div className="title">
             <h1>Top Rated Recipes </h1>
           </div>
-          <div class="row">
+          <div className="row">
             {mostFavorite.map((item) => (
               <RecipeItems
                 id={item._id}
@@ -99,11 +99,11 @@ const HomePage = () => {
         </div>
       </section>
       <section id="recipeItems">
-        <div class="container">
-          <div class="title">
+        <div className="container">
+          <div className="title">
             <h1>Latest Recipes </h1>
           </div>
-          <div class="row">
+          <div className="row">
             {latestRecipes.map((item) => (
               <RecipeItems
                 id={item._id}
