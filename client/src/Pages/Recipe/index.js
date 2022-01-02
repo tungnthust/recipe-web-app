@@ -112,6 +112,7 @@ const Recipe = (props) => {
 
   return (
     <div>
+      {console.log(recipes)}
       <Navbar1 />
       <Navbar2 />
       <section className="recipe_section">
@@ -216,11 +217,11 @@ const Recipe = (props) => {
         </Media>
 
         <section id="recipeItems">
-          <div class="container">
-            <div class="title">
+          <div className="container">
+            <div className="title">
               <h1>Recipes </h1>
             </div>
-            <div class="row">
+            <div className="row">
               {recipes.map((item) => (
                 <RecipeItems
                   key={item._id}
@@ -230,6 +231,9 @@ const Recipe = (props) => {
                   author={item.author.name}
                   difficulty={item.difficulty}
                   time={item.cookTime}
+                  avatar={item.author.avatar}
+                  img={item.img}
+                  authorid={item.author.id}
                 />
               ))}
             </div>
