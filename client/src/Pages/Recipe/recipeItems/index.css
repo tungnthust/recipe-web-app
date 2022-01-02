@@ -6,7 +6,7 @@
 }
 
 .card-text-center{
-    background-color: rgb(236, 236, 236);
+    background-color: rgb(255, 255, 255);
     color: #5a5a5a;
     padding-bottom: 0px;
     width: 100%;
@@ -46,7 +46,7 @@
     border-radius: 50%;
 }
 .card-footer{
-    background-color: rgb(236, 236, 236);
+    background-color: rgb(255, 255, 255);
 }
 .card-footer .card-footer-content ul {
     margin: 0;

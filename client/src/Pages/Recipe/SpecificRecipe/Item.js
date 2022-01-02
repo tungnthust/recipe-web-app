@@ -13,10 +13,23 @@ const Item = (props) => {
   const { id } = props;
   const [recipe, setRecipe] = useState();
   useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    const axiosInstance = axios.create({
+        baseURL: API,
+        timeout: 3000,
+        headers: {'Authorization': 'Bearer '+token}
+    });
+    const checkIsLike = async () => {
+        const res = await axiosInstance.get(API + '/recipes/isliked/' + id);
+        setCheckLike(!res.data.isLiked)
+        // console.log(res.data.isLiked)
+    };
     const getRecipe = async () => {
       const res = await axios.get(API + "/recipes/" + id);
       setRecipe(res.data);
     };
+    checkIsLike();
     getRecipe();
   }, []);
 
@@ -60,7 +73,7 @@ const Item = (props) => {
             const checkIsLike = async () => {
                 const res = await axiosInstance.get(API + '/recipes/isliked/' + id);
                 setCheckLike(!res.data.isLiked)
-                console.log(res.data.isLiked)
+                // console.log(res.data.isLiked)
             };
 
             const postLike = async () => {
@@ -69,14 +82,15 @@ const Item = (props) => {
                 if ( res.data === null ){
                     alert("SOME THING IS WRONG!!!");
                 }
-                // else{
-                //     if (checkLike) {
-                //         alert("Add to favorite recipes list successfully");
-                //     }
-                //     else {
-                //         alert("Remove from favorite recipes list successfully");
-                //     }
-                // }
+                else{
+                    // if (checkLike) {
+                    //     alert("Add to favorite recipes list successfully");
+                    // }
+                    // else {
+                    //     alert("Remove from favorite recipes list successfully");
+                    // }
+                    setCheckLike(!checkLike);
+                }
             }
             postLike();
         }
@@ -133,15 +147,29 @@ const Item = (props) => {
                     window.location = '/signUp';
                 }
                 else {
+                    const convertBase64 = (file) => {
+                        return new Promise((resolve, reject) => {
+                          const fileReader = new FileReader();
+                          fileReader.readAsDataURL(file)
+                          fileReader.onload = () => {
+                            resolve(fileReader.result);
+                          }
+                          fileReader.onerror = (error) => {
+                            reject(error);
+                          }
+                        })
+                      }
+                      
+                    const base64 = await convertBase64(image);
                     const res = await axiosInstance.post(API + '/recipes/comment/' + id , {
                         content : comment,
-                        image : image
+                        image : base64
                     })
                     if ( res.data === null ){
                         alert("SOME THING IS WRONG!!!");
                     }
                     else{
-                        alert("Post comment successfully");
+                        // alert("Post comment successfully");
                         setCheckComment(false);
                        setComment('');
                     }
@@ -170,7 +198,7 @@ const Item = (props) => {
                         <div className="recipe-infor flex flex-jc-sb">
                             <div className="recipe-item">
                                 <div className="img-container">
-                                    <img key={id} src='https://images.foody.vn/res/g67/662372/prof/s576x330/foody-upload-api-foody-mobile-4-jpg-180705093533.jpg' alt="recipe title"></img>
+                                    <img key={id} src={`${recipe.image}`} width="150" height="150" alt="recipe title"></img>
                                 </div>
                                 <div className="recipe-content">
                                     <h1 className="recipe-content-title" key={id}>{recipe.title}</h1>
@@ -226,7 +254,7 @@ const Item = (props) => {
                                 <div className="author-item-infor">
                                     <ul>
                                         <li className="author-avatar">
-                                            <img src={author.avatar} alt="fullname"></img>
+                                            <img src={`${author.avatar}`} alt="fullname"></img>
                                             By
                                             <Link to={authorInfor}>{author.username}</Link>
                                         </li>
@@ -256,10 +284,10 @@ const Item = (props) => {
                                     {/* <ul>
                                         <li> */}
                                         {checkLike? 
-                                        <div className="button1"> 
+                                        <div className="button2"> 
                                             <i className="fa fa-heart" aria-hidden="true" onClick={onClickHeart}><FaHeart/></i>
                                         </div> :
-                                         <div className="button2">
+                                         <div className="button1">
                                             <i className="fa-heart" aria-hidden="true" onClick={onClickHeart}><FaHeart/></i>
                                         </div>}
                                         {/* </li>
@@ -273,11 +301,11 @@ const Item = (props) => {
                                             <div className="action1">
                                                 <input accept="image/*" id="icon-button-file"
                                                     type="file" style={{ display: 'none' }} />
-                                                <label htmlFor="icon-button-file">
+                                                {/* <label htmlFor="icon-button-file">
                                                     <IconButton className='button' aria-label="upload picture"component="span">
                                                         <FaPhotoVideo />
                                                     </IconButton>
-                                                </label>
+                                                </label> */}
                                             </div>
                                             <div className="action2">
                                                 <button class="btn btn-sm btn-primary" type="submit" onClick={(e) => handleComment(e)}>
@@ -301,7 +329,7 @@ const Item = (props) => {
                                                     <div className="available-comment flex flex-jc-sb">
                                                         <div className="media-left">
                                                             <a className="media-left" href="#">
-                                                                <img className="img-circle img-sm" alt="Profile Picture" src={item.image}></img>
+                                                                <img className="img-circle img-sm" alt="Profile Picture" src={`${item.user.avatar}`}></img>
                                                             </a>
                                                         </div>
                                                         <div className="media-right">

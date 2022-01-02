@@ -1,8 +1,8 @@
-import {React,useState,useEffect} from "react";
-import Navbar1 from '../../Components/Navbar1';
-import SlideShow from '../../Components/SlideShow';
-import Navbar2 from '../../Components/Navbar2';
-import QuickFilter from '../../Components/QuickFilter';
+import { React, useState, useEffect } from "react";
+import Navbar1 from "../../Components/Navbar1";
+import SlideShow from "../../Components/SlideShow";
+import Navbar2 from "../../Components/Navbar2";
+import QuickFilter from "../../Components/QuickFilter";
 import RecipeItems from "../Recipe/recipeItems";
 import Footer from "../../Components/Footer";
 import axios from "axios";
@@ -37,72 +37,20 @@ const HomePage = () => {
     getLatest();
     getAuthors();
   }, []);
-  const recipes = [
-    {
-      _id: "0",
-      title: "pho",
-      description: "test desciption",
-      author: "author name",
-      difficulty: "3",
-      time: "30",
-    },
-    {
-      _id: "0",
-      title: "pho",
-      description: "test desciption",
-      author: "author name",
-      difficulty: "3",
-      time: "30",
-    },
-    {
-      _id: "0",
-      title: "pho",
-      description: "test desciption",
-      author: "author name",
-      difficulty: "3",
-      time: "30",
-    },
-    {
-      _id: "0",
-      title: "pho",
-      description: "test desciption",
-      author: "author name",
-      difficulty: "3",
-      time: "30",
-    },
-  ];
   return (
-    <div>
+    <div className="home">
       <Navbar1 />
       <SlideShow />
       <Navbar2 />
       <QuickFilter />
+      {topAuthors.map((item) => console.log(item))}
       <section id="recipeItems">
-        <div class="container">
-          <div class="title">
-            <h1>Recipes </h1>
-          </div>
-          <div class="row">
-            {recipes.map((item) => (
-              <RecipeItems
-                id={item._id}
-                title={item.title}
-                description={item.description}
-                author={item.author.name}
-                difficulty={item.difficulty}
-                time={item.cookTime}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-      <section id="recipeItems">
-        <div class="container">
-          <div class="title">
+        <div className="container">
+          <div className="title">
             <h1>Top Rated Recipes </h1>
           </div>
-          <div class="row">
-            {recipes.map((item) => (
+          <div className="row">
+            {mostFavorite.map((item) => (
               <RecipeItems
                 id={item._id}
                 title={item.title}
@@ -116,12 +64,12 @@ const HomePage = () => {
         </div>
       </section>
       <section id="recipeItems">
-        <div class="container">
-          <div class="title">
+        <div className="container">
+          <div className="title">
             <h1>Latest Recipes </h1>
           </div>
-          <div class="row">
-            {recipes.map((item) => (
+          <div className="row">
+            {latestRecipes.map((item) => (
               <RecipeItems
                 id={item._id}
                 title={item.title}
@@ -134,6 +82,7 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+
       <Footer />
     </div>
   );
