@@ -188,7 +188,10 @@ if (member !== undefined) {
                                                                                 
                                                                                     <th >
                                                                                         <Link to={recipeInfor}>
-                                                                                            <div className="th-inner-route"><img src={recipe.image} alt={recipe.title} width="120" height="80"></img></div>
+                                                                                            <div className="th-inner-route">
+                                                                                                {/* <img src={} alt={recipe.title} ></img> */}
+                                                                                                <img src={`${recipe.image}`} onError={(e)=>{e.target.onerror = null; e.target.src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMqjnW3exxJNLtPV7reKRCjjELkyXcO4a_1Q&usqp=CAU"}} width="120" height="80"/>
+                                                                                            </div>
                                                                                         </Link>
                                                                                         <div className="fht-cell"></div>
                                                                                         
@@ -302,7 +305,11 @@ if (member !== undefined) {
                                                                                 return    <tr className="no-records-found" >
                                                                                             <th>
                                                                                                 <Link to={recipeInfor}>
-                                                                                                    <div className="th-inner-route"><img src={recipe.image} alt={recipe.title} width="120" height="80"></img></div>
+                                                                                                    <div className="th-inner-route">
+                                                                                                        {/* <img src={recipe.image} alt={recipe.title} width="120" height="80"></img> */}
+                                                                                                        <img src={`${recipe.image}`} onError={(e)=>{e.target.onerror = null; e.target.src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMqjnW3exxJNLtPV7reKRCjjELkyXcO4a_1Q&usqp=CAU"}} width="120" height="80"/>
+
+                                                                                                    </div>
                                                                                                 </Link>
                                                                                                 <div className="fht-cell"></div>
                                                                                                 
