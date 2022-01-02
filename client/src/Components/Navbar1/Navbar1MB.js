@@ -1,17 +1,16 @@
 import React from 'react';
 import noiceChef from './img/noice-chef.png';
 import {
-    NavMB,
-    NavLinkMB,
-    BarsMB,
-    NavMenuMB,
-    NavBtnMB,
-    NavBtnLinkMB,
-    NavImageMB,
-    NavTitleMB,
-    NavIconSignInMB,
-    NavIconUserMB
-} from './NavbarElements';
+  NavMB,
+  BarsMB,
+  NavMenuMB,
+  NavBtnMB,
+  NavBtnLinkMB,
+  NavImageMB,
+  NavTitleMB,
+  NavIconSignInMB,
+  NavIconUserMB,
+} from "./NavbarElements";
 
 const Navbar1MB = () => {
     return (
