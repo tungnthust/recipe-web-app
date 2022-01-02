@@ -21,7 +21,7 @@ const cuisine = [
 ];
 
 const sort = [
-  { value: "numOfFavourtie:desc", label: "Top rated" },
+  { value: "numOfFavourite:desc", label: "Top rated" },
   { value: "createdAt:desc", label: "Latest" },
   { value: "createdAt:asc", label: "Oldest" },
 ];
