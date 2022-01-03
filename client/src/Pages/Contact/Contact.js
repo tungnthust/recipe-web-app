@@ -3,7 +3,7 @@ import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../../../node_modules/bootstrap/dist/js/bootstrap.min.js';
 import axios from 'axios';
 
-const API = "http://localhost:4000";
+const API = "http://localhost:4000/api";
 
 const Contact = () =>{
     const [email, setEmail] = useState("");

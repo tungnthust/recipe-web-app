@@ -99,7 +99,7 @@ const SubmitPage = () => {
       });
     };
     const base64 = await convertBase64(image);
-    const API = "http://localhost:4000";
+    const API = "http://localhost:4000/api";
     const token = localStorage.getItem("token");
 
     const axiosInstance = axios.create({
@@ -114,7 +114,7 @@ const SubmitPage = () => {
       window.location = "/signUp";
     } else {
       try {
-        const res = await axiosInstance.post("http://localhost:4000/recipes", {
+        const res = await axiosInstance.post("http://localhost:4000/api/recipes", {
           title: title,
           description: description,
           ingredients: ingredients,

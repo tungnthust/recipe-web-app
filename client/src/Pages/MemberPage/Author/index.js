@@ -11,7 +11,7 @@ import { useParams } from "react-router";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const API = "http://localhost:4000";
+const API = "http://localhost:4000/api";
 
 const AuthorPage = (props) => {
   const { id } = useParams();

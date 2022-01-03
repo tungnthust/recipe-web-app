@@ -7,7 +7,7 @@ import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min';
 import axios from 'axios';
 
-const API = "http://localhost:4000";
+const API = "http://localhost:4000/api";
 
 const SignedInNavbar1 = () => {
   const username = localStorage.getItem("username");

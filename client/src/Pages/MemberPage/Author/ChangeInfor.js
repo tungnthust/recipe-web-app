@@ -11,7 +11,7 @@ import { useParams } from 'react-router';
 import axios from "axios";
 import {Link} from 'react-router-dom'
 
-const API = "http://localhost:4000";
+const API = "http://localhost:4000/api";
 
 const ChangeInforPage = (props) =>{
     const { id } = useParams();
@@ -76,7 +76,7 @@ const ChangeInforPage = (props) =>{
             const base64 = await convertBase64(avatar)
             console.log(base64)
 
-          const res = await axiosInstance.patch("http://localhost:4000/members/"+ id, {            
+          const res = await axiosInstance.patch("http://localhost:4000/api/members/"+ id, {            
             name: name,
             avatar: base64,            
           });

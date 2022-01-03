@@ -34,7 +34,7 @@ const Recipe = (props) => {
   const [currentSort, setCurrentSort] = useState();
   const [ingredient, setIngredient] = useState("");
   const [recipes, setRecipes] = useState([]);
-  const [api,setAPI] = useState("http://localhost:4000/recipes?");
+  const [api,setAPI] = useState("http://localhost:4000/api/recipes?");
   const [apiCat,setApiCat] = useState('');
   const [apiCui,setApiCui] = useState('');
   const [apiSort,setApiSort] = useState('');
@@ -58,7 +58,7 @@ const Recipe = (props) => {
       const res = await axios.get(Api);
       setRecipes(res.data);
     };
-    if(api!=="http://localhost:4000/recipes?") getData(api);
+    if(api!=="http://localhost:4000/api/recipes?") getData(api);
   }, [api]);
   useEffect(() => {
     const getAllRecipes = async () => {
@@ -72,7 +72,7 @@ const Recipe = (props) => {
     getAllRecipes();
   }, []);
   useEffect(() => {
-    var tempAPI = "http://localhost:4000/recipes?";
+    var tempAPI = "http://localhost:4000/api/recipes?";
     if (apiCat !== "") tempAPI = tempAPI + "category=" + apiCat + "&";
     if (apiCui !== "") tempAPI = tempAPI + "cuisine=" + apiCui + "&";
     if (apiSort !== "") tempAPI = tempAPI + "sortBy=" + apiSort + "&";
