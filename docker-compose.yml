@@ -15,13 +15,9 @@ services:
     restart: always
     container_name: server
     build: ./server
+    image: group10ict/server:latest
     ports:
       - "4000:4000"
-    environment:
-      PORT: 4000
-      MONGODB_URL: 'mongodb://mongo:27017/recipe'
-      SENDGRID_API_KEY: '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'
-      JWT_SECRET: 'oneloveonefuture'
     depends_on:
       - mongo
     networks:
@@ -31,6 +27,7 @@ services:
     restart: always
     container_name: client
     build: ./client
+    image: group10ict/client:latest
     ports:
       - "3000:3000"
     networks:
