@@ -10,14 +10,17 @@ const mongoose = require('mongoose')
 router.get('/recipes?', async (req, res) => {
     var query = req.query
     var sort = {}
-    if (query.ingredients) {
+    if (!query.limit) {
+        query.limit = 50
+    }
+    if (query.ingredient) {
         // var ingredients = query.ingredients.split(',')
         // var ingredientsArray = await Ingredient.find({"name": {$in: ingredients}}, '_id')
         // var ingredientsId = ingredientsArray.map(a => a._id)
         // query["ingredients.ingredient"] = {$all: ingredientsId}
         // delete query.ingredients
         var ingredientsArray = await Ingredient.find({
-            "name": { "$regex": "^" + query.ingredients, "$options": "i" }
+            "name": { "$regex": "^" + query.ingredient, "$options": "i" }
         }, '_id')
         var ingredientsId = ingredientsArray.map(a => a._id)
         query["ingredients.ingredient"] = {$in: ingredientsId}
@@ -42,7 +45,7 @@ router.get('/recipes?', async (req, res) => {
             model: User,
             
         }
-    ]).sort(sort).limit(parseInt(req.query.limit))
+    ]).sort(sort).limit(parseInt(query.limit))
 
 
     try {

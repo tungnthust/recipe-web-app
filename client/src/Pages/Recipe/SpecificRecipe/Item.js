@@ -12,7 +12,7 @@ import axios from "axios";
 import moment from "moment";
 
 
-const API = "http://localhost:4000";
+const API = "http://localhost:4000/api";
 
 const Item = (props) => {
   const { id } = props;

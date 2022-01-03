@@ -159,6 +159,11 @@ router.post('/contact', async (req, res) => {
 // API return [menbers] (sort if want)
 router.get('/members?', async (req, res) => {
     var sort = {}
+
+    if (!req.query.limit) {
+        req.query.limit = 50
+    }
+    
     if(req.query.sortBy) {
         const parts = req.query.sortBy.split(':')
         sort[parts[0]] = parts[1]
