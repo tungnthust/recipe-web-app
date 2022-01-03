@@ -274,7 +274,7 @@ const Item = (props) => {
                         <li className="author-avatar">
                           <img src={`${author.avatar}`} alt="fullname"></img>
                           By
-                          <Link to={authorInfor}>{author.username}</Link>
+                          <Link to={authorInfor}>{author.name}</Link>
                         </li>
                         <li>
                           Cook time:
@@ -387,13 +387,13 @@ const Item = (props) => {
                               <div className="media-right">
                                 <div className="mar-btm">
                                   <Link to={userInfor}>
-                                    {item.user.username}
+                                    {item.user.name}
                                   </Link>
                                   <p className="text-muted text-sm">
-                                    <i className="fa fa-mobile fa-lg">
+                                    {/* <i className="fa fa-mobile fa-lg">
                                       <FaMobile />
                                     </i>
-                                    From 11m
+                                    From 11m */}
                                   </p>
                                 </div>
                                 <p>{item.content}</p>

@@ -10,7 +10,7 @@ import axios from 'axios';
 const API = "http://localhost:4000/api";
 
 const SignedInNavbar1 = () => {
-  const username = localStorage.getItem("username");
+  const name = localStorage.getItem("name");
   const token = localStorage.getItem("token");
   const axiosInstance = axios.create({
     baseURL: API,
@@ -20,7 +20,7 @@ const SignedInNavbar1 = () => {
   
   const handleLogout = async (user) => {
     user.preventDefault();
-    console.log(username);
+    console.log(name);
     console.log(token);
     try {
       const res = await axiosInstance.post("/users/logoutAll");
@@ -46,7 +46,7 @@ const SignedInNavbar1 = () => {
 
           <Nav className="ms-auto">
             <Nav.Link href={"/changeinfo/" + localStorage.getItem("id")}>
-              {username}
+              {name}
             </Nav.Link>
             <Nav.Link href="/submit">New Recipe</Nav.Link>
             <Nav.Link href="/" onClick={handleLogout}>

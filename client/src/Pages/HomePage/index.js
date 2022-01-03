@@ -32,6 +32,15 @@ const HomePage = () => {
       const res = await axios.get(
         API + "members?sortBy=numOfFavourite:desc&limit=5"
       );
+      const items = res.data;
+      items.forEach(item => {
+        const newDate = new Date(item.createdAt);
+        const day = newDate.getDate();
+        const month = newDate.getMonth()+1;
+        const year = newDate.getFullYear();
+        item.createdAt = day+'-'+month+'-'+year;
+        console.log(item.createdAt);
+      });
       setTopAuthors(res.data);
     };
     getMostFavorite();
@@ -95,6 +104,8 @@ const HomePage = () => {
                 difficulty={item.difficulty}
                 time={item.cookTime}
                 image={item.image}
+                avatar={item.author.avatar}
+                authorid={item.author.id}
               />
             ))}
           </div>
@@ -115,6 +126,8 @@ const HomePage = () => {
                 difficulty={item.difficulty}
                 time={item.cookTime}
                 image={item.image}
+                avatar={item.author.avatar}
+                authorid={item.author.id}
               />
             ))}
           </div>
@@ -123,12 +136,14 @@ const HomePage = () => {
       <section id="recipeItems">
         <div className="container">
           <div className="title">
-            <h1>Latest Recipes </h1>
+            <h1>Top Rated Authors </h1>
           </div>
           <div className="row">
             {topAuthors.map((data, key) => {
               return (
                 <div key={key} className="avatarone" id="onethird">
+                  <br/>
+                  <br/>
                   <MemberItem
                     key={key}
                     id={data._id}
@@ -143,7 +158,12 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-
+      
+      <div>
+        <br/>
+        <br/>
+        <br/>
+      </div>
       <Footer />
     </div>
   );

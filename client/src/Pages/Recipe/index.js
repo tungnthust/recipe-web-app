@@ -240,6 +240,12 @@ const Recipe = (props) => {
           </div>
         </section>
       </section>
+
+      <div>
+        <br/>
+        <br/>
+        <br/>
+      </div>
       <Footer />
     </div>
   );

@@ -21,6 +21,7 @@ const SignIn = () => {
         if (res.status === 200) {
           localStorage.setItem("token", resData["token"]);
           localStorage.setItem("username", resData["user"]["username"]);
+          localStorage.setItem("name", resData["user"]["name"]);
           localStorage.setItem("id", resData["user"]["_id"]);
           window.location.reload();
         }

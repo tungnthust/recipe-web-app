@@ -12,6 +12,11 @@ const SpecificRecipe = () =>{
             <Navbar1/>
             <Navbar2/>
             <Item id = {id}/>
+            <div>
+                <br/>
+                <br/>
+                <br/>
+            </div>
             <Footer/>
         </div>
     )

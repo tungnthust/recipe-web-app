@@ -565,7 +565,12 @@ if (member !== undefined) {
             </div>
           </div>
         </section>
-
+        
+        <div>
+          <br/>
+          <br/>
+          <br/>
+        </div>
         <Footer />
       </div>
     );
