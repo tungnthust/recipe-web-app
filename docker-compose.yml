@@ -37,6 +37,7 @@ services:
     restart: always
     container_name: nginx
     build: ./nginx
+    image: group10ict/nginx:latest
     ports: 
       - "8080:80"
     networks:
