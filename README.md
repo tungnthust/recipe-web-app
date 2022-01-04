@@ -13,7 +13,7 @@ Before continuing, ensure you meet one of the two following sets of requirements
 * Docker-compose 3.0 or higher
 
 ## Installations
-The following guides is expected to be done in terminal (Linux) or command prompt (Windows).
+The following guides are expected to be done in terminal (Linux) or command prompt (Windows).
 ### 1. Direct setup
 * Git clone the source code.
 ```bash
