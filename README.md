@@ -30,7 +30,6 @@ npm start
 ```bash
 cd ./server
 npm ci
-npm test
 npm run dev
 ```
 * Now, you can use the web app at `localhost:3000`
