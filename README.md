@@ -1,10 +1,10 @@
 # Recipe-web-app
-Recipe web app is Node.js-based web application, which is created as a mini project for the course IT4542E of HUST. The project is written by group 10 ICT-K63.
+Recipe web app is a Node.js-based web application, which is created as a mini project for the course IT4542E of HUST. The project is written by group 10 ICT-K63.
 
 The web app works as a digital recipe book, which help users quickly find intructions to prepare for a delicious meal and even share their own recipes to others.
 
 ## Prerequisites
-Before you continue, ensure you meet one of the two following sets of requirements:
+Before continuing, ensure you meet one of the two following sets of requirements:
 ### 1. Direct setup
 * Node.js 16.13.1 or higher
 * MongoDB 5.0 or higher
