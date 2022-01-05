@@ -34,9 +34,13 @@ npm run dev
 ```
 * Now, you can use the web app at `localhost:3000`
 ### 2. Through Docker
-*  Git clone the source code.
+* Git clone the source code.
 * Go to the recipe-web-app directory.
-* Compose the project:
+* Pull images from Docker Hub
+```bash
+docker-compose pull
+```
+* Start containers:
 ```bash
 docker-compose up
 ```
