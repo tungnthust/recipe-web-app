@@ -1,7 +1,8 @@
 import { React, useState } from "react";
-import { Button } from "@material-ui/core";
+import Button from "../../atoms/Button/Button";
 import "./index.css";
 import axios from "axios";
+import Input from '../../molecules/Input/Input';
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -18,12 +19,11 @@ const SignUp = () => {
         password: password,
       });
       let resData = res.data;
-      if(resData!==null){
-          // window.alert('Register successful');
+      if (resData !== null) {
+        window.location.assign("/signin");
       }
-      window.location.assign("/signin");
     } catch (err) {
-      const errorMsg= err.response.data["message"]
+      const errorMsg = err.response.data["message"];
       window.alert(errorMsg);
     }
   };
@@ -32,42 +32,40 @@ const SignUp = () => {
     <section className="login">
       <form className="formContainer" onSubmit={(e) => handleSignUp(e)}>
         <h1>Sign Up</h1>
-        <label>Your Name</label>
-        <input
-          type="name"
-          autoFocus
-          required
+        <Input
+          type="text"
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          handleFunction={(e) => setName(e.target.value)}
+          aria_label="name"
+          placeholder="Name"
         />
-        <label>Email</label>
-        <input
-          type="email"
-          autoFocus
-          required
+        <Input
+          type="text"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          handleFunction={(e) => setEmail(e.target.value)}
+          aria_label="email"
+          placeholder="Email"
         />
-        <label>Username</label>
-        <input
-          type="username"
-          autoFocus
-          required
+        <Input
+          type="text"
           value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          handleFunction={(e) => setUsername(e.target.value)}
+          aria_label="username"
+          placeholder="Username"
         />
-        <label>Password</label>
-        <input
+        <Input
           type="password"
-          autoFocus
-          required
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          handleFunction={(e) => setPassword(e.target.value)}
+          aria_label="password"
+          placeholder="Password"
         />
         <div className="btnContainer">
-          <Button type="submit" variant="contained" color="primary">
-            Sign Up
-          </Button>
+          <Button
+            type="button_submit"
+            name="Sign Up"
+            handleFunction={handleSignUp}
+          />
         </div>
       </form>
     </section>

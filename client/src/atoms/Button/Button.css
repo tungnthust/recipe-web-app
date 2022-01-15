@@ -1,0 +1,31 @@
+.btn {
+    text-decoration: none;
+    padding: 4px 10px;
+    cursor: pointer;
+    line-height: 25px;
+    border-radius: 3px;
+}
+.nav_btn{
+    background-color: white;
+    font-size: 13px;
+    padding: 10px 18px;
+    font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    border: 0;
+    border-radius: 3em;
+    cursor: pointer;
+    margin: 2px;
+    line-height: 1;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: black;
+}
+.nav_btn.medium{
+    font-size: 14px;
+    padding: 11px 20px;
+}
+.nav_btn.primary{
+    color: white;
+    background-color: #1ea7fd;
+}

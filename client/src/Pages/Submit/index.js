@@ -1,12 +1,12 @@
 import { React, useState, useEffect } from "react";
-import Navbar1 from "../../Components/Navbar1";
-import Navbar2 from "../../Components/Navbar2";
-import { Button } from "@material-ui/core";
+import Navbar1 from "../../organisms/Navbar1";
+import Navbar2 from "../../organisms/Navbar2";
+import Button from "../../atoms/Button/Button";
 import "./index.css";
 import axios from "axios";
 import Select from "react-select";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { Link } from "react-router-dom";
+import Input from "../../molecules/Input/Input";
 const category = [
   { label: "Appetizer", value: "Appetizer" },
   { label: "Main Course", value: "Main Course" },
@@ -20,7 +20,6 @@ const cuisine = [
 ];
 
 const SubmitPage = () => {
-  // const [id, setID] = useState("");
   const [checkSubmit, setCheckSubmit] = useState(false);
   const [title, setTitle] = useState("");
   const [currentCategory, setCurrentCategory] = useState();
@@ -82,7 +81,7 @@ const SubmitPage = () => {
     setSteps([...steps, { Step: "" }]);
   };
 
-  const [id, setId] = useState('')
+  const [id, setId] = useState("");
 
   const handleSubmit = async (Event) => {
     Event.preventDefault();
@@ -114,21 +113,26 @@ const SubmitPage = () => {
       window.location = "/signUp";
     } else {
       try {
-        const res = await axiosInstance.post("http://localhost:4000/api/recipes", {
-          title: title,
-          description: description,
-          ingredients: ingredients,
-          category: currentCategory.value,
-          cuisine: currentCuisine.value,
-          steps: steps,
-          difficulty: difficulty,
-          image: base64,
-          cookTime: time,
-        });
+        const res = await axiosInstance.post(
+          "http://localhost:4000/api/recipes",
+          {
+            title: title,
+            description: description,
+            ingredients: ingredients,
+            category: currentCategory.value,
+            cuisine: currentCuisine.value,
+            steps: steps,
+            difficulty: difficulty,
+            image: base64,
+            cookTime: time,
+          }
+        );
         if (res.data !== null) {
           setId(res.data._id);
           if (res.status === 201) {
-            window.alert("Submit new recipe successfully\nClick the Go to Your Recipe button to review your new recipe.");
+            window.alert(
+              "Submit new recipe successfully\nClick the Go to Your Recipe button to review your new recipe."
+            );
           }
         }
       } catch (e) {
@@ -149,19 +153,13 @@ const SubmitPage = () => {
           <form className="form" onSubmit={(e) => handleSubmit(e)}>
             <h1 className="title">Submit Recipe</h1>
             <div className="group">
-              <label for="title">Title</label>
-              <div className="input-group mb-3">
-                <input
-                  type="text"
-                  required
-                  className="form-control"
-                  placeholder="Title"
-                  aria-label="Title"
-                  aria-describedby="basic-addon1"
-                  value={title}
-                  onChange={(e) => setTitle(e.target.value)}
-                ></input>
-              </div>
+              <Input
+                type="text"
+                placeholder="Title"
+                aria_label="Title"
+                value={title}
+                handleFunction={(e) => setTitle(e.target.value)}
+              />
             </div>
             <div className="group">
               <label for="category">Category</label>
@@ -328,19 +326,19 @@ const SubmitPage = () => {
               </div>
             </div>
             <div>
-              {checkSubmit && id!=='' ? (
-                <Link to={"/recipes/" + id}>
-                  <div className="btnContainer">
-                    <Button type="submit" variant="contained" color="primary">
-                      Go to Your Recipe
-                    </Button>
-                  </div>
-                </Link>
+              {checkSubmit && id !== "" ? (
+                <Button
+                  type="link"
+                  name="Go to your recipe"
+                  link={"/recipes/" + id}
+                />
               ) : (
                 <div className="btnContainer">
-                  <Button type="submit" variant="contained" color="primary">
-                    Submit
-                  </Button>
+                  <Button
+                    type="button_submit"
+                    name="Submit"
+                    handleFunction={handleSubmit}
+                  />
                 </div>
               )}
             </div>

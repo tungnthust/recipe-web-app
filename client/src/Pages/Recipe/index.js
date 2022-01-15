@@ -1,12 +1,12 @@
 import React,{useState,useEffect} from "react";
 import './index.css';
-import Navbar1 from '../../Components/Navbar1';
-import Navbar2 from '../../Components/Navbar2';
-import Footer from "../../Components/Footer";
+import Navbar1 from "../../organisms/Navbar1";
+import Navbar2 from "../../organisms/Navbar2";
+import Footer from '../../molecules/Footer';
 import Select from 'react-select';
-import RecipeItems from "./recipeItems";
 import Media from "react-media";
 import axios from "axios";
+import RecipeList from "../../molecules/RecipeList/RecipeList";
 
 const category = [
   { label: "Appetizer", value: "Appetizer" },
@@ -26,19 +26,18 @@ const sort = [
   { value: "createdAt:asc", label: "Oldest" },
 ];
 
-
 const Recipe = (props) => {
-  const {filter} = props;
+  const { filter } = props;
   const [currentCategory, setCurrentCategory] = useState();
   const [currentCuisine, setCurrentCuisine] = useState();
   const [currentSort, setCurrentSort] = useState();
   const [ingredient, setIngredient] = useState("");
   const [recipes, setRecipes] = useState([]);
-  const [api,setAPI] = useState("http://localhost:4000/api/recipes?");
-  const [apiCat,setApiCat] = useState('');
-  const [apiCui,setApiCui] = useState('');
-  const [apiSort,setApiSort] = useState('');
-  const [apiIng,setApiIng] = useState('');
+  const [api, setAPI] = useState("http://localhost:4000/api/recipes?");
+  const [apiCat, setApiCat] = useState("");
+  const [apiCui, setApiCui] = useState("");
+  const [apiSort, setApiSort] = useState("");
+  const [apiIng, setApiIng] = useState("");
 
   const onChangeSelectedCategory = (cat) => {
     setCurrentCategory(cat);
@@ -58,7 +57,7 @@ const Recipe = (props) => {
       const res = await axios.get(Api);
       setRecipes(res.data);
     };
-    if(api!=="http://localhost:4000/api/recipes?") getData(api);
+    if (api !== "http://localhost:4000/api/recipes?") getData(api);
   }, [api]);
   useEffect(() => {
     const getAllRecipes = async () => {
@@ -112,7 +111,6 @@ const Recipe = (props) => {
 
   return (
     <div>
-      {console.log(recipes)}
       <Navbar1 />
       <Navbar2 />
       <section className="recipe_section">
@@ -217,39 +215,19 @@ const Recipe = (props) => {
         </Media>
 
         <section id="recipeItems">
-          <div className="container">
-            <div className="title">
-              <h1>Recipes </h1>
-            </div>
-            <div className="row">
-              {recipes.map((item) => (
-                <RecipeItems
-                  key={item._id}
-                  id={item._id}
-                  title={item.title}
-                  description={item.description}
-                  author={item.author.name}
-                  difficulty={item.difficulty}
-                  time={item.cookTime}
-                  avatar={item.author.avatar}
-                  image={item.image}
-                  authorid={item.author.id}
-                />
-              ))}
-            </div>
-          </div>
+          <RecipeList list={recipes} list_name="Recipes" />
         </section>
       </section>
 
       <div>
-        <br/>
-        <br/>
-        <br/>
+        <br />
+        <br />
+        <br />
       </div>
       <Footer />
     </div>
   );
-}
+};
 
 
 export default Recipe;

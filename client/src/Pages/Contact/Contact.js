@@ -2,6 +2,7 @@ import { React,useState } from "react";
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../../../node_modules/bootstrap/dist/js/bootstrap.min.js';
 import axios from 'axios';
+import Button from "../../atoms/Button/Button";
 
 const API = "http://localhost:4000/api";
 
@@ -97,10 +98,7 @@ const Contact = () =>{
                     placeholder="Just put some of your thought here"
                   ></textarea>
                 </div>
-
-                <button type="submit" className="btn btn-success mt-3">
-                  Send
-                </button>
+                <Button type="button_submit" name="Send" handleFunction={submitContact}/>
               </form>
             </div>
           </div>

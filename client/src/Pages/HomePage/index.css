@@ -5,13 +5,14 @@
     
 }
 .container{
+    padding-top: 50px;
     padding-bottom: 50px;
-    margin-bottom: 50px;
     max-width: 100%;
     width: 1150px;
-    background-color: #1b1b1b;
+    margin-right: auto;
+    margin-left: auto;
 }
-#recipeItems{
+#Card{
     max-width: 100%;
     width: 1150px;
 }

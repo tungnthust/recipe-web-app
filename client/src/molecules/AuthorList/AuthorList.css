@@ -1,0 +1,8 @@
+#one_third {
+    width: 33%;
+}
+.row{
+    width: 100%;
+    display: flex;
+    flex-direction: row;  
+}

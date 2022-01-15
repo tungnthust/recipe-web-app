@@ -21,22 +21,6 @@
   text-align: center;
   margin-bottom: 30px;
 }
-.login .formContainer label {
-  margin: 14px 0;
-  display: block;
-  font-size: 20px;
-  line-height: 1;
-}
-.login .formContainer input {
-  width: 100%;
-  border: none;
-  outline: none;
-  font-size: 19px;
-  padding: 10px;
-  background: white;
-  color: black;
-  letter-spacing: 1px;
-}
 .btnContainer {
   width: 100%;
   padding: 24px 0;

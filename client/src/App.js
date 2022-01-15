@@ -5,12 +5,12 @@ import RecoverPage from './Pages/Recover';
 import HomePage from './Pages/HomePage';
 import ContactPage from './Pages/Contact';
 import Recipe from './Pages/Recipe';
-import SpecificRecipe from './Pages/Recipe/SpecificRecipe';
+import SpecificRecipe from './templates/SpecificRecipe';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SubmitPage from './Pages/Submit';
 import MembersPage from './Pages/MemberPage';
-import AuthorPage from './Pages/MemberPage/Author/index';
-import ChangeInforPage from './Pages/MemberPage/Author/ChangeInfor';
+import AuthorPage from './templates/AuthorInfoTemplate';
+import ChangeInfoPage from './templates/ChangeAuthorInfoTemplate';
 
 function App() {
   return (
@@ -28,7 +28,7 @@ function App() {
         <Route path='/contact' element={<ContactPage/>}/>
         <Route path='/submit' element={<SubmitPage/>}/>
         <Route path='/members' element={<MembersPage/>}/>
-        <Route path="/changeinfo/:id" element={<ChangeInforPage/>}/>
+        <Route path="/changeinfo/:id" element={<ChangeInfoPage/>}/>
         <Route path='/members/:id' element={<AuthorPage/>}/>
       </Routes>
     </Router>

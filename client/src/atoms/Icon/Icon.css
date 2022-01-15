@@ -1,0 +1,52 @@
+li .footer-link i {
+  width: 30px;
+  height: 30px;
+  color: rgb(131, 119, 119);
+  background: #fff;
+  border-radius: 3px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 30px;
+  font-size: 20px;
+}
+
+li .footer-link .fa-facebook:hover {
+  color: blue;
+}
+
+li .footer-link .fa-google-plus:hover {
+  color: red;
+}
+
+li .footer-link .fa-instagram:hover {
+  color: red;
+}
+
+li .footer-link .fa-twitter:hover {
+  color: aqua;
+}
+
+li .footer-link .fa-youtube:hover {
+  color: #982323;
+}
+
+.flex {
+  display: flex;
+}
+.flex-jc-sb {
+  justify-content: space-between;
+}
+.flex-jc-c {
+  justify-content: center;
+}
+.flex-ai-c {
+  align-items: center;
+}
+.flex-jc-sa {
+  justify-content: space-around;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}

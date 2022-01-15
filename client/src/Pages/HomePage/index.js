@@ -1,12 +1,12 @@
 import { React, useState, useEffect } from "react";
-import Navbar1 from "../../Components/Navbar1";
-import SlideShow from "../../Components/SlideShow";
-import Navbar2 from "../../Components/Navbar2";
-import QuickFilter from "../../Components/QuickFilter";
-import RecipeItems from "../Recipe/recipeItems";
-import Footer from "../../Components/Footer";
-import MemberItem from "../MemberPage/MemberItem";
+import SlideShow from "../../atoms/SlideShow";
+import Navbar1 from "../../organisms/Navbar1";
+import Navbar2 from "../../organisms/Navbar2";
+import QuickFilter from "../../molecules/QuickFilter";
+import Footer from '../../molecules/Footer';
 import axios from "axios";
+import RecipeList from "../../molecules/RecipeList/RecipeList";
+import AuthorList from "../../molecules/AuthorList/AuthorList";
 
 const API = "http://localhost:4000/api/";
 
@@ -33,12 +33,12 @@ const HomePage = () => {
         API + "members?sortBy=numOfFavourite:desc&limit=5"
       );
       const items = res.data;
-      items.forEach(item => {
+      items.forEach((item) => {
         const newDate = new Date(item.createdAt);
         const day = newDate.getDate();
-        const month = newDate.getMonth()+1;
+        const month = newDate.getMonth() + 1;
         const year = newDate.getFullYear();
-        item.createdAt = day+'-'+month+'-'+year;
+        item.createdAt = day + "-" + month + "-" + year;
         console.log(item.createdAt);
       });
       setTopAuthors(res.data);
@@ -47,122 +47,26 @@ const HomePage = () => {
     getLatest();
     getAuthors();
   }, []);
-  // const recipes = [
-  //   {
-  //     _id: "0",
-  //     title: "pho",
-  //     description: "test desciption",
-  //     author: "author name",
-  //     difficulty: "3",
-  //     time: "30",
-  //   },
-  //   {
-  //     _id: "0",
-  //     title: "pho",
-  //     description: "test desciption",
-  //     author: "author name",
-  //     difficulty: "3",
-  //     time: "30",
-  //   },
-  //   {
-  //     _id: "0",
-  //     title: "pho",
-  //     description: "test desciption",
-  //     author: "author name",
-  //     difficulty: "3",
-  //     time: "30",
-  //   },
-  //   {
-  //     _id: "0",
-  //     title: "pho",
-  //     description: "test desciption",
-  //     author: "author name",
-  //     difficulty: "3",
-  //     time: "30",
-  //   },
-  // ];
   return (
     <div className="home">
       <Navbar1 />
       <SlideShow />
       <Navbar2 />
       <QuickFilter />
-      {topAuthors.map((item) => console.log(item))}
-      <section id="recipeItems">
-        <div className="container">
-          <div className="title">
-            <h1>Top Rated Recipes </h1>
-          </div>
-          <div className="row">
-            {mostFavorite.map((item) => (
-              // console.log(item)
-              <RecipeItems
-                id={item._id}
-                title={item.title}
-                description={item.description}
-                author={item.author.name}
-                difficulty={item.difficulty}
-                time={item.cookTime}
-                image={item.image}
-                avatar={item.author.avatar}
-                authorid={item.author.id}
-              />
-            ))}
-          </div>
-        </div>
+      <section id="Card">
+        <RecipeList list={mostFavorite} list_name="Top Rated Recipes" />
       </section>
-      <section id="recipeItems">
-        <div className="container">
-          <div className="title">
-            <h1>Latest Recipes </h1>
-          </div>
-          <div className="row">
-            {latestRecipes.map((item) => (
-              <RecipeItems
-                id={item._id}
-                title={item.title}
-                description={item.description}
-                author={item.author.name}
-                difficulty={item.difficulty}
-                time={item.cookTime}
-                image={item.image}
-                avatar={item.author.avatar}
-                authorid={item.author.id}
-              />
-            ))}
-          </div>
-        </div>
+      <section id="Card">
+        <RecipeList list={latestRecipes} list_name="Latest Recipes" />
       </section>
-      <section id="recipeItems">
-        <div className="container">
-          <div className="title">
-            <h1>Top Rated Authors </h1>
-          </div>
-          <div className="row">
-            {topAuthors.map((data, key) => {
-              return (
-                <div key={key} className="avatarone" id="onethird">
-                  <br/>
-                  <br/>
-                  <MemberItem
-                    key={key}
-                    id={data._id}
-                    avatar={data.avatar}
-                    name={data.name}
-                    time={data.createdAt}
-                    numOfRecipes={data.numOfRecipes}
-                  />
-                </div>
-              );
-            })}
-          </div>
-        </div>
+      <section id="Card">
+        <AuthorList list={topAuthors} mode="home"/>
       </section>
-      
+
       <div>
-        <br/>
-        <br/>
-        <br/>
+        <br />
+        <br />
+        <br />
       </div>
       <Footer />
     </div>

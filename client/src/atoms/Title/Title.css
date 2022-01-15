@@ -1,0 +1,10 @@
+.name {
+    font-size: 28px;
+    line-height: 1.25;
+    margin: 10px 0;
+    color: #676767;
+    font-family: "Ubuntu", sans-serif;
+    align-items: center;
+    display: flex;
+    gap: 5px;
+}
